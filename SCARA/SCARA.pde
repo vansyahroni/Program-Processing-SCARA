@@ -40,9 +40,9 @@ boolean P2 = false;
 
 int KoordinatX, KoordinatY;
 int KoordinatX_, KoordinatY_;
- 
- 
-float fs, fe, fw;
+
+
+float fs, fe, fw, rs, re, rw, rp1, rp2;
 
 int ps=380;
 int pe=280;
@@ -55,23 +55,45 @@ int mosxe, mosye, mosex, mosey;
 String textValue = "";
 float KP;
 
-int _KoordinatX,_KoordinatY;
+int _KoordinatX, _KoordinatY;
 int mosx, mosy;
 
-  int s=5;
+int s=5;
+
+
+//revision v1
+int count_click = 0;
+int[] clickX = new int[100];
+int[] clickY = new int[100];
+
+int X_rev = 50; 
+int Y_rev = 120; 
+
+
+int statustab=1;
+
+int[] X_odometry = new int[5];
+int[] Y_odometry = new int[5];
+int[][] color_point = new int[6][3];
+float[][] coordinat_input= new float[6][2];
 void setup()
 {
-
+  for (int a=0; a<100; a++) {
+    colorR[a] = random(255);
+    colorG[a] = random(255);
+    colorB[a] = random(255);
+  }
   size(1374, 750, OPENGL);      //ukuran window
   image_();
-  
+   
+
   cp5 = new ControlP5(this);
   ik1 = new InverseKinematic(ps, pe);  
 
   font9 = createFont("Arial Bold", 9, false);
   font10 = createFont("Arial Bold", 10, false);
   font12 = createFont("Arial Bold", 12, false);
-  font14 = createFont("Arial Bold", 12, false);
+  font14 = createFont("Arial Bold", 14, false);
   font18 = createFont("Arial Bold", 18, false);
   font20 = createFont("Arial Bold", 20, false);
   font25 = createFont("Arial Bold", 25, false);
@@ -82,55 +104,72 @@ void setup()
   setup_UART();
   sobj();
 }
+float koorx=0;
+float koory=90;
 
 void mouseClicked() {
   r= sqrt(pow(mouseX-680, 2)+pow(mouseY-545, 2));
 
-          if (r<600/2 && r > 351/2 && mouseY <545) {
-  mosxe=mouseX;
-  mosye=mouseY;}
-}
+  if (r<600/2 && r > 351/2 && mouseY <545) {
+    koorx=int(map(mouseX, 381, 979, -660, 660));
+    koory=int(map(mouseY, 246, 546, 660, 0));
+  }
+ 
+       if ((mouseX<=X_rev+130+500-150+525) && (mouseX>=X_rev+130-150)) {
+    if ((mouseY<=Y_rev+500) && (mouseY>=Y_rev)) {
+
+      count_click+=1;
+      clickX[count_click] = int((mouseX -430+150-525/2)/2.5);
+      clickY[count_click] = int(-(mouseY -370-525/3)/2.5);
+      
+  }}}
+int v22=0;
 
 void draw()
-{
-  background(bg);
+{cp5.getController("RESET_KOORDINAT").moveTo("fiture");
+cp5.getController("RUN").moveTo("fiture");
 
-//print(mouseX); print("\t"); println(mouseY);
-          
-
-fk();
+if (statustab==1) //TAB MAIN 
+  {
+    background(bg); 
+    
+  
   obj();
-  
-  
-
-
-
-//  fill(#4a69bd);
-//  rect(7, 550, 305, 134, s, s, s, s); //Persegi slider
-//  rect(width-7-305, 550, 305, 134, s, s, s, s); //Persegi slider
-
-
-//  pushMatrix();
-//  textFont(font14);
-//  fill(0);
-//  translate(0, 0, 10);
-//  text("Shoulder: " + beta, 170, 630);
-//  text("Elbow: " + gamma, 170, 650);
-//  popMatrix();
-
-
- images();
-
-  
-  
-     
+  images();
+  fw();
   Send_To_Arduino();
+    
+    
+  }
+  if (statustab==2) //TAB CHART
+  { 
+    background(bg); //0-->Black
+    
+      fill(255);
+      imageMode(CENTER);  
+  image(judul, width/2, 45);
+  
+  draw_coordinat_target();
+   draw_coordinat();
+
+    fiture_();
+    pushMatrix();
+    translate(width/8,0,0);
+//   obj1();
+   popMatrix();
+//      Send_To_Arduino();
+  }
+
+
+  //print(mouseX); print("\t"); println(mouseY);
+
+
+
 }
 
 public void setkp(String theText) {
 
   KP= float(theText)*100;
-  
 }
 
 public void KoordinatX(String Xkoor) {
@@ -142,3 +181,8 @@ public void KoordinatY(String Ykoor) {
   _KoordinatY= int(Ykoor);
 }
 
+void keyPressed() {
+  if(keyCode==TAB) {
+    cp5.getTab("fiture").bringToFront();
+  }
+}

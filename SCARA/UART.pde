@@ -46,6 +46,12 @@ void serialEvent (Serial usbPort)
       fs=data[1];
     fe=data[2];
     fw=data[3];
+    
+    rs=data[4];
+    re=data[5];
+    rw=data[6];
+    rp1=data[7];
+    rp2=data[8];
   }
   catch(RuntimeException e)
   {
@@ -74,8 +80,17 @@ void InitSerial( float portValue)
   }
 }
 
+int background;
 void controlEvent(ControlEvent theControlEvent)
 {
   if (theControlEvent.isGroup()) if (theControlEvent.name()=="portComList") InitSerial(theControlEvent.group().value()); // initialize the serial port selected
+  
+  
+   if (theControlEvent.isTab()) 
+    //println("got an event from tab : "+theControlEvent.getTab().getName()+" with id "+theControlEvent.getTab().getId());
+    statustab=theControlEvent.getTab().getId(); 
+
+  
 }
+
 

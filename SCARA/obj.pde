@@ -29,8 +29,10 @@ void obj() {
   o3=map(fw, 0, 180, -180, 180);
   o4=map(v4, 0, 1, 0, 4);
   o5=map(v5, 0, 1, 110, 170);
+obj1();
+obj2();}
 
-  
+  void obj1(){
   pushMatrix();
   translate(width/2-75, height/2);
   pushMatrix();
@@ -103,6 +105,8 @@ void obj() {
   rotateY(radians(450-o5)); //jangan diubah
   shape(capit2);
 
+  
+  
 
   popMatrix();
   popMatrix();
@@ -112,8 +116,8 @@ void obj() {
   popMatrix();
   popMatrix();
   popMatrix();
-
-
+  }
+  void obj2(){
 
   pushMatrix();
   translate(860, 589, -227);

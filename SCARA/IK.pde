@@ -57,5 +57,5 @@ int fkx, fky;
 void fk(){
   fkx=int(ps*cos(fs)+pe*cos(fs+fe));
   fky=int(ps*sin(fs)+pe*sin(fs+fe));
-  println(fkx+"\t"+fky);
+//  println(fkx+"\t"+fky);
 }
