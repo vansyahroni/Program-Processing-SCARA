@@ -12,6 +12,8 @@ public void RESET_KOORDINAT() {
 
 int fx1=0;
 int fy1=0;
+int _Ibeta=0;
+int _Igamma=0;
 void fiture_(){
   
   
@@ -40,6 +42,38 @@ int space=0;
  
   
  
+          KoordinatX_=int(map(cx, -90, 90, -660, 660));
+          KoordinatY_=int(map(cy , 0, 90, 0, 660));
+
+          if (KoordinatX_>0) {
+            ik1.setTarget(KoordinatX_, KoordinatY_);
+            beta=180-ik1.getBeta();
+            gamma=270-ik1.getGama();
+            //              text(koorx, 500, 500);
+          } else {
+            ik1.setTarget(KoordinatX_*-1, KoordinatY_);
+            beta=ik1.getBeta();
+            gamma=ik1.getGama()-90;
+            //              text(ik1.getGama(), 500, 500);
+          }
+          
+          if (gamma<=0) {
+            gamma=0;
+          }  
+          if (gamma>=180) {
+            gamma=180;
+          }  
+          if (beta<0) {
+            beta=-1*beta;
+            gamma=180-gamma;
+          }  
+
+
+          _Ibeta=int(beta);
+          _Igamma=int(gamma);
+//println(_Ibeta,_Igamma);
+          ik_();
+        
  }}
   
   

@@ -13,12 +13,27 @@ void letsgo()
   out[7]=byte(254);
 
   serial.write(out);
+  
 }
 
 void ik_()
 {
 
   byte out[]=new byte[8];
+    if(statustab==2){
+    
+  out[0]=byte(255);
+  out[1]=byte(int(_Ibeta));
+  out[2]=byte(int(_Igamma));
+  out[3]=byte(int(v3));
+  out[4]=byte(int(v4));
+  out[5]=byte(int(v5));
+  out[6]=byte(int(KP));
+  out[7]=byte(254);
+    serial.write(out);
+  println(out);
+    }
+    else {
   out[0]=byte(255);
   out[1]=byte(int(Ibeta));
   out[2]=byte(int(Igamma));
@@ -29,6 +44,9 @@ void ik_()
   out[7]=byte(254);
 
   serial.write(out);
+  println(out);
+    }
+
 }
 
 
@@ -52,7 +70,8 @@ void remote()
 float r;
 
 void Send_To_Arduino()
-{   
+{  
+
 
 
   if (START==true) {
@@ -143,7 +162,7 @@ void Send_To_Arduino()
 
           Ibeta=int(beta);
           Igamma=int(gamma);
-println(Ibeta,Igamma);
+//println(Ibeta,Igamma);
           ik_();
         } else {    //With click on Processing IDE
 
@@ -220,4 +239,8 @@ println(Ibeta,Igamma);
     noFill();
   }
 }
+
+
+
+
 

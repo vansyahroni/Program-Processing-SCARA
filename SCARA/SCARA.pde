@@ -106,7 +106,7 @@ void setup()
 }
 float koorx=0;
 float koory=90;
-
+int cx, cy;
 void mouseClicked() {
   r= sqrt(pow(mouseX-680, 2)+pow(mouseY-545, 2));
 
@@ -121,6 +121,8 @@ void mouseClicked() {
       count_click+=1;
       clickX[count_click] = int((mouseX -430+150-525/2)/2.5);
       clickY[count_click] = int(-(mouseY -370-525/3)/2.5);
+      cx=clickX[count_click];
+      cy=clickY[count_click];
       
   }}}
 int v22=0;
