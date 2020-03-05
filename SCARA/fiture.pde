@@ -44,14 +44,21 @@ int space=0;
  
           KoordinatX_=int(map(cx, -90, 90, -660, 660));
           KoordinatY_=int(map(cy , 0, 90, 0, 660));
+          
+         
+         
 
+//   fxcoordinat[1]=int(map(clickX[1], -90, 90, -660, 660));
+//          fycoordinat[1]=int(map( clickY[1] , 0, 90, 0, 660));
+//println( fxcoordinat[1], fycoordinat[1]);
+  
           if (KoordinatX_>0) {
-            ik1.setTarget(KoordinatX_, KoordinatY_);
+            ik1.setTarget( KoordinatX_,  KoordinatY_);
             beta=180-ik1.getBeta();
             gamma=270-ik1.getGama();
             //              text(koorx, 500, 500);
           } else {
-            ik1.setTarget(KoordinatX_*-1, KoordinatY_);
+            ik1.setTarget( KoordinatX_*-1,  KoordinatY_);
             beta=ik1.getBeta();
             gamma=ik1.getGama()-90;
             //              text(ik1.getGama(), 500, 500);
@@ -69,10 +76,18 @@ int space=0;
           }  
 
 
+
           _Ibeta=int(beta);
           _Igamma=int(gamma);
 //println(_Ibeta,_Igamma);
+
+
+
           ik_();
+//          int perhitungan;
+//         perhitungan=int(fwX/ KoordinatX_*100);
+//         println(perhitungan);
+          
         
  }}
   
@@ -90,8 +105,10 @@ void draw_coordinat_target() {
     pushMatrix();
     translate(-150,0,0);
     
-  coordinatX[0] = (X_rev+380+525/2 + (0*2.5)); 
+  coordinatX[0] = (X_rev+380+525/2 + (0*2.5))-225; 
   coordinatY[0] = (Y_rev+250+525/3 - (0*2.5));
+  
+ 
   /*calculate real coordinat*/
   for (int a =1; a<=count_click; a++) {
     coordinatX[a] = (X_rev+380+525/2 + (clickX[a]*2.5)); 
@@ -115,7 +132,7 @@ void draw_coordinat_target() {
     if (a==0) {
       noStroke();
       fill(0);
-      ellipse(X_rev+380+525/2, Y_rev+250+525/3, 25, 25);
+      ellipse(X_rev+380+525/2-225, Y_rev+250+525/3, 25, 25);
     } else {
       noStroke();
       fill(0);

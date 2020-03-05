@@ -76,6 +76,9 @@ int[] X_odometry = new int[5];
 int[] Y_odometry = new int[5];
 int[][] color_point = new int[6][3];
 float[][] coordinat_input= new float[6][2];
+
+int []fxcoordinat=new int[100];
+int []fycoordinat=new int[100];
 void setup()
 {
   for (int a=0; a<100; a++) {
@@ -107,14 +110,21 @@ void setup()
 float koorx=0;
 float koory=90;
 int cx, cy;
+float r2;
 void mouseClicked() {
   r= sqrt(pow(mouseX-680, 2)+pow(mouseY-545, 2));
-
+r2= sqrt(pow(mouseX-540, 2)+pow(mouseY-545, 2));
+ 
   if (r<600/2 && r > 351/2 && mouseY <545) {
     koorx=int(map(mouseX, 381, 979, -660, 660));
     koory=int(map(mouseY, 246, 546, 660, 0));
   }
  
+ 
+ if(r2<225&& r2> 115/*&& mouseY <545*/) {
+    
+  
+  
        if ((mouseX<=X_rev+130+500-150+525) && (mouseX>=X_rev+130-150)) {
     if ((mouseY<=Y_rev+500) && (mouseY>=Y_rev)) {
 
@@ -124,13 +134,16 @@ void mouseClicked() {
       cx=clickX[count_click];
       cy=clickY[count_click];
       
-  }}}
-int v22=0;
-
+  }}}}
+float v22=0.0;
+int v33, v44;
 void draw()
 {cp5.getController("RESET_KOORDINAT").moveTo("fiture");
 cp5.getController("RUN").moveTo("fiture");
-
+cp5.getController("v22").moveTo("fiture");
+cp5.getController("v33").moveTo("fiture");
+cp5.getController("v44").moveTo("fiture");
+//println(mouseX, mouseY);
 if (statustab==1) //TAB MAIN 
   {
     background(bg); 
@@ -146,9 +159,13 @@ if (statustab==1) //TAB MAIN
   if (statustab==2) //TAB CHART
   { 
     background(bg); //0-->Black
-    
+       fw();
       fill(255);
       imageMode(CENTER);  
+      pushMatrix();
+      scale(0.45);
+    image(workspace, 1187, 948);
+popMatrix(); 
   image(judul, width/2, 45);
   
   draw_coordinat_target();

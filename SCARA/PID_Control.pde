@@ -208,5 +208,55 @@ void GUI_setup()
   .setFont(font12)
   .align(ControlP5.CENTER, ControlP5.CENTER);
 
+cp5.addSlider("v22")
+    .setPosition(96, PosYslider+100)
+
+      .setRange(0.4, 0.5)
+        .setSize(235, 20)
+
+
+          .setColorForeground(#fd9644) 
+            .setColorActive(#fd9644)
+              .setColorBackground(#f7b731)
+
+                .setColorValue(color(0, 0, 0))
+                  .setValue(90)
+                    .captionLabel().setVisible(false)
+                      ;
+                      
+                      
+                      cp5.addSlider("v33")
+    .setPosition(96+100, PosYslider+100)
+
+      .setRange(1000, 2000)
+        .setSize(235, 20)
+
+
+          .setColorForeground(#fd9644) 
+            .setColorActive(#fd9644)
+              .setColorBackground(#f7b731)
+
+                .setColorValue(color(0, 0, 0))
+                  .setValue(90)
+                    .captionLabel().setVisible(false)
+                      ;
+                      
+                      
+                                     
+                      cp5.addSlider("v44")
+    .setPosition(96+200, PosYslider+100)
+
+      .setRange(0, 1000)
+        .setSize(235, 20)
+
+
+          .setColorForeground(#fd9644) 
+            .setColorActive(#fd9644)
+              .setColorBackground(#f7b731)
+
+                .setColorValue(color(0, 0, 0))
+                  .setValue(90)
+                    .captionLabel().setVisible(false)
+                      ;
 }
 

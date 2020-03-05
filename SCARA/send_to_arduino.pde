@@ -31,7 +31,7 @@ void ik_()
   out[6]=byte(int(KP));
   out[7]=byte(254);
     serial.write(out);
-  println(out);
+//  println(out);
     }
     else {
   out[0]=byte(255);
@@ -44,7 +44,7 @@ void ik_()
   out[7]=byte(254);
 
   serial.write(out);
-  println(out);
+//  println(out);
     }
 
 }
@@ -182,7 +182,7 @@ void Send_To_Arduino()
             //            koorx=int(map(mosxe, 381, 979, -660, 660));
             //            koory=int(map(mosye, 246, 546, 660, 0));
 
-
+println(fwX, map(koorx, -660,660,-90,90));
             if (koorx>0) {
               ik1.setTarget(koorx, koory);
               beta=180-ik1.getBeta();
