@@ -21,16 +21,16 @@ void ik_()
 
   byte out[]=new byte[8];
     if(statustab==2){
-    
-  out[0]=byte(255);
-  out[1]=byte(int(_Ibeta));
-  out[2]=byte(int(_Igamma));
-  out[3]=byte(int(v3));
-  out[4]=byte(int(v4));
-  out[5]=byte(int(v5));
-  out[6]=byte(int(KP));
-  out[7]=byte(254);
-    serial.write(out);
+//    
+//  out[0]=byte(255);
+//  out[1]=byte(int(_Ibeta));
+//  out[2]=byte(int(_Igamma));
+//  out[3]=byte(int(v3));
+//  out[4]=byte(int(v4));
+//  out[5]=byte(int(v5));
+//  out[6]=byte(int(KP));
+//  out[7]=byte(254);
+//    serial.write(out);
 //  println(out);
     }
     else {
@@ -214,7 +214,7 @@ println(fwX, map(koorx, -660,660,-90,90));
 
           //show the point
           fill(#2c3e50);
-          ellipse(koorx, koory, 20, 20);
+//          ellipse(koorx, koory, 20, 20);
           pushMatrix();
           textFont(font25);
           fill(0);
@@ -242,5 +242,7 @@ println(fwX, map(koorx, -660,660,-90,90));
 
 
 
+
+ 
 
 

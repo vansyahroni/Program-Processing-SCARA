@@ -5,10 +5,113 @@ float[] colorR = new float[100];
 float[] colorG = new float[100];
 float[] colorB = new float[100];
 
-public void RESET_KOORDINAT() {
+float  [] _dataX =new float [100];
+float  [] _dataY =new float [100];
 
+
+
+public void RESET_KOORDINAT() {
   count_click = 0;
 }
+
+
+          
+
+public void RUN(){
+ v4=1;
+for(int a=0; a<=count_click;a++){
+  
+_dataX[a]=map(clickX[a], -90, 90, -660, 660);
+_dataY[a]=map(clickY[a], 0, 90, 0, 660);
+
+
+  if (_dataX[a]>0) {
+            ik1.setTarget(_dataX[a],_dataY[a]);
+            beta=180-ik1.getBeta();
+            gamma=270-ik1.getGama();
+            //              text(koorx, 500, 500);
+          } 
+          else {
+            ik1.setTarget(_dataX[a]*-1, _dataY[a]);
+            beta=ik1.getBeta();
+            gamma=ik1.getGama()-90;
+            //              text(ik1.getGama(), 500, 500);
+          }
+          if (gamma<=0) {
+            gamma=0;
+          }  
+          if (gamma>=180) {
+            gamma=180;
+          }  
+          if (beta<0) {
+            beta=-1*beta;
+            gamma=180-gamma;
+          }  
+
+
+         int _Ibeta=int(beta);
+          int _Igamma=int(gamma);
+          
+        
+          byte out[]=new byte[8];
+    
+  out[0]=byte(255);
+  out[1]=byte(int(_Ibeta));
+  out[2]=byte(int(_Igamma));
+  out[3]=byte(int(v3));
+  out[4]=byte(int(v4));
+  out[5]=byte(int(v5));
+  out[6]=byte(int(KP));
+  out[7]=byte(254);
+    serial.write(out);
+    
+//        println(out);
+        
+  
+//          
+//          float fpoint = sqrt(pow(clcikX[a], 2)+pow(clickY[a], 2));
+//          float fpointX= fwX/clickX[a]*100;
+//          float fpointY =fwY/clickY[a]*100;
+//          float fpoint=(fpointX+fpointY)/2;
+          
+            
+            
+//      
+    
+//    println(_Ibeta, _Igamma);
+
+fwX=int(map(( pe*cos(radians(fs+90-fe))+ps*cos(radians(fs))), -660,660,-90,90));
+ fwY=int(map((pe*sin(radians(fs+90-fe))+ps*sin(radians(fs))), 0,660,0,90));
+
+delay(1000);
+
+
+out[0]=byte(255);
+  out[1]=byte(int(_Ibeta));
+  out[2]=byte(int(_Igamma));
+  out[3]=byte(int(v3));
+  out[4]=byte(int(0));
+  out[5]=byte(int(v5));
+  out[6]=byte(int(KP));
+  out[7]=byte(254);
+    serial.write(out);
+//delay(1000);
+//out[0]=byte(255);
+//  out[1]=byte(int(_Ibeta));
+//  out[2]=byte(int(_Igamma));
+//  out[3]=byte(int(v3));
+//  out[4]=byte(int(1));
+//  out[5]=byte(int(v5));
+//  out[6]=byte(int(KP));
+//  out[7]=byte(254);
+//    serial.write(out);
+//delay(400);
+  println(clickX[a], clickY[a], fwX, fwY);
+}
+v4=0;
+}
+
+
 
 int fx1=0;
 int fy1=0;
@@ -38,57 +141,7 @@ int space=0;
     String this_text = "(" + clickX[a] + " , " + clickY[a] + ")";
     text(this_text, X_rev+710-150+525, Y_rev+Ypos[a]-20);
     textAlign(LEFT);
-// println(clickX[a], clickY[a]);
- 
-  
- 
-          KoordinatX_=int(map(cx, -90, 90, -660, 660));
-          KoordinatY_=int(map(cy , 0, 90, 0, 660));
-          
-         
-         
-
-//   fxcoordinat[1]=int(map(clickX[1], -90, 90, -660, 660));
-//          fycoordinat[1]=int(map( clickY[1] , 0, 90, 0, 660));
-//println( fxcoordinat[1], fycoordinat[1]);
-  
-          if (KoordinatX_>0) {
-            ik1.setTarget( KoordinatX_,  KoordinatY_);
-            beta=180-ik1.getBeta();
-            gamma=270-ik1.getGama();
-            //              text(koorx, 500, 500);
-          } else {
-            ik1.setTarget( KoordinatX_*-1,  KoordinatY_);
-            beta=ik1.getBeta();
-            gamma=ik1.getGama()-90;
-            //              text(ik1.getGama(), 500, 500);
-          }
-          
-          if (gamma<=0) {
-            gamma=0;
-          }  
-          if (gamma>=180) {
-            gamma=180;
-          }  
-          if (beta<0) {
-            beta=-1*beta;
-            gamma=180-gamma;
-          }  
-
-
-
-          _Ibeta=int(beta);
-          _Igamma=int(gamma);
-//println(_Ibeta,_Igamma);
-
-
-
-          ik_();
-//          int perhitungan;
-//         perhitungan=int(fwX/ KoordinatX_*100);
-//         println(perhitungan);
-          
-        
+    
  }}
   
   
@@ -183,4 +236,5 @@ popMatrix();
 //
 //  fill(color_point[3][0], color_point[3][1], color_point[3][2]);
 //  ellipse(X_rev-20, Y_rev+12+150, 20, 20);
-}
+} 
+

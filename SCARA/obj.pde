@@ -30,7 +30,8 @@ void obj() {
   o4=map(v4, 0, 1, 0, 4);
   o5=map(v5, 0, 1, 110, 170);
 obj1();
-obj2();}
+obj2();
+}
 
   void obj1(){
   pushMatrix();

@@ -259,4 +259,6 @@ cp5.addSlider("v22")
                     .captionLabel().setVisible(false)
                       ;
 }
+ 
+
 

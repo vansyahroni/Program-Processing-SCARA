@@ -38,7 +38,7 @@ void images() {
 
   image(logo, 185, 121);
   image(fslider, 181, 557);
-  image(setkp, 181, 358);
+//  image(setkp, 181, 358);
   image(ws, 682, 709);
 
   if (START==true) {

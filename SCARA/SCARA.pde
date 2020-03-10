@@ -54,6 +54,8 @@ int mosxe, mosye, mosex, mosey;
 
 String textValue = "";
 float KP;
+float KI;
+float KD;
 
 int _KoordinatX, _KoordinatY;
 int mosx, mosy;
@@ -111,11 +113,15 @@ float koorx=0;
 float koory=90;
 int cx, cy;
 float r2;
+
+int koorx1, koory1;
 void mouseClicked() {
   r= sqrt(pow(mouseX-680, 2)+pow(mouseY-545, 2));
 r2= sqrt(pow(mouseX-540, 2)+pow(mouseY-545, 2));
  
   if (r<600/2 && r > 351/2 && mouseY <545) {
+    koorx1=mouseX;
+    koory1=mouseY;
     koorx=int(map(mouseX, 381, 979, -660, 660));
     koory=int(map(mouseY, 246, 546, 660, 0));
   }
@@ -188,8 +194,23 @@ popMatrix();
 
 public void setkp(String theText) {
 
-  KP= float(theText)*100;
+  KP= float(theText)*100;//5
+  print(KP);
 }
+
+public void setki(String theText) {
+
+  KI= float(theText)*100;//0.001
+   print(KI);
+}
+
+
+public void setkd(String theText) {
+
+  KD= float(theText)*100;//10
+   println(KD);
+}
+
 
 public void KoordinatX(String Xkoor) {
 
@@ -204,4 +225,6 @@ void keyPressed() {
   if(keyCode==TAB) {
     cp5.getTab("fiture").bringToFront();
   }
-}
+} 
+
+
