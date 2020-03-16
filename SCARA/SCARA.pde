@@ -4,6 +4,7 @@ Serial serial;
 ControlP5 cp5;
 InverseKinematic ik1;
 
+int CO=720;
 PFont font9, font10, font12, font14, font18, font20, font25, font30, font35;
 
 
@@ -32,9 +33,11 @@ String shortifyPortName(String portName, int maxlen)
   return shortName;
 }
 
-//backgroung
+//background
 PImage bg;
 
+//controlp5
+int i=0; //setid
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
