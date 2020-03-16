@@ -32,54 +32,27 @@ String shortifyPortName(String portName, int maxlen)
   return shortName;
 }
 
-boolean START = false;
-boolean MODE = false;
-boolean ik = true;
-boolean P1 = false;
-boolean P2 = false;
-
-int KoordinatX, KoordinatY;
-int KoordinatX_, KoordinatY_;
-
-
-float fs, fe, fw, rs, re, rw, rp1, rp2;
-
-int ps=380;
-int pe=280;
-float beta, gamma;
-int Ibeta, Igamma;
-int cb1, cb2;
-float cb3;
-int mosxe, mosye, mosex, mosey;
-
-String textValue = "";
-float KP;
-float KI;
-float KD;
-
-int _KoordinatX, _KoordinatY;
-int mosx, mosy;
-
-int s=5;
-
+//backgroung
+PImage bg;
 
 void setup()
 {
- 
   size(1280, 720, OPENGL);      //ukuran window
-
+  
+  bg=loadImage("bg.png"); //backgorund
+  
   cp5 = new ControlP5(this);
-  ik1 = new InverseKinematic(ps, pe);  
+//  ik1 = new InverseKinematic(ps, pe);  
 
-  font9 = createFont("Arial Bold", 9, false);
-  font10 = createFont("Arial Bold", 10, false);
-  font12 = createFont("Arial Bold", 12, false);
-  font14 = createFont("Arial Bold", 14, false);
-  font18 = createFont("Arial Bold", 18, false);
-  font20 = createFont("Arial Bold", 20, false);
-  font25 = createFont("Arial Bold", 25, false);
-  font30 = createFont("Arial Bold", 30, false);
-  font35 = createFont("Arial Bold", 35, false);
+  font9 = createFont("FontUGM", 9, false);
+  font10 = createFont("FontUGM", 10, false);
+  font12 = createFont("FontUGM", 12, false);
+  font14 = createFont("FontUGM", 14, false);
+  font18 = createFont("FontUGM", 18, false);
+  font20 = createFont("FontUGM", 20, false);
+  font25 = createFont("FontUGM", 25, false);
+  font30 = createFont("FontUGM", 30, false);
+  font35 = createFont("FontUGM", 35, false);
 
   GUI_setup();
   setup_UART();
@@ -90,7 +63,7 @@ void setup()
 void draw()
 
 {
-    background(0); 
+    background(bg); 
   Send_To_Arduino();
     
 
