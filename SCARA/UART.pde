@@ -86,9 +86,7 @@ void controlEvent(ControlEvent theControlEvent)
   if (theControlEvent.isGroup()) if (theControlEvent.name()=="portComList") InitSerial(theControlEvent.group().value()); // initialize the serial port selected
   
   
-   if (theControlEvent.isTab()) 
-    //println("got an event from tab : "+theControlEvent.getTab().getName()+" with id "+theControlEvent.getTab().getId());
-    statustab=theControlEvent.getTab().getId(); 
+ 
 
   
 }

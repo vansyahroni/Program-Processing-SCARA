@@ -63,34 +63,10 @@ int mosx, mosy;
 int s=5;
 
 
-//revision v1
-int count_click = 0;
-int[] clickX = new int[100];
-int[] clickY = new int[100];
-
-int X_rev = 50; 
-int Y_rev = 120; 
-
-
-int statustab=1;
-
-int[] X_odometry = new int[5];
-int[] Y_odometry = new int[5];
-int[][] color_point = new int[6][3];
-float[][] coordinat_input= new float[6][2];
-
-int []fxcoordinat=new int[100];
-int []fycoordinat=new int[100];
 void setup()
 {
-  for (int a=0; a<100; a++) {
-    colorR[a] = random(255);
-    colorG[a] = random(255);
-    colorB[a] = random(255);
-  }
-  size(1374, 750, OPENGL);      //ukuran window
-  image_();
-   
+ 
+  size(1280, 720, OPENGL);      //ukuran window
 
   cp5 = new ControlP5(this);
   ik1 = new InverseKinematic(ps, pe);  
@@ -109,122 +85,16 @@ void setup()
   setup_UART();
   sobj();
 }
-float koorx=0;
-float koory=90;
-int cx, cy;
-float r2;
 
-int koorx1, koory1;
-void mouseClicked() {
-  r= sqrt(pow(mouseX-680, 2)+pow(mouseY-545, 2));
-r2= sqrt(pow(mouseX-540, 2)+pow(mouseY-545, 2));
- 
-  if (r<600/2 && r > 351/2 && mouseY <545) {
-    koorx1=mouseX;
-    koory1=mouseY;
-    koorx=int(map(mouseX, 381, 979, -660, 660));
-    koory=int(map(mouseY, 246, 546, 660, 0));
-  }
- 
- 
- if(r2<225&& r2> 115/*&& mouseY <545*/) {
-    
-  
-  
-       if ((mouseX<=X_rev+130+500-150+525) && (mouseX>=X_rev+130-150)) {
-    if ((mouseY<=Y_rev+500) && (mouseY>=Y_rev)) {
 
-      count_click+=1;
-      clickX[count_click] = int((mouseX -430+150-525/2)/2.5);
-      clickY[count_click] = int(-(mouseY -370-525/3)/2.5);
-      cx=clickX[count_click];
-      cy=clickY[count_click];
-      
-  }}}}
-float v22=0.0;
-int v33, v44;
 void draw()
-{cp5.getController("RESET_KOORDINAT").moveTo("fiture");
-cp5.getController("RUN").moveTo("fiture");
-cp5.getController("v22").moveTo("fiture");
-cp5.getController("v33").moveTo("fiture");
-cp5.getController("v44").moveTo("fiture");
-//println(mouseX, mouseY);
-if (statustab==1) //TAB MAIN 
-  {
-    background(bg); 
-    
-  
-  obj();
-  images();
-  fw();
+
+{
+    background(0); 
   Send_To_Arduino();
     
-    
-  }
-  if (statustab==2) //TAB CHART
-  { 
-    background(bg); //0-->Black
-       fw();
-      fill(255);
-      imageMode(CENTER);  
-      pushMatrix();
-      scale(0.45);
-    image(workspace, 1187, 948);
-popMatrix(); 
-  image(judul, width/2, 45);
-  
-  draw_coordinat_target();
-   draw_coordinat();
-
-    fiture_();
-    pushMatrix();
-    translate(width/8,0,0);
-//   obj1();
-   popMatrix();
-//      Send_To_Arduino();
-  }
-
-
-  //print(mouseX); print("\t"); println(mouseY);
-
-
 
 }
 
-public void setkp(String theText) {
-
-  KP= float(theText)*100;//5
-  print(KP);
-}
-
-public void setki(String theText) {
-
-  KI= float(theText)*100;//0.001
-   print(KI);
-}
-
-
-public void setkd(String theText) {
-
-  KD= float(theText)*100;//10
-   println(KD);
-}
-
-
-public void KoordinatX(String Xkoor) {
-
-  _KoordinatX= int(Xkoor);
-}
-public void KoordinatY(String Ykoor) {
-
-  _KoordinatY= int(Ykoor);
-}
-
-void keyPressed() {
-  if(keyCode==TAB) {
-    cp5.getTab("fiture").bringToFront();
-  }
-} 
 
 
