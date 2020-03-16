@@ -5,7 +5,7 @@ ControlP5 cp5;
 InverseKinematic ik1;
 
 int CO=720;
-PFont font9, font10, font12, font14, font18, font20, font25, font30, font35;
+PFont fontUGM, font9, font10, font12, font14, font18, font20, font25, font30, font35;
 
 
 Chart current_chart, respon_chart;
@@ -47,15 +47,15 @@ void setup()
   cp5 = new ControlP5(this);
 //  ik1 = new InverseKinematic(ps, pe);  
 
-  font9 = createFont("FontUGM", 9, false);
-  font10 = createFont("FontUGM", 10, false);
-  font12 = createFont("FontUGM", 12, false);
-  font14 = createFont("FontUGM", 14, false);
-  font18 = createFont("FontUGM", 18, false);
-  font20 = createFont("FontUGM", 20, false);
-  font25 = createFont("FontUGM", 25, false);
-  font30 = createFont("FontUGM", 30, false);
-  font35 = createFont("FontUGM", 35, false);
+  font9 = createFont("verdana", 9, false);
+  font10 = createFont("verdana", 10, false);
+  font12 = createFont("verdana", 12, false);
+  font14 = createFont("verdana", 14, false);
+  font18 = createFont("verdana", 18, false);
+  font20 = createFont("verdana", 20, false);
+  font25 = createFont("verdana", 25, false);
+  font30 = createFont("verdana", 30, false);
+  font35 = createFont("verdana", 35, false);
 
   GUI_setup();
   setup_UART();
@@ -67,6 +67,7 @@ void draw()
 
 {
     background(bg); 
+    _text();
   Send_To_Arduino();
     
 
