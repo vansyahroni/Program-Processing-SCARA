@@ -38,6 +38,11 @@ PImage bg;
 
 //controlp5
 int i=0; //setid
+
+//radiobutton  rgb
+RadioButton RadioButton;
+
+
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
@@ -71,6 +76,19 @@ void draw()
   Send_To_Arduino();
     
 
+}
+
+//RADIO BUTTON RGB
+void keyPressed() {
+  switch(key) {
+    case('0'): RadioButton.deactivateAll(); break;
+    case('1'): RadioButton.activate(0); break;
+    case('2'): RadioButton.activate(1); break;
+    case('3'): RadioButton.activate(2); break;
+    case('4'): RadioButton.activate(3); break;
+    case('5'): RadioButton.activate(4); break;
+  }
+  
 }
 
 

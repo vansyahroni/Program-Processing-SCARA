@@ -81,14 +81,21 @@ void InitSerial( float portValue)
 }
 
 int background;
+int rgb=0;
 void controlEvent(ControlEvent theControlEvent)
 {
   if (theControlEvent.isGroup()) if (theControlEvent.name()=="portComList") InitSerial(theControlEvent.group().value()); // initialize the serial port selected
   
-  
- 
+  if(theControlEvent.isFrom(RadioButton)) {
+    print("got an event from "+theControlEvent.getName()+"\t");
+    for(int i=0;i<theControlEvent.getGroup().getArrayValue().length;i++) {
+      print(int(theControlEvent.getGroup().getArrayValue()[i]));
+    }
+  rgb=int(theControlEvent.getValue());
+  }  
 
   
 }
+
 
 
