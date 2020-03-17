@@ -92,6 +92,7 @@ void controlEvent(ControlEvent theControlEvent)
       print(int(theControlEvent.getGroup().getArrayValue()[i]));
     }
   rgb=int(theControlEvent.getValue());
+  yes_no=3;
   }  
 
   

@@ -90,6 +90,15 @@ void keyPressed() {
   }
   
 }
+int yes_no;
+public void yes() {
+   yes_no = 1;
+   rgb=6;
+}
 
+public void no() {
+  yes_no = 2;
+    rgb=6;
+}
 
 
