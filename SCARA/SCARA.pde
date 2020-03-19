@@ -45,6 +45,7 @@ RadioButton RadioButton;
 //tab
 
 int tab=0;
+int _tab=0;
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
@@ -79,20 +80,20 @@ void draw()
     if (tab==1) //TAB MAIN 
   {
   
-     cp5.getController("yes").moveTo("One");
+     cp5.getController("yes").moveTo("Mode1");
 
-cp5.getGroup("rgb").moveTo("One");
+cp5.getGroup("rgb").moveTo("Mode1");
 
   }
-  if (tab==2) //TAB CHART
+  if (_tab==1) //TAB CHART
   {
- cp5.getController("no").moveTo("Two");
-    cp5.getController("yes").moveTo("Two");
-  cp5.getGroup("rgb").moveTo("Two");
+ cp5.getController("no").moveTo("Mode2");
+    cp5.getController("yes").moveTo("Mode2");
+  cp5.getGroup("rgb").moveTo("Mode2");
     
   }
   
-   if (tab==3) //TAB CHART
+   if (_tab==2) //TAB CHART
   {
 
     cp5.getController("no").moveTo("default");

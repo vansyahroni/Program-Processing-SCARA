@@ -2,33 +2,72 @@
 void GUI_setup()
 {
 
-  cp5.addTab("One")
+  cp5.addTab("Mode1")
     .setColorBackground(color(0, 160, 100))
       .setColorLabel(color(255))
         .setColorActive(color(255, 128, 0))
           ;
 
-  cp5.addTab("Two")
+  cp5.addTab("Mode2")
     .setColorBackground(color(0, 160, 100))
       .setColorLabel(color(255))
         .setColorActive(color(255, 128, 0))
           ;
 
+  cp5.addTab("Color1")
+    .setColorBackground(color(0, 160, 100))
+      .setColorLabel(color(255))
+        .setColorActive(color(255, 128, 0))
+          ;
+
+  cp5.addTab("Color2")
+    .setColorBackground(color(0, 160, 100))
+      .setColorLabel(color(255))
+        .setColorActive(color(255, 128, 0))
+          ;
+            cp5.addTab("Color3")
+    .setColorBackground(color(0, 160, 100))
+      .setColorLabel(color(255))
+        .setColorActive(color(255, 128, 0))
+          ;
+
+          
   cp5.getTab("default")
     .activateEvent(true)
 
 
       ;
 
-  cp5.getTab("One")
+  cp5.getTab("Mode1")
     .activateEvent(true)
 
       ;
 
-  cp5.getTab("Two")
+  cp5.getTab("Mode2")
     .activateEvent(true)
 
       ;
+      
+           
+
+  cp5.getTab("Color1")
+    .activateEvent(true)
+
+      ;
+
+  cp5.getTab("Color1")
+    .activateEvent(true)
+
+      ;
+      
+           
+
+  cp5.getTab("Color1")
+    .activateEvent(true)
+
+      ;
+
+  
 
   /////////////////////////////////////////
 
@@ -46,7 +85,7 @@ void GUI_setup()
   cp5.addBang("color_mode")
     .setPosition(40, CO-396)
       .setSize(43, 43)
-
+.setId(2)
         .setColorBackground(#F75C57)
           .setColorActive(#F75C57) 
             .setColorForeground(#80A2A3) 
