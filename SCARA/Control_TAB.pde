@@ -47,6 +47,10 @@ cp5.getGroup("rgb").moveTo("Mode2");
     cp5.getController("slider_wirst").moveTo("mode2");
     cp5.getController("up_down").moveTo("mode2");
     cp5.getController("gripper").moveTo("mode2");
+    
+      cp5.getController("text_shoulder").moveTo("mode2");
+      cp5.getController("text_elbow").moveTo("mode2");
+       cp5.getController("text_wirst").moveTo("mode2");
   }
   
   
@@ -78,6 +82,10 @@ cp5.getGroup("rgb").moveTo("Mode2");
     cp5.getController("slider_wirst").moveTo("default");
     cp5.getController("up_down").moveTo("default");
     cp5.getController("gripper").moveTo("default");
+    
+         cp5.getController("text_shoulder").moveTo("mode2");
+      cp5.getController("text_elbow").moveTo("mode2");
+       cp5.getController("text_wirst").moveTo("mode2");
   }
   
   if (tab==2 &&_tab2==2) //mmode2
@@ -91,6 +99,10 @@ cp5.getGroup("rgb").moveTo("Mode2");
     cp5.getController("slider_wirst").moveTo("mode2");
     cp5.getController("up_down").moveTo("default");
     cp5.getController("gripper").moveTo("default");
+    
+     cp5.getController("text_shoulder").moveTo("default");
+      cp5.getController("text_elbow").moveTo("default");
+       cp5.getController("text_wirst").moveTo("default");
   }
   
 }

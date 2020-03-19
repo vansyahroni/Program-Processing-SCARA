@@ -51,6 +51,13 @@ int _tab2=0;
 //toggle manual mode
 boolean up_down =false;
 boolean gripper =false;
+
+//text mmode 2
+int text_shoulder=90;
+int text_elbow=90;
+int text_wirst=180;
+
+int value_shoulder, value_elbow, value_wirst;
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
@@ -115,4 +122,19 @@ public void no() {
     rgb=6;
 }
 
+
+
+public void text_shoulder(String _text_shoulder) {
+
+  value_shoulder= int(_text_shoulder);
+}
+public void text_elbow(String _text_elbow) {
+
+  value_elbow= int(_text_elbow);
+}
+
+public void text_wirst(String _text_wirst) {
+
+  value_wirst= int(_text_wirst);
+}
 

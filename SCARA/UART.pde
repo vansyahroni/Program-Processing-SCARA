@@ -129,5 +129,9 @@ void controlEvent(ControlEvent theControlEvent)
         
   }
 }
+//if(theEvent.isAssignableFrom(Textfield.class)) {
+//          
+//            +theEvent.getStringValue()
+//            );
 }
 

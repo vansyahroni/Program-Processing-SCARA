@@ -230,7 +230,44 @@ void GUI_setup()
      ;
      
      
-     
+     cp5.addTextfield("text_shoulder")
+    .setPosition(163, CO-307)
+      .setSize(61, 27)
+      
+          .setFont(font20)
+            .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#F75C57) 
+                  .setFocus(true)
+                    .captionLabel().setVisible(false)
+                      .setColor(255)
+                        ;
+                        
+                        cp5.addTextfield("text_elbow")
+    .setPosition(163, CO-249)
+        .setSize(61, 27)
+        
+          .setFont(font20)
+            .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#F75C57) 
+                  .setFocus(true)
+                    .captionLabel().setVisible(false)
+                      .setColor(255)
+                        ;
+                        
+                        cp5.addTextfield("text_wirst")
+    .setPosition(163, CO-190)
+        .setSize(61, 27)
+        
+          .setFont(font20)
+          .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#F75C57) 
+                  .setFocus(true)
+                    .captionLabel().setVisible(false)
+                      .setColor(255)
+                        ;
                       
 }
 

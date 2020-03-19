@@ -13,10 +13,11 @@ void _text()
 
 
 
-  //color mode
+  //sub mode
   if(tab==1 &&_tab==1){  text("SINGLE COLOR", 188, CO-369);}
   if(tab==1 &&_tab==2){  text("MULTI COLOR", 188, CO-369);}
-
+  if(tab==2 &&_tab2==1){  text("MANUAL SLIDER", 188, CO-369);}
+  if(tab==2 &&_tab2==2){  text("MANUAL TEXT", 188, CO-369);}
 
   //perintah RGB
 
@@ -68,5 +69,13 @@ if(tab==1 && _tab==1){
   }
   
   popMatrix();}
+  
+  
+ if(tab==2 &&_tab2==2){  
+  text(value_shoulder, 270, CO-294);
+    text(value_elbow, 270, CO-235);
+      text(value_wirst, 270, CO-177);
+ }
+  
 }
 
