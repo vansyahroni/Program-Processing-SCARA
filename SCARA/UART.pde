@@ -101,7 +101,7 @@ if (theControlEvent.isController()) {
     if(_statustab==1){
       
     tab+=1;
-    if(tab==3){
+    if(tab==4){
       tab=1;
        }
         println("statustab:"+tab);

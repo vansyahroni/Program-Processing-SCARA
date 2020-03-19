@@ -79,19 +79,27 @@ void draw()
     if (tab==1) //TAB MAIN 
   {
   
-     cp5.getController("yes").moveTo("TAB");
- cp5.getController("no").moveTo("TAB");
+     cp5.getController("yes").moveTo("One");
 
+cp5.getGroup("rgb").moveTo("One");
 
   }
   if (tab==2) //TAB CHART
   {
-
-    cp5.getController("yes").moveTo("default");
- cp5.getController("no").moveTo("default");
+ cp5.getController("no").moveTo("Two");
+    cp5.getController("yes").moveTo("Two");
+  cp5.getGroup("rgb").moveTo("Two");
     
   }
   
+   if (tab==3) //TAB CHART
+  {
+
+    cp5.getController("no").moveTo("default");
+    cp5.getController("yes").moveTo("default");
+  cp5.getGroup("rgb").moveTo("default");
+    
+  }
   
    
 
