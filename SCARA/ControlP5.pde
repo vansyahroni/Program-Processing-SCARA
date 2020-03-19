@@ -3,9 +3,9 @@ void GUI_setup()
 {
 
   cp5.addTab("default")
-    .setColorBackground(color(255, 255, 255))
-      .setColorLabel(color(255))
-        .setColorActive(color(255, 255, 255))
+    .setColorBackground(#F0F6DC)
+      .setColorLabel(#F0F6DC)
+        .setColorActive(#F0F6DC)
       
           ;
 
@@ -121,17 +121,15 @@ void GUI_setup()
       .setSize(37, 32)
         .setLabel("changeBackground")
 
-//          .setColorBackground(#80A2A3)
-//            .setColorActive(#80A2A3) 
-//              .setColorForeground(#80A2A3) 
+          .setColorBackground(#80A2A3)
+            .setColorActive(#80A2A3) 
+              .setColorForeground(#80A2A3) 
               
-              .setColorBackground(color(0))
-            .setColorActive(color(0))
-              .setColorForeground(color(0))
+
                 .setLabelVisible(false) 
                   ;
 
-  ///////////////////////////////
+
 
 
   cp5.addToggle("start")
@@ -144,57 +142,16 @@ void GUI_setup()
                 ;
 
 
-  //                  cp5.addToggle("red")
-  //    .setPosition(48, CO-305)
-  //      .setSize(30, 26)
-  //        .setColorActive(#F75C57)
-  //          .setColorBackground(#F75C57) 
-  //            .setColorForeground(#F75C57) 
-  //              .setLabelVisible(false) 
-  //                ;
-  //                  cp5.addToggle("green")
-  //    .setPosition(98, CO-305)
-  //      .setSize(30, 26)
-  //        .setColorActive(#009B4C)
-  //          .setColorBackground(#009B4C) 
-  //            .setColorForeground(#009B4C) 
-  //              .setLabelVisible(false) 
-  //                ;
-  //                  cp5.addToggle("blue")
-  //    .setPosition(148, CO-305)
-  //      .setSize(30, 26)
-  //        .setColorActive(#2F318B)
-  //          .setColorBackground(#2F318B) 
-  //            .setColorForeground(#2F318B) 
-  //              .setLabelVisible(false) 
-  //                ;
-  //                  cp5.addToggle("yellow")
-  //    .setPosition(198, CO-305)
-  //      .setSize(30, 26)
-  //        .setColorActive(#FFF000)
-  //          .setColorBackground(#FFF000) 
-  //            .setColorForeground(#FFF000) 
-  //              .setLabelVisible(false) 
-  //                ;
-  //                  cp5.addToggle("black")
-  //    .setPosition(248, CO-305)
-  //      .setSize(30, 26)
-  //        .setColorActive(#332C2B)
-  //          .setColorBackground(#332C2B) 
-  //            .setColorForeground(#332C2B) 
-  //              .setLabelVisible(false) 
-  //                ;
-
 
 
   RadioButton= cp5.addRadioButton("rgb")
-    .setPosition(57, CO-269)
-      .setSize(12, 12)
+    .setPosition(48, CO-301)
+      .setSize(33, 23)
         .setColorActive(#53666A)
           .setColorBackground(#80A2A3) 
             .setColorForeground(#80A2A3) 
               .setItemsPerRow(5)
-                .setSpacingColumn(38)
+                .setSpacingColumn(13)
 
                   .addItem("50", 1)
                     .addItem("100", 2)
@@ -203,5 +160,77 @@ void GUI_setup()
                           .addItem("250", 5)
                             .setColorLabel(#BDDBDB)
                               ;
+                              
+                              
+  cp5.addBang("manual_mode")
+    .setPosition(40, CO-396)
+      .setSize(43, 43)
+.setId(3)
+        .setColorBackground(#F75C57)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#80A2A3) 
+              .setLabelVisible(false) 
+                ;
+                              
+                              
+  cp5.addSlider("slider_shoulder")
+    .setPosition(41, CO-307)
+      .setRange(0, 180)
+        .setSize(243, 27)
+           .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#F75C57) 
+                .setColorValue(color(0, 0, 0))
+                  .setValue(90)
+                    .captionLabel().setVisible(false)
+                      ;
+                      
+                        cp5.addSlider("slider_elbow")
+    .setPosition(41, CO-249)
+      .setRange(0, 180)
+        .setSize(243, 27)
+           .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#F75C57) 
+                .setColorValue(color(0, 0, 0))
+                  .setValue(90)
+                    .captionLabel().setVisible(false)
+                      ;
+                      
+                        cp5.addSlider("slider_wirst")
+    .setPosition(41, CO-190)
+      .setRange(0, 180)
+        .setSize(243, 27)
+           .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#F75C57) 
+                .setColorValue(color(0, 0, 0))
+                  .setValue(90)
+                    .captionLabel().setVisible(false)
+                      ;
+                      
+                        cp5.addToggle("up_down")
+     .setPosition(55,CO-133)
+     .setSize(94,27)
+     .setValue(true)
+      .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#F75C57) 
+     .setMode(ControlP5.SWITCH)
+     ;
+     
+       cp5.addToggle("gripper")
+     .setPosition(177,CO-133)
+     .setSize(94,27)
+     .setValue(true)
+      .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#F75C57) 
+     .setMode(ControlP5.SWITCH)
+     ;
+     
+     
+     
+                      
 }
 
