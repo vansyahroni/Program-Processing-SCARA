@@ -3,10 +3,10 @@ void contorlTab() {
   if (tab==1) //COLOR DETECTOR
   { 
     image(cmode, 163, CO-237);
-    cp5.getController("no").moveTo("default");
-    cp5.getController("yes").moveTo("default");
+    cp5.getController("no").moveTo("mode2");
+    cp5.getController("yes").moveTo("mode2");
     cp5.getController("color_mode").moveTo("default");
-    cp5.getGroup("rgb").moveTo("default");
+    cp5.getGroup("rgb").moveTo("mode2");
     
      cp5.getController("manual_mode").moveTo("mode2");
        cp5.getController("slider_shoulder").moveTo("mode2");
@@ -18,7 +18,7 @@ void contorlTab() {
   
   if (tab==2) //MANUAL
   { 
-   image(mmode1, 163, CO-237);
+   image(mmode, 163, CO-237);
  
     
     cp5.getController("no").moveTo("mode2");
@@ -27,11 +27,11 @@ void contorlTab() {
     cp5.getGroup("rgb").moveTo("mode2");
     
      cp5.getController("manual_mode").moveTo("default");
-    cp5.getController("slider_shoulder").moveTo("default");
-    cp5.getController("slider_elbow").moveTo("default");
-    cp5.getController("slider_wirst").moveTo("default");
-    cp5.getController("up_down").moveTo("default");
-    cp5.getController("gripper").moveTo("default");
+    cp5.getController("slider_shoulder").moveTo("mode2");
+    cp5.getController("slider_elbow").moveTo("mode2");
+    cp5.getController("slider_wirst").moveTo("mode2");
+    cp5.getController("up_down").moveTo("mode2");
+    cp5.getController("gripper").moveTo("mode2");
   }
 
   if (tab!=1 && tab!=2) 
@@ -75,7 +75,7 @@ cp5.getGroup("rgb").moveTo("Mode2");
   }
   
   if (tab==2 &&_tab2==1) //mmode1
-  {
+  { image(mmode1, 163, CO-237);
        cp5.getController("manual_mode").moveTo("default");
     cp5.getController("slider_shoulder").moveTo("default");
     cp5.getController("slider_elbow").moveTo("default");

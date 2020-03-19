@@ -34,7 +34,7 @@ String shortifyPortName(String portName, int maxlen)
 }
 
 //background
-PImage bg, cmode, cmode1, mmode1, mmode2;
+PImage bg, cmode, cmode1, mmode, mmode1, mmode2;
 
 //controlp5
 int i=0; //setid
@@ -65,6 +65,7 @@ void setup()
   bg=loadImage("bg.png"); //backgorund
   cmode=loadImage("cmode.png");
     cmode1=loadImage("cmode1.png");
+    mmode=loadImage("mmode.png");
        mmode1=loadImage("mmode1.png");
 mmode2=loadImage("mmode2.png");
     
