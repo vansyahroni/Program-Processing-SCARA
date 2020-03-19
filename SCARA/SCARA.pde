@@ -33,8 +33,12 @@ String shortifyPortName(String portName, int maxlen)
   return shortName;
 }
 
+
+int _statustab;
+
+
 //background
-PImage bg, cmode, cmode1, mmode, mmode1, mmode2;
+PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3;
 
 //controlp5
 int i=0; //setid
@@ -61,17 +65,19 @@ int value_shoulder, value_elbow, value_wirst;
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
-  
+
   bg=loadImage("bg.png"); //backgorund
   cmode=loadImage("cmode.png");
-    cmode1=loadImage("cmode1.png");
-    mmode=loadImage("mmode.png");
-       mmode1=loadImage("mmode1.png");
-mmode2=loadImage("mmode2.png");
-    
-    
+  cmode1=loadImage("cmode1.png");
+  
+  mmode=loadImage("mmode.png");
+  mmode1=loadImage("mmode1.png");
+  mmode2=loadImage("mmode2.png");
+  mmode3=loadImage("mmode3.png");
+
+
   cp5 = new ControlP5(this);
-//  ik1 = new InverseKinematic(ps, pe);  
+  //  ik1 = new InverseKinematic(ps, pe);  
 
   font9 = createFont("verdana", 9, false);
   font10 = createFont("verdana", 10, false);
@@ -92,35 +98,44 @@ mmode2=loadImage("mmode2.png");
 void draw()
 
 {
-    background(bg); 
-    contorlTab();
-    _text();
+  background(bg); 
+  contorlTab();
+  _text();
   Send_To_Arduino();
-    
-
 }
 
 //RADIO BUTTON RGB
 void keyPressed() {
   switch(key) {
-    case('0'): RadioButton.deactivateAll(); break;
-    case('1'): RadioButton.activate(0); break;
-    case('2'): RadioButton.activate(1); break;
-    case('3'): RadioButton.activate(2); break;
-    case('4'): RadioButton.activate(3); break;
-    case('5'): RadioButton.activate(4); break;
+    case('0'): 
+    RadioButton.deactivateAll(); 
+    break;
+    case('1'): 
+    RadioButton.activate(0); 
+    break;
+    case('2'): 
+    RadioButton.activate(1); 
+    break;
+    case('3'): 
+    RadioButton.activate(2); 
+    break;
+    case('4'): 
+    RadioButton.activate(3); 
+    break;
+    case('5'): 
+    RadioButton.activate(4); 
+    break;
   }
-  
 }
 int yes_no;
 public void yes() {
-   yes_no = 1;
-   rgb=6;
+  yes_no = 1;
+  rgb=6;
 }
 
 public void no() {
   yes_no = 2;
-    rgb=6;
+  rgb=6;
 }
 
 

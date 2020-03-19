@@ -268,6 +268,29 @@ void GUI_setup()
                     .captionLabel().setVisible(false)
                       .setColor(255)
                         ;
+                        
+                         cp5.addBang("remote")
+    .setPosition(55, CO-307)
+      .setSize(94, 27)
+        .setLabel("changeBackground")
+        
+          .setId(231)
+            .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#80A2A3) 
+                .setLabelVisible(false) 
+                  ;
+                  
+                   cp5.addBang("keyboard")
+    .setPosition(177, CO-307)
+      .setSize(94, 27)
+      .setId(232)
+        .setLabel("changeBackground")
+             .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#80A2A3) 
+                .setLabelVisible(false) 
+                  ;
                       
 }
 

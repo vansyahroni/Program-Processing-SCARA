@@ -97,7 +97,7 @@ void controlEvent(ControlEvent theControlEvent)
 
   if (theControlEvent.isController()) {
 
-    int _statustab=theControlEvent.getController().getId(); 
+     _statustab=theControlEvent.getController().getId(); 
      
     if (_statustab==1) {
 
@@ -123,7 +123,7 @@ void controlEvent(ControlEvent theControlEvent)
   if(tab==2 && _statustab==3){
 //         _tab=tab*10;
          _tab2+=1;
-         if(_tab2==3){
+         if(_tab2==4){
            _tab2=1;}
           println(_tab2);
         

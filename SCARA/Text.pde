@@ -76,6 +76,9 @@ if(tab==1 && _tab==1){
     text(value_elbow, 270, CO-235);
       text(value_wirst, 270, CO-177);
  }
+ 
+  if(_statustab==231){ text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE REMOTE", 163, CO-237); }
+   if(_statustab==232){ text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE KEYBOARD", 163, CO-237); }
   
 }
 
