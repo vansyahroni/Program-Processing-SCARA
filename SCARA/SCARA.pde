@@ -1,7 +1,7 @@
 import processing.serial.Serial; // serial library
 import controlP5.*; // controlP5 library
 Serial serial;
-ControlP5 cp5;
+ControlP5  cp5;
 InverseKinematic ik1;
 
 int CO=720;
@@ -42,7 +42,9 @@ int i=0; //setid
 //radiobutton  rgb
 RadioButton RadioButton;
 
+//tab
 
+int tab=0;
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
@@ -71,7 +73,30 @@ void setup()
 void draw()
 
 {
-    background(bg); 
+    background(255); 
+    
+    
+    if (tab==1) //TAB MAIN 
+  {
+  
+     cp5.getController("yes").moveTo("TAB");
+ cp5.getController("no").moveTo("TAB");
+
+
+  }
+  if (tab==2) //TAB CHART
+  {
+
+    cp5.getController("yes").moveTo("default");
+ cp5.getController("no").moveTo("default");
+    
+  }
+  
+  
+   
+
+
+
     _text();
   Send_To_Arduino();
     

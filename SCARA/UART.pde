@@ -95,8 +95,19 @@ void controlEvent(ControlEvent theControlEvent)
   yes_no=3;
   }  
 
-  
+if (theControlEvent.isController()) {
+    
+    int _statustab=theControlEvent.getController().getId(); 
+    if(_statustab==1){
+      
+    tab+=1;
+    if(tab==3){
+      tab=1;
+       }
+        println("statustab:"+tab);
 }
+
+}}
 
 
 
