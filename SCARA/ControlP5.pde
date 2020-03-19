@@ -2,33 +2,45 @@
 void GUI_setup()
 {
 
+  cp5.addTab("default")
+    .setColorBackground(color(255, 255, 255))
+      .setColorLabel(color(255))
+        .setColorActive(color(255, 255, 255))
+      
+          ;
+
   cp5.addTab("Mode1")
     .setColorBackground(color(0, 160, 100))
       .setColorLabel(color(255))
         .setColorActive(color(255, 128, 0))
+        .hide()
           ;
 
   cp5.addTab("Mode2")
     .setColorBackground(color(0, 160, 100))
       .setColorLabel(color(255))
         .setColorActive(color(255, 128, 0))
+            .hide()
           ;
 
   cp5.addTab("Color1")
     .setColorBackground(color(0, 160, 100))
       .setColorLabel(color(255))
         .setColorActive(color(255, 128, 0))
+            .hide()
           ;
 
   cp5.addTab("Color2")
     .setColorBackground(color(0, 160, 100))
       .setColorLabel(color(255))
         .setColorActive(color(255, 128, 0))
+            .hide()
           ;
             cp5.addTab("Color3")
     .setColorBackground(color(0, 160, 100))
       .setColorLabel(color(255))
         .setColorActive(color(255, 128, 0))
+        .hide()
           ;
 
           

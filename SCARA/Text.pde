@@ -6,12 +6,17 @@ void _text()
   textFont(font18);
   fill(0);
   noStroke();
-  text("COLOR DETECTOR", 160, CO-465);
+  //main
+  if(tab==1) {text("COLOR DETECTOR", 160, CO-465);}
+  if(tab==2) {text("MANUAL", 160, CO-465);}
+  if(tab==3) {text("KINEMATIKA", 160, CO-465);}
 
 
 
   //color mode
-  text("SINGLE COLOR", 188, CO-369);
+  if(_tab==1){  text("SINGLE COLOR", 188, CO-369);}
+  if(_tab==2){  text("MULTI COLOR", 188, CO-369);}
+
 
   //perintah RGB
 
