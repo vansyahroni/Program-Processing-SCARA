@@ -14,13 +14,14 @@ void _text()
 
 
   //color mode
-  if(_tab==1){  text("SINGLE COLOR", 188, CO-369);}
-  if(_tab==2){  text("MULTI COLOR", 188, CO-369);}
+  if(tab==1 &&_tab==1){  text("SINGLE COLOR", 188, CO-369);}
+  if(tab==1 &&_tab==2){  text("MULTI COLOR", 188, CO-369);}
 
 
   //perintah RGB
 
   textFont(font14);
+if(tab==1 && _tab==1){
   if (rgb>0) {
     if (rgb==1) { 
       text("THE RED COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 163, CO-213);
@@ -61,5 +62,7 @@ void _text()
   } else {
     text("PLEASE CHOSE THE COLOR!", 163, CO-213);
   }
+  
+}
 }
 

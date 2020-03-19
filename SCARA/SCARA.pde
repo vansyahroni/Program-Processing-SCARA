@@ -75,30 +75,36 @@ void draw()
 
 {
     background(255); 
-    
-    
-    if (tab==1) //TAB MAIN 
+      if (tab==1) //TAB MAIN 
   {
-  
-     cp5.getController("yes").moveTo("Mode1");
-
-cp5.getGroup("rgb").moveTo("Mode1");
-
-  }
-  if (_tab==1) //TAB CHART
-  {
- cp5.getController("no").moveTo("Mode2");
-    cp5.getController("yes").moveTo("Mode2");
-  cp5.getGroup("rgb").moveTo("Mode2");
-    
-  }
-  
-   if (_tab==2) //TAB CHART
-  {
-
-    cp5.getController("no").moveTo("default");
+  cp5.getController("no").moveTo("default");
     cp5.getController("yes").moveTo("default");
-  cp5.getGroup("rgb").moveTo("default");
+      cp5.getController("color_mode").moveTo("default");
+    cp5.getGroup("rgb").moveTo("default");
+  }
+    
+    if (tab!=1) //TAB MAIN 
+  {
+    cp5.getController("color_mode").moveTo("Mode2");
+  cp5.getController("no").moveTo("Mode2");
+    cp5.getController("yes").moveTo("Mode2");
+      
+    cp5.getGroup("rgb").moveTo("Mode2");
+  }
+  if (tab==1 &&_tab==1) //TAB CHART
+  {
+cp5.getController("color_mode").moveTo("default");
+  cp5.getController("no").moveTo("default");
+    cp5.getController("yes").moveTo("default");
+    cp5.getGroup("rgb").moveTo("default");
+  }
+  
+   if (tab==1 &&_tab==2) //TAB CHART
+  {
+cp5.getController("color_mode").moveTo("default");
+   cp5.getController("no").moveTo("Mode2");
+    cp5.getController("yes").moveTo("Mode2");
+    cp5.getGroup("rgb").moveTo("Mode2");
     
   }
   
