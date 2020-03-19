@@ -22,6 +22,10 @@ void _text()
 
   textFont(font14);
 if(tab==1 && _tab==1){
+  pushMatrix();
+  translate(0,0,1);
+   
+  
   if (rgb>0) {
     if (rgb==1) { 
       text("THE RED COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 163, CO-213);
@@ -63,6 +67,6 @@ if(tab==1 && _tab==1){
     text("PLEASE CHOSE THE COLOR!", 163, CO-213);
   }
   
-}
+  popMatrix();}
 }
 

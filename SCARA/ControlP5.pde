@@ -121,9 +121,13 @@ void GUI_setup()
       .setSize(37, 32)
         .setLabel("changeBackground")
 
-          .setColorBackground(#80A2A3)
-            .setColorActive(#80A2A3) 
-              .setColorForeground(#80A2A3) 
+//          .setColorBackground(#80A2A3)
+//            .setColorActive(#80A2A3) 
+//              .setColorForeground(#80A2A3) 
+              
+              .setColorBackground(color(0))
+            .setColorActive(color(0))
+              .setColorForeground(color(0))
                 .setLabelVisible(false) 
                   ;
 

@@ -34,7 +34,7 @@ String shortifyPortName(String portName, int maxlen)
 }
 
 //background
-PImage bg;
+PImage bg, cmode, cmode1;
 
 //controlp5
 int i=0; //setid
@@ -51,7 +51,8 @@ void setup()
   size(1280, 720, OPENGL);      //ukuran window
   
   bg=loadImage("bg.png"); //backgorund
-  
+  cmode=loadImage("cmode.png");
+    cmode1=loadImage("cmode1.png");
   cp5 = new ControlP5(this);
 //  ik1 = new InverseKinematic(ps, pe);  
 
@@ -74,44 +75,8 @@ void setup()
 void draw()
 
 {
-    background(255); 
-      if (tab==1) //TAB MAIN 
-  {
-  cp5.getController("no").moveTo("default");
-    cp5.getController("yes").moveTo("default");
-      cp5.getController("color_mode").moveTo("default");
-    cp5.getGroup("rgb").moveTo("default");
-  }
-    
-    if (tab!=1) //TAB MAIN 
-  {
-    cp5.getController("color_mode").moveTo("Mode2");
-  cp5.getController("no").moveTo("Mode2");
-    cp5.getController("yes").moveTo("Mode2");
-      
-    cp5.getGroup("rgb").moveTo("Mode2");
-  }
-  if (tab==1 &&_tab==1) //TAB CHART
-  {
-cp5.getController("color_mode").moveTo("default");
-  cp5.getController("no").moveTo("default");
-    cp5.getController("yes").moveTo("default");
-    cp5.getGroup("rgb").moveTo("default");
-  }
-  
-   if (tab==1 &&_tab==2) //TAB CHART
-  {
-cp5.getController("color_mode").moveTo("default");
-   cp5.getController("no").moveTo("Mode2");
-    cp5.getController("yes").moveTo("Mode2");
-    cp5.getGroup("rgb").moveTo("Mode2");
-    
-  }
-  
-   
-
-
-
+    background(bg); 
+    contorlTab();
     _text();
   Send_To_Arduino();
     
