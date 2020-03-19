@@ -119,6 +119,15 @@ void controlEvent(ControlEvent theControlEvent)
           println(_tab);
         
   }
+  
+  if(tab==2 && _statustab==3){
+//         _tab=tab*10;
+         _tab2+=1;
+         if(_tab2==3){
+           _tab2=1;}
+          println(_tab2);
+        
+  }
 }
 }
 

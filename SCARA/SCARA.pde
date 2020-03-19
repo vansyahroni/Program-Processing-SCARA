@@ -34,7 +34,7 @@ String shortifyPortName(String portName, int maxlen)
 }
 
 //background
-PImage bg, cmode, cmode1, mmode1;
+PImage bg, cmode, cmode1, mmode1, mmode2;
 
 //controlp5
 int i=0; //setid
@@ -46,6 +46,7 @@ RadioButton RadioButton;
 
 int tab=0;
 int _tab=0;
+int _tab2=0;
 
 //toggle manual mode
 boolean up_down =false;
@@ -58,7 +59,7 @@ void setup()
   cmode=loadImage("cmode.png");
     cmode1=loadImage("cmode1.png");
        mmode1=loadImage("mmode1.png");
-
+mmode2=loadImage("mmode2.png");
     
     
   cp5 = new ControlP5(this);
