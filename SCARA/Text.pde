@@ -13,8 +13,8 @@ void _text()
     if (SubMode1==1) {
       textFont(font14);
       text("SINGLE COLOR", 188, CO-369);                
-      text("YA", 113, CO-78);
-      text("NO", 213, CO-78);
+      text("YA", 113, CO-88);
+      text("NO", 213, CO-88);
       if (rgb>0) {
         if (rgb==1) { 
           text("THE RED COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 163, CO-213);
@@ -44,7 +44,14 @@ void _text()
     }
 
     if (SubMode1==2) {  
-      text("MULTI COLOR", 188, CO-369);
+      text("MULTI COLOR", 188, CO-369);  
+
+//        if(_chose_color==1)println("RED");
+//           if(_chose_color==2)println("GREEN");
+//              if(_chose_color==3)println("BLUE");
+//                 if(_chose_color==4)println("YELLOW");
+//                    if(_chose_color==5)println("BLACK");
+              
     }
   }
 

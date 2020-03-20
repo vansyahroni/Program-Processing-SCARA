@@ -30,8 +30,18 @@ void contorlTab() {
 
     if (SubMode1==2) //MULTI COLOR
     {
+      image(cmode2, 163, CO-237);
       cp5.getController("color_mode").moveTo("default");
-      hideMode1A();
+       hideMode1A();
+       
+       cp5.getController("chose_red").moveTo("default");
+        cp5.getController("chose_green").moveTo("default");
+         cp5.getController("chose_blue").moveTo("default");
+          cp5.getController("chose_yellow").moveTo("default");
+           cp5.getController("chose_black").moveTo("default");
+           
+
+     
     }
   }
   ////////////////////////// MANUAL /////////////////////////
@@ -179,6 +189,12 @@ void hideMode1A() {
 }
 
 void hideMode1B() {
+     
+       cp5.getController("chose_red").moveTo("HIDE");
+        cp5.getController("chose_green").moveTo("HIDE");
+         cp5.getController("chose_blue").moveTo("HIDE");
+          cp5.getController("chose_yellow").moveTo("HIDE");
+           cp5.getController("chose_black").moveTo("HIDE");
 }
 
 void hideMode2A() {

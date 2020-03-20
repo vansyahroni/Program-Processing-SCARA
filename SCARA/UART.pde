@@ -119,8 +119,18 @@ void controlEvent(ControlEvent theControlEvent)
       if (SubMode1==3) {
         SubMode1=1;
       }
+      
+          
+              
       println("MODE 1 | SUBMODE:"+SubMode1);
     }
+    
+      if(_statustab==121){_chose_color=1;println("RED");}
+        if(_statustab==122){_chose_color=2;println("GREEN");}
+          if(_statustab==123){_chose_color=3;println("BLUE");}
+            if(_statustab==124){_chose_color=4;println("YELLOW");}
+              if(_statustab==125){_chose_color=5;println("BLACK");}
+               
     // MODE 2 //
     if (MainMode==2 && _statustab==12) {
       SubMode2+=1;

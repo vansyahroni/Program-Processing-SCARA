@@ -39,7 +39,7 @@ int _statustab;
 
 
 //image
-PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3, ikmode, ikmode3, pidmode;
+PImage bg, cmode, cmode1, cmode2, mmode, mmode1, mmode2, mmode3, ikmode, ikmode3, pidmode;
 
 //controlp5
 int i=0; //setid
@@ -70,6 +70,7 @@ int value_posX, value_posY;
 int value_setpoint;
 float value_KP, value_KI, value_KD;
 
+int _chose_color=0;
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
@@ -78,6 +79,8 @@ void setup()
   
   cmode=loadImage("cmode.png");
   cmode1=loadImage("cmode1.png");
+    cmode2=loadImage("cmode2.png");
+  
   
   mmode=loadImage("mmode.png");
   mmode1=loadImage("mmode1.png");
