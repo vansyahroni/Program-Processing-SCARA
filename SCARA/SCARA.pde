@@ -39,7 +39,7 @@ int _statustab;
 
 
 //image
-PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3, ikmode, ikmode3;
+PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3, ikmode, ikmode3, pidmode;
 
 //controlp5
 int i=0; //setid
@@ -83,6 +83,9 @@ void setup()
   
  ikmode=loadImage("ikmode.png");
   ikmode3=loadImage("ikmode3.png");
+
+
+ pidmode=loadImage("pidmode.png");
 
   cp5 = new ControlP5(this);
   //  ik1 = new InverseKinematic(ps, pe);  
@@ -173,3 +176,15 @@ public void text_posY(String _text_posY) {
   value_posY= int(_text_posY);
 }
 
+public void text_posY(String _text_posY) {
+
+  value_posY= int(_text_posY);
+}
+public void text_posY(String _text_posY) {
+
+  value_posY= int(_text_posY);
+}
+public void text_posY(String _text_posY) {
+
+  value_posY= int(_text_posY);
+}

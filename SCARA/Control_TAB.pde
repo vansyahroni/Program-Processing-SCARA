@@ -12,6 +12,7 @@ void contorlTab() {
     hideMode3A();
       hideMode3B();
         hideMode3C();
+         hideMode4();
         
 
     if (SubMode1==1) //SINGLE COLOR
@@ -46,6 +47,7 @@ void contorlTab() {
   hideMode3A();
       hideMode3B();
         hideMode3C();
+         hideMode4();
     if (SubMode2==1) //SLIDER
     { 
       image(mmode1, 163, CO-237);
@@ -96,6 +98,7 @@ void contorlTab() {
     hideMode2A();
     hideMode2B();
     hideMode2C();
+    hideMode4();
     
      if (SubMode3==1) //SLIDER
     { 
@@ -118,9 +121,26 @@ void contorlTab() {
   }
   }
 
+////////////////////////// COLOR DETECTOR /////////////////////////
+  if (MainMode==4)
+  { 
+    image(pidmode, 163, CO-237);
+    cp5.getController("jointPID").moveTo("default");
+        hideMode1A();
+    hideMode2A();
+    hideMode2B();
+    hideMode2C();
+    hideMode3A();
+      hideMode3B();
+        hideMode3C();
+
+  }
+
+
+
   ////////////////////////// OFF /////////////////////////
 
-  if (MainMode!=1 && MainMode!=2 && MainMode!=3) 
+  if (MainMode!=1 && MainMode!=2 && MainMode!=3 && MainMode!=4) 
   {
     cp5.getController("color_mode").moveTo("HIDE"); //mode color
     cp5.getController("manual_mode").moveTo("HIDE"); // mode manual
@@ -134,6 +154,7 @@ void contorlTab() {
       hideMode3C();
         hideMode3C();
           hideMode3C();
+          hideMode4();
           
   }
 }
@@ -174,4 +195,8 @@ void hideMode3B() {
 void hideMode3C() {
   cp5.getController("text_posX").moveTo("HIDE");
          cp5.getController("text_posY").moveTo("HIDE");
+}
+
+void hideMode4(){
+      cp5.getController("jointPID").moveTo("HIDE");
 }

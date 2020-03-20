@@ -97,18 +97,18 @@ void controlEvent(ControlEvent theControlEvent)
 
   if (theControlEvent.isController()) {
     _statustab=theControlEvent.getController().getId();      
-    
-  /*
+
+    /*
       ID 
-   MAIN MODE = 1
-   MODE 1    = 11
-   MODE 2    = 12
-   */
-   
+     MAIN MODE = 1
+     MODE 1    = 11
+     MODE 2    = 12
+     */
+
     //MAIN MODE //
     if (_statustab==1) { 
       MainMode+=1;
-      if (MainMode==4) {
+      if (MainMode==5) {
         MainMode=1;
       }
       println("MODE:"+MainMode);
@@ -129,15 +129,15 @@ void controlEvent(ControlEvent theControlEvent)
       }
       println("MODE 2 | SUBMODE:"+SubMode2);
     }
-    
+
     // MODE 3 //
-     if (MainMode==3 && _statustab==13) {
+    if (MainMode==3 && _statustab==13) {
       SubMode3+=1;
       if (SubMode3==4) {
         SubMode3=1;
       }
       println("MODE 3 | SUBMODE:"+SubMode3);
-    
+    }
   }
 }
-}
+

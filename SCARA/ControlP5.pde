@@ -204,7 +204,6 @@ void GUI_setup()
     .setPosition(55, CO-307)
       .setSize(94, 27)
         .setLabel("changeBackground")
-
           .setId(231)
             .setColorBackground(#80A2A3)
               .setColorActive(#F75C57) 
@@ -270,6 +269,18 @@ void GUI_setup()
                   .captionLabel().setVisible(false)
                     .setColor(255)
                       ;
+                      
+                        
+  cp5.addBang("jointPID")
+    .setPosition(155, CO-341)
+      .setSize(36, 19)
+          .setId(41)
+            .setColorBackground(#80A2A3)
+              .setColorActive(#F75C57) 
+                .setColorForeground(#F75C57) 
+                  .setLabelVisible(false) 
+                    ;            
+                      
 }
 
 
