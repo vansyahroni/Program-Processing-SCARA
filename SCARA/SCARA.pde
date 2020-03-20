@@ -5,7 +5,7 @@ ControlP5  cp5;
 InverseKinematic ik1;
 
 int CO=720;
-PFont fontUGM, font9, font10, font12, font14, font18, font20, font25, font30, font35;
+PFont fontUGM, font9, font10, font12, font14, font16, font20, font25, font30, font35;
 
 
 Chart current_chart, respon_chart;
@@ -90,7 +90,7 @@ void setup()
   font10 = createFont("verdana", 10, false);
   font12 = createFont("verdana", 12, false);
   font14 = createFont("verdana", 14, false);
-  font18 = createFont("verdana", 18, false);
+  font16 = createFont("verdana", 16, false);
   font20 = createFont("verdana", 20, false);
   font25 = createFont("verdana", 25, false);
   font30 = createFont("verdana", 30, false);
@@ -107,7 +107,7 @@ void draw()
 {
   background(bg); 
   contorlTab();
-//  _text();
+  _text();
   Send_To_Arduino();
 }
 

@@ -95,8 +95,6 @@ void controlEvent(ControlEvent theControlEvent)
   }  
   ///BANG, TOGGLE, SLIDER///
 
-
-
   if (theControlEvent.isController()) {
     _statustab=theControlEvent.getController().getId();      
     

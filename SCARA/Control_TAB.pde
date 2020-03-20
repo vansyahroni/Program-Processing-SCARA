@@ -14,7 +14,7 @@ void contorlTab() {
     {  
       pushMatrix();
       translate(0,0,0.0002);
-      image(cmode1, 163, CO-197);
+      image(cmode1, 163, CO-291);
       popMatrix();
       cp5.getController("color_mode").moveTo("default");
       cp5.getController("no").moveTo("default");
@@ -93,16 +93,12 @@ void contorlTab() {
     
      if (SubMode3==1) //SLIDER
     { 
-      image(mmode1, 163, CO-237);
-      cp5.getController("manual_mode").moveTo("default");
+      
+      cp5.getController("ik_mode").moveTo("default");
       hideMode2B();
       hideMode2C();
 
-      cp5.getController("slider_shoulder").moveTo("default");
-      cp5.getController("slider_elbow").moveTo("default");
-      cp5.getController("slider_wirst").moveTo("default");
-      cp5.getController("up_down").moveTo("default");
-      cp5.getController("gripper").moveTo("default");
+   
     }
     
   }

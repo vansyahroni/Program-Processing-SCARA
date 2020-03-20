@@ -76,7 +76,7 @@ void GUI_setup()
               .setColorForeground(color(0)) 
                 .setLabelVisible(false) 
                   ;
-
+    
   cp5.addBang("no")
     .setPosition(195, CO-138)
       .setSize(35, 36)
