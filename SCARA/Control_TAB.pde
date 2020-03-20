@@ -10,25 +10,22 @@ void contorlTab() {
     hideMode2B();
     hideMode2C();
     hideMode3A();
-      hideMode3B();
-        hideMode3C();
-         hideMode4();
-        
+    hideMode3B();
+    hideMode3C();
+    hideMode4();
+
 
     if (SubMode1==1) //SINGLE COLOR
     {  
       pushMatrix();
-      translate(0,0,0.0002);
+      translate(0, 0, 0.0002);
       image(cmode1, 163, CO-291);
       popMatrix();
       cp5.getController("color_mode").moveTo("default");
       cp5.getController("no").moveTo("default");
       cp5.getController("yes").moveTo("default");
       cp5.getGroup("rgb").moveTo("default");
-      
-     
-
-         hideMode1B();
+      hideMode1B();
     }
 
     if (SubMode1==2) //MULTI COLOR
@@ -44,10 +41,12 @@ void contorlTab() {
     image(mmode, 163, CO-237);
     cp5.getController("manual_mode").moveTo("default");
     hideMode1A();
-  hideMode3A();
-      hideMode3B();
-        hideMode3C();
-         hideMode4();
+    hideMode1B();
+    hideMode3A();
+    hideMode3B();
+    hideMode3C();
+    hideMode4();
+
     if (SubMode2==1) //SLIDER
     { 
       image(mmode1, 163, CO-237);
@@ -68,7 +67,7 @@ void contorlTab() {
       cp5.getController("manual_mode").moveTo("default");
       hideMode2A();
       hideMode2C();
-      
+
       cp5.getController("text_shoulder").moveTo("default");
       cp5.getController("text_elbow").moveTo("default");
       cp5.getController("text_wirst").moveTo("default");
@@ -95,45 +94,56 @@ void contorlTab() {
     image(ikmode, 163, CO-237);
     cp5.getController("ik_mode").moveTo("default");
     hideMode1A();
+    hideMode1B();
     hideMode2A();
     hideMode2B();
     hideMode2C();
     hideMode4();
-    
-     if (SubMode3==1) //SLIDER
+
+    if (SubMode3==1) //SLIDER
     { 
-      
+
       cp5.getController("ik_mode").moveTo("default");
       hideMode3B();
       hideMode3C();
     }
-    
-    if(SubMode3==3){
-         hideMode3A();
+
+    if (SubMode3==3) {
+      hideMode3A();
       hideMode3C();
-}
-    if(SubMode3==3){
-       image(ikmode3, 163, CO-237);
-        cp5.getController("text_posX").moveTo("default");
-         cp5.getController("text_posY").moveTo("default");
-     hideMode3A();
+    }
+    if (SubMode3==3) {
+      image(ikmode3, 163, CO-237);
+      cp5.getController("text_posX").moveTo("default");
+      cp5.getController("text_posY").moveTo("default");
+      hideMode3A();
       hideMode3B();
-  }
+    }
   }
 
-////////////////////////// COLOR DETECTOR /////////////////////////
+  ////////////////////////// COLOR DETECTOR /////////////////////////
   if (MainMode==4)
   { 
     image(pidmode, 163, CO-237);
     cp5.getController("jointPID").moveTo("default");
-        hideMode1A();
+    cp5.getController("text_setpoint").moveTo("default");
+    cp5.getController("text_KP").moveTo("default");
+    cp5.getController("text_KI").moveTo("default");
+    cp5.getController("text_KD").moveTo("default");
+
+    cp5.getController("start_pid").moveTo("default");
+      cp5.getController("stop_pid").moveTo("default");
+        cp5.getController("reset_pid").moveTo("default");
+        
+    hideAllMode();
+    hideMode1A();
+    hideMode1B();
     hideMode2A();
     hideMode2B();
     hideMode2C();
     hideMode3A();
-      hideMode3B();
-        hideMode3C();
-
+    hideMode3B();
+    hideMode3C();
   }
 
 
@@ -142,21 +152,24 @@ void contorlTab() {
 
   if (MainMode!=1 && MainMode!=2 && MainMode!=3 && MainMode!=4) 
   {
-    cp5.getController("color_mode").moveTo("HIDE"); //mode color
-    cp5.getController("manual_mode").moveTo("HIDE"); // mode manual
-    cp5.getController("ik_mode").moveTo("HIDE"); // mode inverse
+    hideAllMode();
 
     hideMode1A();
     hideMode1B();
     hideMode2A();
     hideMode2B();
     hideMode2C();
-      hideMode3C();
-        hideMode3C();
-          hideMode3C();
-          hideMode4();
-          
+    hideMode3C();
+    hideMode3C();
+    hideMode3C();
+    hideMode4();
   }
+}
+
+void hideAllMode() {
+  cp5.getController("color_mode").moveTo("HIDE"); //mode color
+  cp5.getController("manual_mode").moveTo("HIDE"); // mode manual
+  cp5.getController("ik_mode").moveTo("HIDE"); // mode inverse
 }
 
 void hideMode1A() {
@@ -194,9 +207,23 @@ void hideMode3B() {
 }
 void hideMode3C() {
   cp5.getController("text_posX").moveTo("HIDE");
-         cp5.getController("text_posY").moveTo("HIDE");
+  cp5.getController("text_posY").moveTo("HIDE");
 }
 
-void hideMode4(){
-      cp5.getController("jointPID").moveTo("HIDE");
+void hideMode4() {
+  cp5.getController("jointPID").moveTo("HIDE");
+  cp5.getController("jointPID").moveTo("HIDE");
+  cp5.getController("text_setpoint").moveTo("HIDE");
+  cp5.getController("text_KP").moveTo("HIDE");
+  cp5.getController("text_KI").moveTo("HIDE");
+  cp5.getController("text_KD").moveTo("HIDE");
+    cp5.getController("start_pid").moveTo("HIDE");
+      cp5.getController("stop_pid").moveTo("HIDE");
+        cp5.getController("reset_pid").moveTo("HIDE");
+        
+  
+  
+  
+  
 }
+

@@ -53,6 +53,7 @@ int MainMode=0;
 int SubMode1=0;
 int SubMode2=0;
 int SubMode3=0;
+int SubMode4=0;
 
 //toggle manual mode
 boolean up_down =false;
@@ -65,6 +66,9 @@ int text_wirst=180;
 
 int value_shoulder, value_elbow, value_wirst;
 int value_posX, value_posY;
+
+int value_setpoint;
+float value_KP, value_KI, value_KD;
 
 void setup()
 {
@@ -176,15 +180,21 @@ public void text_posY(String _text_posY) {
   value_posY= int(_text_posY);
 }
 
-public void text_posY(String _text_posY) {
 
-  value_posY= int(_text_posY);
+public void text_setpoint(String _text_setpoint) {
+
+  value_setpoint= int(_text_setpoint);
 }
-public void text_posY(String _text_posY) {
+public void text_KP(String _text_KP) {
 
-  value_posY= int(_text_posY);
+  value_KP= float(_text_KP);
 }
-public void text_posY(String _text_posY) {
+public void text_KI(String _text_KI) {
 
-  value_posY= int(_text_posY);
+  value_KI= float(_text_KI);
+}
+
+public void text_KD(String _text_KD) {
+
+  value_KD= float(_text_KD);
 }

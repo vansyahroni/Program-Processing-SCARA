@@ -90,6 +90,17 @@ void _text()
       text(value_posY, 270, CO-235);
     }
   }
+  
+  if (MainMode==4) {
+    
+    
+    text("SET PID ", 185, CO-465);
+    
+ text(value_setpoint, 246, CO-287);
+      text(value_KP, 246, CO-245);
+       text(value_KI, 246, CO-200);
+      text(value_KD, 246, CO-155);
+}
 }
 
 

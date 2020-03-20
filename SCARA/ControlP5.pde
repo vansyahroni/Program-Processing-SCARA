@@ -163,7 +163,6 @@ void GUI_setup()
   cp5.addTextfield("text_shoulder")
     .setPosition(163, CO-307)
       .setSize(61, 27)
-
         .setFont(font20)
           .setColorBackground(#80A2A3)
             .setColorActive(#F75C57) 
@@ -274,12 +273,96 @@ void GUI_setup()
   cp5.addBang("jointPID")
     .setPosition(155, CO-341)
       .setSize(36, 19)
-          .setId(41)
+          .setId(411)
             .setColorBackground(#80A2A3)
               .setColorActive(#F75C57) 
                 .setColorForeground(#F75C57) 
                   .setLabelVisible(false) 
-                    ;            
+                    ;  
+                    
+                      cp5.addTextfield("text_setpoint")
+    .setPosition(155, CO-296)
+      .setSize(36, 19)
+        .setFont(font20)
+          .setColorBackground(#80A2A3)
+            .setColorActive(#F75C57) 
+              .setColorForeground(#F75C57) 
+                .setFocus(true)
+                  .captionLabel().setVisible(false)
+                    .setColor(255)
+                      ;
+                      
+                        cp5.addTextfield("text_KP")
+    .setPosition(155, CO-254)
+      .setSize(36, 19)
+        .setFont(font20)
+          .setColorBackground(#80A2A3)
+            .setColorActive(#F75C57) 
+              .setColorForeground(#F75C57) 
+                .setFocus(true)
+                  .captionLabel().setVisible(false)
+                    .setColor(255)
+                      ;
+                      
+                        cp5.addTextfield("text_KI")
+    .setPosition(155, CO-209)
+      .setSize(36, 19)
+        .setFont(font20)
+          .setColorBackground(#80A2A3)
+            .setColorActive(#F75C57) 
+              .setColorForeground(#F75C57) 
+                .setFocus(true)
+                  .captionLabel().setVisible(false)
+                    .setColor(255)
+                      ;
+                      
+                        cp5.addTextfield("text_KD")
+    .setPosition(155, CO-164)
+      .setSize(36, 19)
+        .setFont(font20)
+          .setColorBackground(#80A2A3)
+            .setColorActive(#F75C57) 
+              .setColorForeground(#F75C57) 
+                .setFocus(true)
+                  .captionLabel().setVisible(false)
+                    .setColor(255)
+                      ;
+                      
+                      
+  cp5.addBang("start_pid")
+    .setPosition(145, CO-106)
+      .setSize(27, 27)
+        .setId(421)
+          .setLabel("changeBackground")
+            .setColorBackground(#80A2A3)
+              .setColorActive(#F75C57) 
+                .setColorForeground(#80A2A3) 
+                  .setLabelVisible(false) 
+                    ;
+                    
+                    
+  cp5.addBang("stop_pid")
+    .setPosition(196, CO-106)
+      .setSize(27, 27)
+        .setId(422)
+          .setLabel("changeBackground")
+            .setColorBackground(#80A2A3)
+              .setColorActive(#F75C57) 
+                .setColorForeground(#80A2A3) 
+                  .setLabelVisible(false) 
+                    ;
+                    
+                    
+  cp5.addBang("reset_pid")
+    .setPosition(248, CO-106)
+      .setSize(27, 27)
+        .setId(423)
+          .setLabel("changeBackground")
+            .setColorBackground(#80A2A3)
+              .setColorActive(#F75C57) 
+                .setColorForeground(#80A2A3) 
+                  .setLabelVisible(false) 
+                    ;
                       
 }
 
