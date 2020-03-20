@@ -33,10 +33,12 @@ String shortifyPortName(String portName, int maxlen)
   return shortName;
 }
 
+
+////// CONTROL   ////////
 int _statustab;
 
 
-//background
+//image
 PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3, ikmode;
 
 //controlp5
@@ -61,6 +63,8 @@ int text_elbow=90;
 int text_wirst=180;
 
 int value_shoulder, value_elbow, value_wirst;
+
+
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
@@ -128,6 +132,7 @@ void keyPressed() {
     break;
   }
 }
+
 int yes_no;
 public void yes() {
   yes_no = 1;
