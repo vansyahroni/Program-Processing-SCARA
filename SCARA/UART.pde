@@ -126,22 +126,27 @@ void controlEvent(ControlEvent theControlEvent)
     }
     if (MainMode==1) {
       if (_statustab==121) {
+        color_counter+=1;
         _chose_color=1;
         println("RED");
       }
       if (_statustab==122) {
+             color_counter+=1;
         _chose_color=2;
         println("GREEN");
       }
       if (_statustab==123) {
+             color_counter+=1;
         _chose_color=3;
         println("BLUE");
       }
       if (_statustab==124) {
+             color_counter+=1;
         _chose_color=4;
         println("YELLOW");
       }
       if (_statustab==125) {
+             color_counter+=1;
         _chose_color=5;
         println("BLACK");
       }
@@ -157,8 +162,10 @@ void controlEvent(ControlEvent theControlEvent)
               chose_color_go=2;
         
       }
-      
-      println(_chose_color, chose_color_go);
+      if(color_counter==5){
+        hide_rgb=1;
+      }
+      println(_chose_color, chose_color_go, color_counter);
     }
     // MODE 2 //
     if (MainMode==2 && _statustab==12) {

@@ -43,7 +43,13 @@ void contorlTab() {
               cp5.getController("chose_color_start").moveTo("default");
                  cp5.getController("chose_color_change").moveTo("default");
            
-
+  if(hide_rgb==1){
+   cp5.getController("chose_red").moveTo("HIDE");
+        cp5.getController("chose_green").moveTo("HIDE");
+         cp5.getController("chose_blue").moveTo("HIDE");
+          cp5.getController("chose_yellow").moveTo("HIDE");
+           cp5.getController("chose_black").moveTo("HIDE");
+}
      
     }
   }

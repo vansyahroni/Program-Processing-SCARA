@@ -72,6 +72,8 @@ float value_KP, value_KI, value_KD;
 
 int _chose_color=0;
 int chose_color_go=0;
+int color_counter=0;
+int hide_rgb;
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
