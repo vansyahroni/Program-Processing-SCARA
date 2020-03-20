@@ -39,7 +39,7 @@ int _statustab;
 
 
 //image
-PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3, ikmode;
+PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3, ikmode, ikmode3;
 
 //controlp5
 int i=0; //setid
@@ -64,7 +64,7 @@ int text_elbow=90;
 int text_wirst=180;
 
 int value_shoulder, value_elbow, value_wirst;
-
+int value_posX, value_posY;
 
 void setup()
 {
@@ -82,6 +82,7 @@ void setup()
   
   
  ikmode=loadImage("ikmode.png");
+  ikmode3=loadImage("ikmode3.png");
 
   cp5 = new ControlP5(this);
   //  ik1 = new InverseKinematic(ps, pe);  
@@ -160,5 +161,15 @@ public void text_elbow(String _text_elbow) {
 public void text_wirst(String _text_wirst) {
 
   value_wirst= int(_text_wirst);
+}
+
+public void text_posX(String _text_posX) {
+
+  value_posX= int(_text_posX);
+}
+
+public void text_posY(String _text_posY) {
+
+  value_posY= int(_text_posY);
 }
 
