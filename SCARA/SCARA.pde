@@ -52,6 +52,7 @@ RadioButton RadioButton;
 int MainMode=0;
 int SubMode1=0;
 int SubMode2=0;
+int SubMode3=0;
 
 //toggle manual mode
 boolean up_down =false;
@@ -70,6 +71,7 @@ void setup()
   size(1280, 720, OPENGL);      //ukuran window
 
   bg=loadImage("bg.png"); //backgorund
+  
   cmode=loadImage("cmode.png");
   cmode1=loadImage("cmode1.png");
   
@@ -105,7 +107,7 @@ void draw()
 {
   background(bg); 
   contorlTab();
-  _text();
+//  _text();
   Send_To_Arduino();
 }
 

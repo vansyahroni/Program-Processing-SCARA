@@ -36,7 +36,9 @@ void GUI_setup()
 
 
   //////////////////////// MDOE 1 ///////////////////////////
+       
   
+     
   cp5.addBang("color_mode") //CONTROL SUB MODE
           .setId(11)
     .setPosition(40, CO-396)
@@ -46,9 +48,9 @@ void GUI_setup()
               .setColorForeground(#80A2A3) 
                 .setLabelVisible(false) 
                   ;
-        
+    
               ////// CHOSE COLOR //////
-              
+             
   RadioButton= cp5.addRadioButton("rgb") 
     .setPosition(49, CO-295)
       .setSize(28, 27)
@@ -64,22 +66,23 @@ void GUI_setup()
                           .addItem("black", 5)
                             .setColorLabel(#BDDBDB)
                               ;
+                            
 
   cp5.addBang("yes")
-    .setPosition(99, CO-147)
-      .setSize(37, 32)
-          .setColorBackground(#80A2A3)
+    .setPosition(95, CO-138)
+      .setSize(35, 36)
+          .setColorBackground(color(0))
             .setColorActive(#80A2A3) 
-              .setColorForeground(#80A2A3) 
+              .setColorForeground(color(0)) 
                 .setLabelVisible(false) 
                   ;
 
   cp5.addBang("no")
-    .setPosition(199, CO-147)
-      .setSize(37, 32)
-          .setColorBackground(#80A2A3)
+    .setPosition(195, CO-138)
+      .setSize(35, 36)
+          .setColorBackground(color(0))
             .setColorActive(#80A2A3) 
-              .setColorForeground(#80A2A3) 
+              .setColorForeground(color(0)) 
                 .setLabelVisible(false) 
                   ;
 

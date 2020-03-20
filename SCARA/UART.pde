@@ -132,7 +132,14 @@ void controlEvent(ControlEvent theControlEvent)
       println("MODE 2 | SUBMODE:"+SubMode2);
     }
     
+    // MODE 3 //
+     if (MainMode==3 && _statustab==13) {
+      SubMode3+=1;
+      if (SubMode3==4) {
+        SubMode3=1;
+      }
+      println("MODE 3 | SUBMODE:"+SubMode3);
     
   }
 }
-
+}

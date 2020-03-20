@@ -11,17 +11,19 @@ void contorlTab() {
     hideMode2C();
 
     if (SubMode1==1) //SINGLE COLOR
-    {
+    {  
       pushMatrix();
-      translate(0, 0, 0.1);
-      image(cmode1, 163, CO-207);
+      translate(0,0,0.0002);
+      image(cmode1, 163, CO-197);
       popMatrix();
       cp5.getController("color_mode").moveTo("default");
-      hideMode1B();
-
       cp5.getController("no").moveTo("default");
       cp5.getController("yes").moveTo("default");
       cp5.getGroup("rgb").moveTo("default");
+      
+     
+
+         hideMode1B();
     }
 
     if (SubMode1==2) //MULTI COLOR
@@ -88,6 +90,21 @@ void contorlTab() {
     hideMode2A();
     hideMode2B();
     hideMode2C();
+    
+     if (SubMode3==1) //SLIDER
+    { 
+      image(mmode1, 163, CO-237);
+      cp5.getController("manual_mode").moveTo("default");
+      hideMode2B();
+      hideMode2C();
+
+      cp5.getController("slider_shoulder").moveTo("default");
+      cp5.getController("slider_elbow").moveTo("default");
+      cp5.getController("slider_wirst").moveTo("default");
+      cp5.getController("up_down").moveTo("default");
+      cp5.getController("gripper").moveTo("default");
+    }
+    
   }
 
   ////////////////////////// OFF /////////////////////////
