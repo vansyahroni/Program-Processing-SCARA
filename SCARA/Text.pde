@@ -9,7 +9,7 @@ void _text()
   //main
   if(tab==1) {text("COLOR DETECTOR", 160, CO-465);}
   if(tab==2) {text("MANUAL", 160, CO-465);}
-  if(tab==3) {text("KINEMATIKA", 160, CO-465);}
+  if(tab==3) {text("INVERSE KINEMATIC", 160, CO-465);}
 
 
 
@@ -18,6 +18,7 @@ void _text()
   if(tab==1 &&_tab==2){  text("MULTI COLOR", 188, CO-369);}
   if(tab==2 &&_tab2==1){  text("MANUAL SLIDER", 188, CO-369);}
   if(tab==2 &&_tab2==2){  text("MANUAL TEXT", 188, CO-369);}
+    if(tab==2 &&_tab2==3){  text("REMOTE", 188, CO-369);}
 
   //perintah RGB
 
@@ -77,8 +78,8 @@ if(tab==1 && _tab==1){
       text(value_wirst, 270, CO-177);
  }
  
-  if(_statustab==231){ text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE REMOTE", 163, CO-237); }
-   if(_statustab==232){ text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE KEYBOARD", 163, CO-237); }
+  if(_statustab==231){ text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE REMOTE", 163, CO-186); }
+   if(_statustab==232){ text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE KEYBOARD", 163, CO-186); }
   
 }
 

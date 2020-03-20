@@ -33,6 +33,27 @@ void contorlTab() {
     cp5.getController("up_down").moveTo("mode2");
     cp5.getController("gripper").moveTo("mode2");
   }
+  
+  
+  if (tab==3) //INVERSE KINEMATIC
+  { 
+   image(ikmode, 163, CO-237);
+ 
+    
+//    cp5.getController("no").moveTo("mode2");
+//    cp5.getController("yes").moveTo("mode2");
+//    cp5.getController("color_mode").moveTo("mode2");
+//    cp5.getGroup("rgb").moveTo("mode2");
+//    
+//     cp5.getController("manual_mode").moveTo("default");
+//    cp5.getController("slider_shoulder").moveTo("mode2");
+//    cp5.getController("slider_elbow").moveTo("mode2");
+//    cp5.getController("slider_wirst").moveTo("mode2");
+//    cp5.getController("up_down").moveTo("mode2");
+//    cp5.getController("gripper").moveTo("mode2");
+  }
+  
+  
 
   if (tab!=1 && tab!=2) 
   {
@@ -54,6 +75,7 @@ cp5.getGroup("rgb").moveTo("Mode2");
        
                 cp5.getController("remote").moveTo("mode2");
        cp5.getController("keyboard").moveTo("mode2");
+            cp5.getController("mmode3ok").moveTo("mode2");
   }
   
   
@@ -97,6 +119,7 @@ cp5.getGroup("rgb").moveTo("Mode2");
        
          cp5.getController("remote").moveTo("mode2");
        cp5.getController("keyboard").moveTo("mode2");
+          cp5.getController("mmode3ok").moveTo("mode2");
   }
   
   if (tab==2 &&_tab2==2) //mmode2
@@ -117,11 +140,13 @@ cp5.getGroup("rgb").moveTo("Mode2");
        
          cp5.getController("remote").moveTo("mode2");
        cp5.getController("keyboard").moveTo("mode2");
+        cp5.getController("mmode3ok").moveTo("mode2");
+       
   }
   
    if (tab==2 &&_tab2==3) //mmode2
   {
-   image(mmode, 163, CO-237);
+   image(mmode3, 163, CO-237);
  
    
   cp5.getController("manual_mode").moveTo("default");
@@ -137,6 +162,7 @@ cp5.getGroup("rgb").moveTo("Mode2");
        
        cp5.getController("remote").moveTo("default");
        cp5.getController("keyboard").moveTo("default");
+        cp5.getController("mmode3ok").moveTo("default");
   }
   
 }

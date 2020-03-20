@@ -291,6 +291,19 @@ void GUI_setup()
             .setColorForeground(#80A2A3) 
                 .setLabelVisible(false) 
                   ;
+                  
+                        cp5.addBang("mmode3ok")
+    .setPosition(116, CO-114)
+      .setSize(94, 27)
+      .setId(232)
+        .setLabel("changeBackground")
+             .setColorBackground(#80A2A3)
+          .setColorActive(#F75C57) 
+            .setColorForeground(#80A2A3) 
+                .setLabelVisible(false) 
+                  ;
+                  
+                  
                       
 }
 

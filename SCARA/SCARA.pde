@@ -38,7 +38,7 @@ int _statustab;
 
 
 //background
-PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3;
+PImage bg, cmode, cmode1, mmode, mmode1, mmode2, mmode3, ikmode;
 
 //controlp5
 int i=0; //setid
@@ -74,7 +74,9 @@ void setup()
   mmode1=loadImage("mmode1.png");
   mmode2=loadImage("mmode2.png");
   mmode3=loadImage("mmode3.png");
-
+  
+  
+ ikmode=loadImage("ikmode.png");
 
   cp5 = new ControlP5(this);
   //  ik1 = new InverseKinematic(ps, pe);  
