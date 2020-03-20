@@ -40,6 +40,9 @@ void contorlTab() {
           cp5.getController("chose_yellow").moveTo("default");
            cp5.getController("chose_black").moveTo("default");
            
+              cp5.getController("chose_color_start").moveTo("default");
+                 cp5.getController("chose_color_change").moveTo("default");
+           
 
      
     }
@@ -195,6 +198,10 @@ void hideMode1B() {
          cp5.getController("chose_blue").moveTo("HIDE");
           cp5.getController("chose_yellow").moveTo("HIDE");
            cp5.getController("chose_black").moveTo("HIDE");
+           
+              cp5.getController("chose_color_start").moveTo("HIDE");
+                 cp5.getController("chose_color_change").moveTo("HIDE");
+                 
 }
 
 void hideMode2A() {

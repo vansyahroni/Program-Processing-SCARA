@@ -119,18 +119,47 @@ void controlEvent(ControlEvent theControlEvent)
       if (SubMode1==3) {
         SubMode1=1;
       }
-      
-          
-              
+
+
+
       println("MODE 1 | SUBMODE:"+SubMode1);
     }
-    
-      if(_statustab==121){_chose_color=1;println("RED");}
-        if(_statustab==122){_chose_color=2;println("GREEN");}
-          if(_statustab==123){_chose_color=3;println("BLUE");}
-            if(_statustab==124){_chose_color=4;println("YELLOW");}
-              if(_statustab==125){_chose_color=5;println("BLACK");}
-               
+    if (MainMode==1) {
+      if (_statustab==121) {
+        _chose_color=1;
+        println("RED");
+      }
+      if (_statustab==122) {
+        _chose_color=2;
+        println("GREEN");
+      }
+      if (_statustab==123) {
+        _chose_color=3;
+        println("BLUE");
+      }
+      if (_statustab==124) {
+        _chose_color=4;
+        println("YELLOW");
+      }
+      if (_statustab==125) {
+        _chose_color=5;
+        println("BLACK");
+      }
+ 
+      if (_statustab!=121 && _statustab!=122 && _statustab!=123 && _statustab!=124 && _statustab!=125 && _statustab!=126 && _statustab!=127) {
+        _chose_color=0;
+            chose_color_go=0;
+      }
+      if (_statustab==126) {
+      chose_color_go=1;
+      }
+      if (_statustab==127) {
+              chose_color_go=2;
+        
+      }
+      
+      println(_chose_color, chose_color_go);
+    }
     // MODE 2 //
     if (MainMode==2 && _statustab==12) {
       SubMode2+=1;
@@ -148,7 +177,7 @@ void controlEvent(ControlEvent theControlEvent)
       }
       println("MODE 3 | SUBMODE:"+SubMode3);
     }
-    
+
     if (MainMode==4 && _statustab==411) {
       SubMode4+=1;
       if (SubMode4==4) {
@@ -156,8 +185,6 @@ void controlEvent(ControlEvent theControlEvent)
       }
       println("MODE 4 | SUBMODE:"+SubMode4);
     }
-    
-    
   }
 }
 

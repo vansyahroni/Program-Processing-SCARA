@@ -71,6 +71,7 @@ int value_setpoint;
 float value_KP, value_KI, value_KD;
 
 int _chose_color=0;
+int chose_color_go=0;
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window

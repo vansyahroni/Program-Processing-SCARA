@@ -132,7 +132,7 @@ void GUI_setup()
                   
                     cp5.addBang("chose_black")
     .setPosition(256, CO-263)
-      .setSize(31, 22)
+      .setSize(27, 22)
         .setId(125)
           .setColorBackground(#332C2B)
             .setColorActive(#332C2B) 
@@ -140,7 +140,24 @@ void GUI_setup()
                 .setLabelVisible(false) 
                   ;
 
-
+          cp5.addBang("chose_color_start")
+    .setPosition(101, CO-106)
+      .setSize(27, 22)
+        .setId(126)
+          .setColorBackground(#80A2A3)
+              .setColorActive(#F75C57) 
+                .setColorForeground(#80A2A3) 
+                .setLabelVisible(false) 
+                  ;
+                            cp5.addBang("chose_color_change")
+    .setPosition(219, CO-106)
+      .setSize(31, 22)
+        .setId(127)
+          .setColorBackground(#80A2A3)
+              .setColorActive(#F75C57) 
+                .setColorForeground(#80A2A3) 
+                .setLabelVisible(false) 
+                  ;
 
 
   //////////////////////// MDOE 2 ///////////////////////////
