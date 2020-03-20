@@ -33,7 +33,6 @@ String shortifyPortName(String portName, int maxlen)
   return shortName;
 }
 
-
 int _statustab;
 
 
@@ -48,9 +47,9 @@ RadioButton RadioButton;
 
 //tab
 
-int tab=0;
-int _tab=0;
-int _tab2=0;
+int MainMode=0;
+int SubMode1=0;
+int SubMode2=0;
 
 //toggle manual mode
 boolean up_down =false;

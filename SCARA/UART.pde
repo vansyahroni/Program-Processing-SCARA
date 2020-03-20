@@ -84,54 +84,53 @@ int rgb=0;
 
 void controlEvent(ControlEvent theControlEvent)
 {
-  if (theControlEvent.isGroup()) if (theControlEvent.name()=="portComList") InitSerial(theControlEvent.group().value()); // initialize the serial port selected
 
+  ////UART////
+  if (theControlEvent.isGroup()) if (theControlEvent.name()=="portComList") InitSerial(theControlEvent.group().value()); 
+
+  ////RGB COLOR////
   if (theControlEvent.isFrom(RadioButton)) {
-    print("got an event from "+theControlEvent.getName()+"\t");
-    for (int i=0; i<theControlEvent.getGroup ().getArrayValue().length; i++) {
-      print(int(theControlEvent.getGroup().getArrayValue()[i]));
-    }
     rgb=int(theControlEvent.getValue());
     yes_no=3;
   }  
+  ///BANG, TOGGLE, SLIDER///
+
+
 
   if (theControlEvent.isController()) {
-
-     _statustab=theControlEvent.getController().getId(); 
-     
-    if (_statustab==1) {
-
-        tab+=1;
-      
-        if (tab==4) {
-          tab=1;
-        }
-
-        println("statustab:"+tab);
-      
-    }
+    _statustab=theControlEvent.getController().getId();      
     
-      if(tab==1 && _statustab==2){
-//         _tab=tab*10;
-         _tab+=1;
-         if(_tab==3){
-           _tab=1;}
-          println(_tab);
-        
+  /*
+      ID 
+   MAIN MODE = 1
+   MODE 1    = 11
+   MODE 2    = 12
+   */
+   
+    //MAIN MODE //
+    if (_statustab==1) { 
+      MainMode+=1;
+      if (MainMode==4) {
+        MainMode=1;
+      }
+      println("MODE:"+MainMode);
+    }
+    // MODE 1 //
+    if (MainMode==1 && _statustab==11) {
+      SubMode1+=1;
+      if (SubMode1==3) {
+        SubMode1=1;
+      }
+      println(SubMode1);
+    }
+    // MODE 2 //
+    if (MainMode==2 && _statustab==12) {
+      SubMode2+=1;
+      if (SubMode2==4) {
+        SubMode2=1;
+      }
+      println(SubMode2);
+    }
   }
-  
-  if(tab==2 && _statustab==3){
-//         _tab=tab*10;
-         _tab2+=1;
-         if(_tab2==4){
-           _tab2=1;}
-          println(_tab2);
-        
-  }
-}
-//if(theEvent.isAssignableFrom(Textfield.class)) {
-//          
-//            +theEvent.getStringValue()
-//            );
 }
 

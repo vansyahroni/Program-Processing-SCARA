@@ -7,23 +7,23 @@ void _text()
   fill(0);
   noStroke();
   //main
-  if(tab==1) {text("COLOR DETECTOR", 160, CO-465);}
-  if(tab==2) {text("MANUAL", 160, CO-465);}
-  if(tab==3) {text("INVERSE KINEMATIC", 160, CO-465);}
+  if(MainMode==1) {text("COLOR DETECTOR", 160, CO-465);}
+  if(MainMode==2) {text("MANUAL", 160, CO-465);}
+  if(MainMode==3) {text("INVERSE KINEMATIC", 160, CO-465);}
 
 
 
   //sub mode
-  if(tab==1 &&_tab==1){  text("SINGLE COLOR", 188, CO-369);}
-  if(tab==1 &&_tab==2){  text("MULTI COLOR", 188, CO-369);}
-  if(tab==2 &&_tab2==1){  text("MANUAL SLIDER", 188, CO-369);}
-  if(tab==2 &&_tab2==2){  text("MANUAL TEXT", 188, CO-369);}
-    if(tab==2 &&_tab2==3){  text("REMOTE", 188, CO-369);}
+  if(MainMode==1 &&SubMode1==1){  text("SINGLE COLOR", 188, CO-369);}
+  if(MainMode==1 &&SubMode1==2){  text("MULTI COLOR", 188, CO-369);}
+  if(MainMode==2 &&SubMode2==1){  text("MANUAL SLIDER", 188, CO-369);}
+  if(MainMode==2 &&SubMode2==2){  text("MANUAL TEXT", 188, CO-369);}
+    if(MainMode==2 &&SubMode2==3){  text("REMOTE", 188, CO-369);}
 
   //perintah RGB
 
   textFont(font14);
-if(tab==1 && _tab==1){
+if(MainMode==1 && SubMode1==1){
   pushMatrix();
   translate(0,0,1);
    
@@ -72,7 +72,7 @@ if(tab==1 && _tab==1){
   popMatrix();}
   
   
- if(tab==2 &&_tab2==2){  
+ if(MainMode==2 &&SubMode2==2){  
   text(value_shoulder, 270, CO-294);
     text(value_elbow, 270, CO-235);
       text(value_wirst, 270, CO-177);

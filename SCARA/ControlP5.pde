@@ -1,7 +1,7 @@
 
 void GUI_setup()
 {
-
+  //////////////////////// TAB ///////////////////////////
   cp5.addTab("default")
     .setColorBackground(#F0F6DC)
       .setColorLabel(#F0F6DC)
@@ -9,26 +9,22 @@ void GUI_setup()
           ;
 
   cp5.addTab("HIDE")
-    .setColorBackground(color(0, 160, 100))
-      .setColorLabel(color(255))
-        .setColorActive(color(255, 128, 0))
-          .hide()
-            ;
+    .hide()
+      ;
 
   cp5.getTab("default")
     .activateEvent(true) 
-    ;
-
+      ;
 
   cp5.getTab("HIDE")
     .activateEvent(true)
-    ;
+      ;
 
 
-  /////////////////////////////////////////
+  //////////////////////// MAIN CONTROL ///////////////////////////
 
 
-  cp5.addBang("main_mode")
+  cp5.addBang("main_mode")  //MAIN MODE
     .setPosition(20, CO-480)
       .setSize(40, 40)
         .setId(1)
@@ -38,22 +34,40 @@ void GUI_setup()
                 .setLabelVisible(false) 
                   ;
 
-  cp5.addBang("color_mode")
+
+  //////////////////////// MDOE 1 ///////////////////////////
+  
+  cp5.addBang("color_mode") //CONTROL SUB MODE
+          .setId(11)
     .setPosition(40, CO-396)
       .setSize(43, 43)
-        .setId(2)
           .setColorBackground(#F75C57)
             .setColorActive(#F75C57) 
               .setColorForeground(#80A2A3) 
                 .setLabelVisible(false) 
                   ;
-
+        
+              ////// CHOSE COLOR //////
+              
+  RadioButton= cp5.addRadioButton("rgb") 
+    .setPosition(49, CO-295)
+      .setSize(28, 27)
+        .setColorActive(#53666A)
+          .setColorBackground(#80A2A3) 
+            .setColorForeground(#80A2A3) 
+              .setItemsPerRow(5)
+                .setSpacingColumn(22)
+                  .addItem("red", 1)
+                    .addItem("green", 2)
+                      .addItem("blue", 3)
+                        .addItem("yellow", 4)
+                          .addItem("black", 5)
+                            .setColorLabel(#BDDBDB)
+                              ;
 
   cp5.addBang("yes")
     .setPosition(99, CO-147)
       .setSize(37, 32)
-        .setLabel("changeBackground")
-
           .setColorBackground(#80A2A3)
             .setColorActive(#80A2A3) 
               .setColorForeground(#80A2A3) 
@@ -63,59 +77,26 @@ void GUI_setup()
   cp5.addBang("no")
     .setPosition(199, CO-147)
       .setSize(37, 32)
-        .setLabel("changeBackground")
-
           .setColorBackground(#80A2A3)
             .setColorActive(#80A2A3) 
               .setColorForeground(#80A2A3) 
-
-
                 .setLabelVisible(false) 
                   ;
 
+  //////////////////////// MDOE 2 ///////////////////////////
 
-
-
-  cp5.addToggle("start")
-    .setPosition(266, CO-480)
-      .setSize(40, 40)
-        .setColorActive(#81BF34)
-          .setColorBackground(#BDDBDB) 
-            .setColorForeground(#BDDBDB) 
-              .setLabelVisible(false) 
-                ;
-
-
-
-
-  RadioButton= cp5.addRadioButton("rgb")
-    .setPosition(49, CO-295)
-      .setSize(28, 27)
-        .setColorActive(#53666A)
-          .setColorBackground(#80A2A3) 
-            .setColorForeground(#80A2A3) 
-              .setItemsPerRow(5)
-                .setSpacingColumn(22)
-                  .addItem("50", 1)
-                    .addItem("100", 2)
-                      .addItem("150", 3)
-                        .addItem("200", 4)
-                          .addItem("250", 5)
-                            .setColorLabel(#BDDBDB)
-                              ;
-
-
-  cp5.addBang("manual_mode")
+  cp5.addBang("manual_mode") //CONTROL SUB MODE
+  .setId(12)
     .setPosition(40, CO-396)
       .setSize(43, 43)
-        .setId(3)
           .setColorBackground(#F75C57)
             .setColorActive(#F75C57) 
               .setColorForeground(#80A2A3) 
                 .setLabelVisible(false) 
                   ;
 
-
+              ////// SLIDER //////
+              
   cp5.addSlider("slider_shoulder")
     .setPosition(41, CO-307)
       .setRange(0, 180)
@@ -172,7 +153,8 @@ void GUI_setup()
                 .setMode(ControlP5.SWITCH)
                   ;
 
-
+              ////// TEXT //////
+              
   cp5.addTextfield("text_shoulder")
     .setPosition(163, CO-307)
       .setSize(61, 27)
@@ -212,6 +194,8 @@ void GUI_setup()
                     .setColor(255)
                       ;
 
+              ////// REMOTE //////
+              
   cp5.addBang("remote")
     .setPosition(55, CO-307)
       .setSize(94, 27)
@@ -246,14 +230,12 @@ void GUI_setup()
                   .setLabelVisible(false) 
                     ;
 
+  //////////////////////// MDOE 3 ///////////////////////////
 
-
-
-
-  cp5.addBang("ik_mode")
+  cp5.addBang("ik_mode") //CONTROL SUB MODE
+  .setId(13)
     .setPosition(40, CO-396)
       .setSize(43, 43)
-        .setId(3)
           .setColorBackground(#F75C57)
             .setColorActive(#F75C57) 
               .setColorForeground(#80A2A3) 

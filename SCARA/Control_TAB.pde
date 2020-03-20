@@ -2,7 +2,7 @@ void contorlTab() {
   imageMode(CENTER);
 
   ////////////////////////// COLOR DETECTOR /////////////////////////
-  if (tab==1)
+  if (MainMode==1)
   { 
     image(cmode, 163, CO-237);
     cp5.getController("color_mode").moveTo("default");
@@ -10,7 +10,7 @@ void contorlTab() {
     hideMode2B();
     hideMode2C();
 
-    if (_tab==1) //SINGLE COLOR
+    if (SubMode1==1) //SINGLE COLOR
     {
       pushMatrix();
       translate(0, 0, 0.1);
@@ -24,7 +24,7 @@ void contorlTab() {
       cp5.getGroup("rgb").moveTo("default");
     }
 
-    if (_tab==2) //MULTI COLOR
+    if (SubMode1==2) //MULTI COLOR
     {
       cp5.getController("color_mode").moveTo("default");
       hideMode1A();
@@ -32,13 +32,13 @@ void contorlTab() {
   }
   ////////////////////////// MANUAL /////////////////////////
 
-  if (tab==2) 
+  if (MainMode==2) 
   { 
     image(mmode, 163, CO-237);
     cp5.getController("manual_mode").moveTo("default");
     hideMode1A();
 
-    if (_tab2==1) //SLIDER
+    if (SubMode2==1) //SLIDER
     { 
       image(mmode1, 163, CO-237);
       cp5.getController("manual_mode").moveTo("default");
@@ -52,7 +52,7 @@ void contorlTab() {
       cp5.getController("gripper").moveTo("default");
     }
 
-    if (_tab2==2) //TEXT
+    if (SubMode2==2) //TEXT
     {
       image(mmode2, 163, CO-237);
       cp5.getController("manual_mode").moveTo("default");
@@ -64,7 +64,7 @@ void contorlTab() {
       cp5.getController("text_wirst").moveTo("default");
     }
 
-    if (_tab2==3) //REMOTE
+    if (SubMode2==3) //REMOTE
     {
       image(mmode3, 163, CO-237);
       cp5.getController("manual_mode").moveTo("default");
@@ -80,7 +80,7 @@ void contorlTab() {
   ////////////////////////// INVERSE KINEMATIC /////////////////////////
 
 
-  if (tab==3) //INVERSE KINEMATIC
+  if (MainMode==3) //INVERSE KINEMATIC
   { 
     image(ikmode, 163, CO-237);
     cp5.getController("ik_mode").moveTo("default");
@@ -92,7 +92,7 @@ void contorlTab() {
 
   ////////////////////////// OFF /////////////////////////
 
-  if (tab!=1 && tab!=2 && tab!=3) 
+  if (MainMode!=1 && MainMode!=2 && MainMode!=3) 
   {
     cp5.getController("color_mode").moveTo("HIDE"); //mode color
     cp5.getController("manual_mode").moveTo("HIDE"); // mode manual
