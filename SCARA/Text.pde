@@ -46,10 +46,10 @@ void _text()
     if (SubMode1==2) {  
       text("MULTI COLOR", 188, CO-369);
     }
-  
-
     
-      }
+   
+}
+      
  
   
 

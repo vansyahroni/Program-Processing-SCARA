@@ -124,42 +124,45 @@ void controlEvent(ControlEvent theControlEvent)
 
       println("MODE 1 | SUBMODE:"+SubMode1);
     }
+
     if (MainMode==1) {
-      if (_statustab==121) {
+      
+            
+
+   if (_statustab==121) {
         color_counter+=1;
         _chose_color=1;
-        color_chosen[1]=#F75C57;
+             println("RED");
       }
-      if (_statustab==122) {
+       if (_statustab==122) {
         color_counter+=1;
         _chose_color=2;
-        color_chosen[2]=#009B4C;
+       
         println("GREEN");
       }
       if (_statustab==123) {
         color_counter+=1;
         _chose_color=3;
-        color_chosen[3]=#2F318B;
+       
         println("BLUE");
       }
       if (_statustab==124) {
         color_counter+=1;
         _chose_color=4;
-        color_chosen[4]=#FFF000;
+     
         println("YELLOW");
       }
       if (_statustab==125) {
         color_counter+=1;
         _chose_color=5;
-        color_chosen[5]=#332C2B;
+      
         println("BLACK");
       }
-
-
-      if (_statustab!=121 && _statustab!=122 && _statustab!=123 && _statustab!=124 && _statustab!=125 && _statustab!=126 && _statustab!=127) {
+        if (_statustab!=121 && _statustab!=122 && _statustab!=123 && _statustab!=124 && _statustab!=125 && _statustab!=126 && _statustab!=127) {
         _chose_color=0;
         chose_color_go=0;
       }
+      
       if (_statustab==126) {
         chose_color_go=1;
       }
@@ -169,10 +172,32 @@ void controlEvent(ControlEvent theControlEvent)
       if (color_counter==6) {
         hide_rgb=1;
       }
-      
- 
+                   
+//
+//   _color_counter[1]=#F75C57;
+//   _color_counter[2]=#009B4C;
+//   _color_counter[3]=#2F318B;
+//   _color_counter[4]=#FFF000;
+//   _color_counter[5]=#332C2B;
+//   
+//   
+//   
+//   
+// for(int a=1;a<=color_counter;a++){
+//   rgb_ellipse[a].setFill(_color_counter[a]);
+//rgb_ellipse[2].setFill(_color_counter[a]);
+//rgb_ellipse[3].setFill(_color_counter[a]);
+//rgb_ellipse[4].setFill(_color_counter[a]);
+//rgb_ellipse[5].setFill(_color_counter[a]);
+// rgb_ellipse[a]=createShape(ELLIPSE, 25+50*a, 146,40,40);
+//
+//}
+
+
+
       println(_chose_color, chose_color_go, color_counter);
     }
+    
 
     // MODE 2 //
     if (MainMode==2 && _statustab==12) {
@@ -201,4 +226,5 @@ void controlEvent(ControlEvent theControlEvent)
     }
   }
 }
+
 
