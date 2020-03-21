@@ -73,8 +73,12 @@ float value_KP, value_KI, value_KD;
 int _chose_color=0;
 int chose_color_go=0;
 int color_counter=0;
+int _color_counter[]= new int[5];
 int hide_rgb;
+color color_chosen[]=new color[5];
+int max_rgb;
 
+PShape  rgb_ellipse []= new PShape[5];
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window

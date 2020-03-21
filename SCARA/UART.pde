@@ -128,27 +128,33 @@ void controlEvent(ControlEvent theControlEvent)
       if (_statustab==121) {
         color_counter+=1;
         _chose_color=1;
+        color_chosen[1]=#F75C57;
       }
       if (_statustab==122) {
         color_counter+=1;
         _chose_color=2;
+        color_chosen[2]=#009B4C;
         println("GREEN");
       }
       if (_statustab==123) {
         color_counter+=1;
         _chose_color=3;
+        color_chosen[3]=#2F318B;
         println("BLUE");
       }
       if (_statustab==124) {
         color_counter+=1;
         _chose_color=4;
+        color_chosen[4]=#FFF000;
         println("YELLOW");
       }
       if (_statustab==125) {
         color_counter+=1;
         _chose_color=5;
+        color_chosen[5]=#332C2B;
         println("BLACK");
       }
+
 
       if (_statustab!=121 && _statustab!=122 && _statustab!=123 && _statustab!=124 && _statustab!=125 && _statustab!=126 && _statustab!=127) {
         _chose_color=0;
@@ -160,41 +166,39 @@ void controlEvent(ControlEvent theControlEvent)
       if (_statustab==127) {
         chose_color_go=2;
       }
+      if (color_counter==6) {
+        hide_rgb=1;
+      }
+      
+ 
+      println(_chose_color, chose_color_go, color_counter);
+    }
 
+    // MODE 2 //
+    if (MainMode==2 && _statustab==12) {
+      SubMode2+=1;
+      if (SubMode2==4) {
+        SubMode2=1;
+      }
+      println("MODE 2 | SUBMODE:"+SubMode2);
+    }
 
-              if (color_counter==5) {
-                hide_rgb=1;
-              }
+    // MODE 3 //
+    if (MainMode==3 && _statustab==13) {
+      SubMode3+=1;
+      if (SubMode3==4) {
+        SubMode3=1;
+      }
+      println("MODE 3 | SUBMODE:"+SubMode3);
+    }
 
-
-              println(_chose_color, chose_color_go, color_counter);
-            }
-          
-            // MODE 2 //
-            if (MainMode==2 && _statustab==12) {
-              SubMode2+=1;
-              if (SubMode2==4) {
-                SubMode2=1;
-              }
-              println("MODE 2 | SUBMODE:"+SubMode2);
-            }
-
-            // MODE 3 //
-            if (MainMode==3 && _statustab==13) {
-              SubMode3+=1;
-              if (SubMode3==4) {
-                SubMode3=1;
-              }
-              println("MODE 3 | SUBMODE:"+SubMode3);
-            }
-
-            if (MainMode==4 && _statustab==411) {
-              SubMode4+=1;
-              if (SubMode4==4) {
-                SubMode4=1;
-              }
-              println("MODE 4 | SUBMODE:"+SubMode4);
-            }
-          }
-        }
+    if (MainMode==4 && _statustab==411) {
+      SubMode4+=1;
+      if (SubMode4==4) {
+        SubMode4=1;
+      }
+      println("MODE 4 | SUBMODE:"+SubMode4);
+    }
+  }
+}
 
