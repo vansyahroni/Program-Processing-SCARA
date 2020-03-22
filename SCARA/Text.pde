@@ -3,7 +3,7 @@ void _text()
 {
   //main mode
   textAlign(CENTER, CENTER);
-  textFont(font16);
+  textFont(font[16]);
   fill(0);
   noStroke();
   //main
@@ -11,40 +11,55 @@ void _text()
   if (MainMode==1) {
     text("COLOR DETECTOR", 185, CO-465);
     if (SubMode1==1) {
-      textFont(font14);
+      textFont(font[15]);
       text("SINGLE COLOR", 188, CO-369);                
-      text("YA", 113, CO-88);
+      text("YES", 113, CO-88);
       text("NO", 213, CO-88);
+      text("SET COLOR",175, CO-313);  
       if (rgb>0) {
         if (rgb==1) { 
-          text("THE RED COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 163, CO-213);
+          text("THE RED COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 175, CO-188);
         }
         if (rgb==2) { 
-          text("THE BLUE COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?", 163, CO-213);
+          text("THE BLUE COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?", 175, CO-188);
         }
         if (rgb==3) { 
-          text("THE GREEN COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?", 163, CO-213);
+          text("THE GREEN COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?", 175, CO-188);
         }
         if (rgb==4) { 
-          text("THE YELLOW COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 163, CO-213);
+          text("THE YELLOW COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 175, CO-188);
         }
         if (rgb==5) { 
-          text("THE BLACK COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 163, CO-213);
+          text("THE BLACK COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 175, CO-188);
         }
+        
+        
+      if (_statustab==111 && rgb!=1 && rgb!=2 && rgb!=3 && rgb!=4 && rgb!=5) { 
+        textFont(font[14]);
+        text("PLEASE WAIT FOR 5 SECOND", 175, CO-188);
+      }
+      if (_statustab==112 && rgb!=1 && rgb!=2 && rgb!=3 && rgb!=4 && rgb!=5) { 
+        text("PLEASE CHOSE THE COLOR!", 175, CO-188);   
+      }
       } else {
-        text("PLEASE CHOSE THE COLOR! ", 163, CO-213);
+        text("PLEASE CHOSE THE COLOR! ", 175, CO-188);
       }
 
-      if (_statustab==111) { 
-        text("oke tunggu", 163, CO-213);
-      }
-      if (_statustab==112) { 
-        text("pilih sek", 163, CO-213);
-      }
     }
 
     if (SubMode1==2) {  
       text("MULTI COLOR", 188, CO-369);
+       text("START", 113, CO-88);
+      text("CHANGE", 213, CO-88);
+      if(color_counter==-1)text("",175, CO-313);  
+      if(color_counter==0)text("SET FRIST COLOR",175, CO-313);  
+      if(color_counter==1)text("SET SECOND COLOR",175, CO-313);  
+      if(color_counter==2)text("SET THRID COLOR",175, CO-313);  
+      if(color_counter==3)text("SET FOURTH COLOR",175, CO-313);  
+      if(color_counter==4)text("SET FIVE COLOR",175, CO-313);  
+      if(color_counter==5)text("KAKEAN ",175, CO-313);  
+    if(chose_color_go==1 )text("PLEASE WAIT FOR 5 SECOND",175, CO-313);  
+  if(chose_color_go==2)text("PLEASE CHOSE THE COLOR",175, CO-313);  
     }
     
    

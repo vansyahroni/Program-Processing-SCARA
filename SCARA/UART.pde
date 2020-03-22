@@ -165,36 +165,20 @@ void controlEvent(ControlEvent theControlEvent)
       
       if (_statustab==126) {
         chose_color_go=1;
+        color_counter=-1;
       }
       if (_statustab==127) {
         chose_color_go=2;
       }
-      if (color_counter==6) {
+      if (color_counter==5) {
         hide_rgb=1;
       }
-                   
-//
-//   _color_counter[1]=#F75C57;
-//   _color_counter[2]=#009B4C;
-//   _color_counter[3]=#2F318B;
-//   _color_counter[4]=#FFF000;
-//   _color_counter[5]=#332C2B;
-//   
-//   
-//   
-//   
-// for(int a=1;a<=color_counter;a++){
-//   rgb_ellipse[a].setFill(_color_counter[a]);
-//rgb_ellipse[2].setFill(_color_counter[a]);
-//rgb_ellipse[3].setFill(_color_counter[a]);
-//rgb_ellipse[4].setFill(_color_counter[a]);
-//rgb_ellipse[5].setFill(_color_counter[a]);
-// rgb_ellipse[a]=createShape(ELLIPSE, 25+50*a, 146,40,40);
-//
-//}
-
-
-
+if(chose_color_go==2){
+  chose_color_go=0;
+  color_counter=0;
+   hide_rgb=2;
+}
+  
       println(_chose_color, chose_color_go, color_counter);
     }
     

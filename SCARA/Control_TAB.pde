@@ -19,7 +19,7 @@ void contorlTab() {
     {  
       pushMatrix();
       translate(0, 0, 0.0002);
-      image(cmode1, 163, CO-291);
+      image(cmode1, 172, CO-252);
       popMatrix();
       cp5.getController("color_mode").moveTo("default");
       cp5.getController("no").moveTo("default");
@@ -49,6 +49,14 @@ void contorlTab() {
          cp5.getController("chose_blue").moveTo("HIDE");
           cp5.getController("chose_yellow").moveTo("HIDE");
            cp5.getController("chose_black").moveTo("HIDE");
+}
+
+ if(hide_rgb==2){
+   cp5.getController("chose_red").moveTo("default");
+        cp5.getController("chose_green").moveTo("default");
+         cp5.getController("chose_blue").moveTo("default");
+          cp5.getController("chose_yellow").moveTo("default");
+           cp5.getController("chose_black").moveTo("default");
 }
      
     }
