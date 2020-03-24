@@ -51,7 +51,7 @@ void GUI_setup()
 
   ////// CHOSE COLOR //////
 
-  RadioButton= cp5.addRadioButton("rgb") 
+  RadioButton= cp5.addRadioButton("M1S1_rgb") 
     .setPosition(58, CO-266)
       .setSize(28, 27)
         .setColorActive(#53666A)
@@ -68,20 +68,20 @@ void GUI_setup()
                               ;
 
 
-  cp5.addBang("yes")
+  cp5.addBang("M1S1_yes")
     .setPosition(95, CO-138)
       .setSize(35, 36)
-        .setId(111)
+        .setId(112)
           .setColorBackground(#80A2A3)
             .setColorActive(#F75C57) 
               .setColorForeground(#80A2A3) 
                 .setLabelVisible(false) 
                   ;
 
-  cp5.addBang("no")
+  cp5.addBang("M1S1_no")
     .setPosition(195, CO-138)
       .setSize(35, 36)
-        .setId(112)
+        .setId(113)
           .setColorBackground(#80A2A3)
             .setColorActive(#F75C57) 
               .setColorForeground(#80A2A3) 
@@ -169,7 +169,7 @@ void GUI_setup()
           .setColorBackground(#F75C57)
             .setColorActive(#F75C57) 
               .setColorForeground(#80A2A3) 
-                .setLabelVisible(false) 
+               .setLabelVisible(false) 
                   ;
 
   ////// SLIDER //////
@@ -183,7 +183,7 @@ void GUI_setup()
               .setColorForeground(#F75C57) 
                 .setColorValue(color(0, 0, 0))
                   .setValue(90)
-                    .captionLabel().setVisible(false)
+                     .setLabelVisible(false) 
                       ;
 
   cp5.addSlider("slider_elbow")
@@ -195,7 +195,7 @@ void GUI_setup()
               .setColorForeground(#F75C57) 
                 .setColorValue(color(0, 0, 0))
                   .setValue(90)
-                    .captionLabel().setVisible(false)
+                     .setLabelVisible(false) 
                       ;
 
   cp5.addSlider("slider_wirst")
@@ -207,17 +207,19 @@ void GUI_setup()
               .setColorForeground(#F75C57) 
                 .setColorValue(color(0, 0, 0))
                   .setValue(90)
-                    .captionLabel().setVisible(false)
+                     .setLabelVisible(false) 
                       ;
 
   cp5.addToggle("up_down")
     .setPosition(55, CO-133)
       .setSize(94, 27)
         .setValue(true)
+        .setId(
           .setColorBackground(#80A2A3)
             .setColorActive(#F75C57) 
               .setColorForeground(#F75C57) 
                 .setMode(ControlP5.SWITCH)
+                 .setLabelVisible(false) 
                   ;
 
   cp5.addToggle("gripper")
@@ -228,6 +230,7 @@ void GUI_setup()
             .setColorActive(#F75C57) 
               .setColorForeground(#F75C57) 
                 .setMode(ControlP5.SWITCH)
+                 .setLabelVisible(false) 
                   ;
 
   ////// TEXT //////
@@ -252,7 +255,7 @@ void GUI_setup()
             .setColorActive(#F75C57) 
               .setColorForeground(#F75C57) 
                 .setFocus(true)
-                  .captionLabel().setVisible(false)
+.captionLabel().setVisible(false)
                     .setColor(255)
                       ;
 
@@ -265,7 +268,7 @@ void GUI_setup()
             .setColorActive(#F75C57) 
               .setColorForeground(#F75C57) 
                 .setFocus(true)
-                  .captionLabel().setVisible(false)
+.captionLabel().setVisible(false)
                     .setColor(255)
                       ;
 
@@ -285,7 +288,7 @@ void GUI_setup()
   cp5.addBang("keyboard")
     .setPosition(177, CO-307)
       .setSize(94, 27)
-        .setId(131)
+        .setId(232)
           .setLabel("changeBackground")
             .setColorBackground(#80A2A3)
               .setColorActive(#F75C57) 
@@ -293,10 +296,10 @@ void GUI_setup()
                   .setLabelVisible(false) 
                     ;
 
-  cp5.addBang("mmode3ok")
+  cp5.addBang("M2SM3OK")
     .setPosition(116, CO-114)
       .setSize(94, 27)
-        .setId(132)
+        .setId(233)
           .setLabel("changeBackground")
             .setColorBackground(#80A2A3)
               .setColorActive(#F75C57) 
@@ -340,6 +343,26 @@ void GUI_setup()
                   .captionLabel().setVisible(false)
                     .setColor(255)
                       ;
+
+ cp5.addBang("start_trajectory") //CONTROL SUB MODE
+    .setId(321)
+      .setPosition(55, CO-133)
+        .setSize(94, 27)
+          .setColorBackground(#F75C57)
+            .setColorActive(#F75C57) 
+              .setColorForeground(#80A2A3) 
+                .setLabelVisible(false) 
+                  ;
+                  
+                   cp5.addBang("reset_trajectory") //CONTROL SUB MODE
+    .setId(322)
+      .setPosition(170, CO-133)
+        .setSize(94, 27)
+          .setColorBackground(#F75C57)
+            .setColorActive(#F75C57) 
+              .setColorForeground(#80A2A3) 
+                .setLabelVisible(false) 
+                  ;
 
 
   cp5.addBang("jointPID")

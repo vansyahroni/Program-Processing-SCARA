@@ -22,9 +22,10 @@ void contorlTab() {
       image(cmode1, 172, CO-252);
       popMatrix();
       cp5.getController("color_mode").moveTo("default");
-      cp5.getController("no").moveTo("default");
-      cp5.getController("yes").moveTo("default");
-      cp5.getGroup("rgb").moveTo("default");
+      cp5.getController("M1S1_no").moveTo("default");
+      cp5.getController("M1S1_yes").moveTo("default");
+  
+       cp5.getGroup("M1S1_rgb").moveTo("default");
       hideMode1B();
     }
 
@@ -98,6 +99,8 @@ void contorlTab() {
       cp5.getController("text_shoulder").moveTo("default");
       cp5.getController("text_elbow").moveTo("default");
       cp5.getController("text_wirst").moveTo("default");
+         cp5.getController("up_down").moveTo("default");
+      cp5.getController("gripper").moveTo("default");
     }
 
     if (SubMode2==3) //REMOTE
@@ -109,7 +112,7 @@ void contorlTab() {
 
       cp5.getController("remote").moveTo("default");
       cp5.getController("keyboard").moveTo("default");
-      cp5.getController("mmode3ok").moveTo("default");
+      cp5.getController("M2SM3OK").moveTo("default");
     }
   }
 
@@ -127,7 +130,7 @@ void contorlTab() {
     hideMode2C();
     hideMode4();
 
-    if (SubMode3==1) //SLIDER
+    if (SubMode3==1) 
     { 
 
       cp5.getController("ik_mode").moveTo("default");
@@ -135,16 +138,21 @@ void contorlTab() {
       hideMode3C();
     }
 
-    if (SubMode3==3) {
+    if (SubMode3==2) { image(ikmode2, 163, CO-237);
+      cp5.getController("start_trajectory").moveTo("default");
+        cp5.getController("reset_trajectory").moveTo("default");
       hideMode3A();
       hideMode3C();
     }
     if (SubMode3==3) {
       image(ikmode3, 163, CO-237);
+         hideMode3B();
       cp5.getController("text_posX").moveTo("default");
       cp5.getController("text_posY").moveTo("default");
+  cp5.getController("start_trajectory").moveTo("default");
+        cp5.getController("reset_trajectory").moveTo("default");
       hideMode3A();
-      hideMode3B();
+   
     }
   }
 
@@ -186,8 +194,8 @@ void contorlTab() {
     hideMode2A();
     hideMode2B();
     hideMode2C();
-    hideMode3C();
-    hideMode3C();
+    hideMode3A();
+    hideMode3B();
     hideMode3C();
     hideMode4();
   }
@@ -200,9 +208,9 @@ void hideAllMode() {
 }
 
 void hideMode1A() {
-  cp5.getController("no").moveTo("HIDE");//MODE1A
-  cp5.getController("yes").moveTo("HIDE");//MODE1A
-  cp5.getGroup("rgb").moveTo("HIDE");//MODE1A
+  cp5.getController("M1S1_no").moveTo("HIDE");//MODE1A
+  cp5.getController("M1S1_yes").moveTo("HIDE");//MODE1A
+  cp5.getGroup("M1S1_rgb").moveTo("HIDE");//MODE1A
 }
 
 void hideMode1B() {
@@ -235,12 +243,14 @@ void hideMode2B() {
 void hideMode2C() {
   cp5.getController("remote").moveTo("HIDE");//MODE2C
   cp5.getController("keyboard").moveTo("HIDE");//MODE2C
-  cp5.getController("mmode3ok").moveTo("HIDE");//MODE2C
+  cp5.getController("M2SM3OK").moveTo("HIDE");//MODE2C
 }
 
 void hideMode3A() {
 }
 void hideMode3B() {
+    cp5.getController("start_trajectory").moveTo("HIDE");
+        cp5.getController("reset_trajectory").moveTo("HIDE");
 }
 void hideMode3C() {
   cp5.getController("text_posX").moveTo("HIDE");

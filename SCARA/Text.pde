@@ -34,11 +34,11 @@ void _text()
         }
         
         
-      if (_statustab==111 && rgb!=1 && rgb!=2 && rgb!=3 && rgb!=4 && rgb!=5) { 
+      if (ReadID==111 && rgb!=1 && rgb!=2 && rgb!=3 && rgb!=4 && rgb!=5) { 
         textFont(font[14]);
         text("PLEASE WAIT FOR 5 SECOND", 175, CO-188);
       }
-      if (_statustab==112 && rgb!=1 && rgb!=2 && rgb!=3 && rgb!=4 && rgb!=5) { 
+      if (ReadID==112 && rgb!=1 && rgb!=2 && rgb!=3 && rgb!=4 && rgb!=5) { 
         text("PLEASE CHOSE THE COLOR!", 175, CO-188);   
       }
       } else {
@@ -89,11 +89,17 @@ void _text()
     if (SubMode2==3) {  
       text("REMOTE", 188, CO-369);
 
-      if (_statustab==231) { 
-        text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE REMOTE", 163, CO-186);
+      if (ReadID==231) { 
+        text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE REMOTE", 162, CO-206);    
       }
-      if (_statustab==232) { 
-        text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE KEYBOARD", 163, CO-186);
+      if (ReadID==232) { 
+        text("YOU WILL OPERATE THE ROBOT "+"\n"+"USE KEYBOARD", 163, CO-206);
+      }
+      
+      
+      
+        if (ReadID==233 ) { 
+        text("YOU CAN CONTROL"+"\n"+"THE ROBOT ", 163, CO-206);
       }
     }
   }
@@ -102,13 +108,19 @@ void _text()
   if (MainMode==3) {
     text("INVERSE KINEMATIC", 185, CO-465);
     if (SubMode3==1) {  
-      text("SILAHKAN PILIH POINT YANG MAU \n ANDA TUJU", 163, CO-206);
+        text("ONE POINT", 188, CO-369);
+      text("PLEASE CHOSE THE COORDINAT", 163, CO-239);
     }
 
     if (SubMode3==2) {  
-      text("SILAHKAN PILIH KOORDINAT \n MANA SAJA YANG MAU  ANDA TUJU", 163, CO-206);
+       text("MULTI POINT", 188, CO-369);
+//      text("PLEASE CHOSE THE COORDINAT", 163, CO-239);
+      if(ReadID==321){text("START THE COORDINAT", 163, CO-239);}
+      
+         if(ReadID==322){text("PLEASE CHOSE THE COORDINAT", 163, CO-239);}
     }
     if (SubMode3==3) {  
+       text("KOORDINAT TEXT", 188, CO-369);
       text(value_posX, 270, CO-294);
       text(value_posY, 270, CO-235);
     }

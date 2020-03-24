@@ -4,9 +4,9 @@ Serial serial;
 ControlP5  cp5;
 InverseKinematic ik1;
 
-int CO=720;
-PFont font[]=new PFont[50];
+int CO=720; //corel
 
+PFont font[]=new PFont[50];
 
 Chart current_chart, respon_chart;
 color yellow_ = color(200, 200, 20), green_ = color(46, 209, 2), red_ = color(120, 30, 30), blue_ = color (0, 102, 200);
@@ -34,80 +34,82 @@ String shortifyPortName(String portName, int maxlen)
 }
 
 
-////// CONTROL   ////////
-int _statustab;
-
+////// CONTROL////////
+int ReadID; //read id for the controlp5
+int i=0; //id
 
 //image
-PImage bg, cmode, cmode1, cmode2, mmode, mmode1, mmode2, mmode3, ikmode, ikmode3, pidmode;
-
-//controlp5
-int i=0; //setid
+PImage bg, cmode, cmode1, cmode2, mmode, mmode1, mmode2, mmode3, ikmode, ikmode2, ikmode3, pidmode;
 
 //radiobutton  rgb
 RadioButton RadioButton;
 
-//tab
+//SUB-MODE//
+int MainMode=0;//Main Mode
 
-int MainMode=0;
 int SubMode1=0;
 int SubMode2=0;
 int SubMode3=0;
 int SubMode4=0;
 
-//toggle manual mode
+//Toggle Mode Manual Sub Mode Slider and Text
 boolean up_down =false;
 boolean gripper =false;
 
-//text mmode 2
+//Text Mode Manual
 int text_shoulder=90;
 int text_elbow=90;
 int text_wirst=180;
 
+//Remote for Mode Manual
+int remote_keyboard;
+
+//Value for the Text Mode
 int value_shoulder, value_elbow, value_wirst;
 int value_posX, value_posY;
 
 int value_setpoint;
 float value_KP, value_KI, value_KD;
 
+//Color Detector
 int _chose_color=0;
 int chose_color_go=0;
 int color_counter=0;
 int _color_counter[]= new int[5];
+
 int hide_rgb;
 color color_chosen[]=new color[5];
 int max_rgb;
 
 PShape  rgb_ellipse []= new PShape[5];
+
+
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
 
   bg=loadImage("bg.png"); //backgorund
-  
+
   cmode=loadImage("cmode.png");
   cmode1=loadImage("cmode1.png");
-    cmode2=loadImage("cmode2.png");
-  
-  
+  cmode2=loadImage("cmode2.png");
+
   mmode=loadImage("mmode.png");
   mmode1=loadImage("mmode1.png");
   mmode2=loadImage("mmode2.png");
   mmode3=loadImage("mmode3.png");
-  
-  
- ikmode=loadImage("ikmode.png");
+
+  ikmode=loadImage("ikmode.png");
+  ikmode2=loadImage("ikmode2.png");
   ikmode3=loadImage("ikmode3.png");
 
-
- pidmode=loadImage("pidmode.png");
+  pidmode=loadImage("pidmode.png");
 
   cp5 = new ControlP5(this);
   //  ik1 = new InverseKinematic(ps, pe);  
-for(int a=0;a<50;a++){
-  font[a] = createFont("verdana", a, false);
-}
-
+  for (int a=0; a<50; a++) {
+    font[a] = createFont("verdana", a, false);
+  }
 
   GUI_setup();
   setup_UART();
@@ -147,19 +149,6 @@ void keyPressed() {
     break;
   }
 }
-
-int yes_no;
-public void yes() {
-  yes_no = 1;
-  rgb=6;
-}
-
-public void no() {
-  yes_no = 2;
-  rgb=6;
-}
-
-
 
 public void text_shoulder(String _text_shoulder) {
 
@@ -203,3 +192,4 @@ public void text_KD(String _text_KD) {
 
   value_KD= float(_text_KD);
 }
+

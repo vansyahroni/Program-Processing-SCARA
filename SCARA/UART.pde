@@ -96,7 +96,7 @@ void controlEvent(ControlEvent theControlEvent)
   ///BANG, TOGGLE, SLIDER///
 
   if (theControlEvent.isController()) {
-    _statustab=theControlEvent.getController().getId();      
+    ReadID=theControlEvent.getController().getId();      
 
     /*
       ID 
@@ -106,15 +106,15 @@ void controlEvent(ControlEvent theControlEvent)
      */
 
     //MAIN MODE //
-    if (_statustab==1) { 
+    if (ReadID==1) { 
       MainMode+=1;
       if (MainMode==5) {
         MainMode=1;
       }
-      println("MODE:"+MainMode);
+      println("MODE "+MainMode+" | SUBMODE:");
     }
     // MODE 1 //
-    if (MainMode==1 && _statustab==11) {
+    if (MainMode==1 && ReadID==11) {
       SubMode1+=1;
       if (SubMode1==3) {
         SubMode1=1;
@@ -126,74 +126,89 @@ void controlEvent(ControlEvent theControlEvent)
     }
 
     if (MainMode==1) {
-      
-            
+      if (SubMode1==2) {
 
-   if (_statustab==121) {
-        color_counter+=1;
-        _chose_color=1;
-             println("RED");
-      }
-       if (_statustab==122) {
-        color_counter+=1;
-        _chose_color=2;
+        if (ReadID==121) {
+          color_counter+=1;
+          _chose_color=1;
+        }
+        if (ReadID==122) {
+          color_counter+=1;
+          _chose_color=2;
+        }
+        if (ReadID==123) {
+          color_counter+=1;
+          _chose_color=3;
+        }
+        if (ReadID==124) {
+          color_counter+=1;
+          _chose_color=4;
+        }
+        if (ReadID==125) {
+          color_counter+=1;
+          _chose_color=5;
+        }
+        if (ReadID!=121 && ReadID!=122 && ReadID!=123 && ReadID!=124 && ReadID!=125 && ReadID!=126 && ReadID!=127) {
+          _chose_color=0;
+          chose_color_go=0;
+        }
+
+        if (ReadID==126) {
+          chose_color_go=1;
+          color_counter=-1;
+        }
+        if (ReadID==127) {
+          chose_color_go=2;
+        }
+        if (color_counter==5) {
+          hide_rgb=1;
+        }
+        if (chose_color_go==2) {
+          chose_color_go=0;
+          color_counter=0;
+          hide_rgb=2;
+        }
+
        
-        println("GREEN");
       }
-      if (_statustab==123) {
-        color_counter+=1;
-        _chose_color=3;
-       
-        println("BLUE");
-      }
-      if (_statustab==124) {
-        color_counter+=1;
-        _chose_color=4;
-     
-        println("YELLOW");
-      }
-      if (_statustab==125) {
-        color_counter+=1;
-        _chose_color=5;
-      
-        println("BLACK");
-      }
-        if (_statustab!=121 && _statustab!=122 && _statustab!=123 && _statustab!=124 && _statustab!=125 && _statustab!=126 && _statustab!=127) {
-        _chose_color=0;
-        chose_color_go=0;
-      }
-      
-      if (_statustab==126) {
-        chose_color_go=1;
-        color_counter=-1;
-      }
-      if (_statustab==127) {
-        chose_color_go=2;
-      }
-      if (color_counter==5) {
-        hide_rgb=1;
-      }
-if(chose_color_go==2){
-  chose_color_go=0;
-  color_counter=0;
-   hide_rgb=2;
-}
-  
-      println(_chose_color, chose_color_go, color_counter);
     }
-    
 
     // MODE 2 //
-    if (MainMode==2 && _statustab==12) {
+    if (MainMode==2 && ReadID==12) {
       SubMode2+=1;
       if (SubMode2==4) {
         SubMode2=1;
       }
       println("MODE 2 | SUBMODE:"+SubMode2);
     }
+     if (MainMode==2 && SubMode2==2){
+       remote_keyboard=ReadID;
+     }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // MODE 3 //
-    if (MainMode==3 && _statustab==13) {
+    if (MainMode==3 && ReadID==13) {
       SubMode3+=1;
       if (SubMode3==4) {
         SubMode3=1;
@@ -201,7 +216,7 @@ if(chose_color_go==2){
       println("MODE 3 | SUBMODE:"+SubMode3);
     }
 
-    if (MainMode==4 && _statustab==411) {
+    if (MainMode==4 && ReadID==411) {
       SubMode4+=1;
       if (SubMode4==4) {
         SubMode4=1;
@@ -209,6 +224,6 @@ if(chose_color_go==2){
       println("MODE 4 | SUBMODE:"+SubMode4);
     }
   }
-}
 
+}
 
