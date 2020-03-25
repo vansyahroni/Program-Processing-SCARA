@@ -126,6 +126,7 @@ void draw()
   contorlTab();
   _text();
   Send_To_Arduino();
+  println(mouseX, mouseY);
 }
 
 //RADIO BUTTON RGB
