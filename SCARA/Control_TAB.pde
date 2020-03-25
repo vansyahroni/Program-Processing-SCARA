@@ -22,47 +22,46 @@ void contorlTab() {
       translate(0, 0, 0.0002);
       image(cmode1, 172, CO-252);
       popMatrix();
-          image(dis_m1s1, 1115, CO-307);
+      image(dis_m1s1, 1115, CO-307);
       cp5.getController("color_mode").moveTo("default");
       cp5.getController("M1S1_no").moveTo("default");
       cp5.getController("M1S1_yes").moveTo("default");
-  
-       cp5.getGroup("M1S1_rgb").moveTo("default");
+
+      cp5.getGroup("M1S1_rgb").moveTo("default");
       hideMode1B();
     }
 
     if (SubMode1==2) //MULTI COLOR
     {
       image(cmode2, 163, CO-237);
-          image(dis_m1s1, 1115, CO-307);
+      image(dis_m1s1, 1115, CO-307);
       cp5.getController("color_mode").moveTo("default");
-       hideMode1A();
-       
-       cp5.getController("chose_red").moveTo("default");
-        cp5.getController("chose_green").moveTo("default");
-         cp5.getController("chose_blue").moveTo("default");
-          cp5.getController("chose_yellow").moveTo("default");
-           cp5.getController("chose_black").moveTo("default");
-           
-              cp5.getController("chose_color_start").moveTo("default");
-                 cp5.getController("chose_color_change").moveTo("default");
-           
-  if(hide_rgb==1){
-   cp5.getController("chose_red").moveTo("HIDE");
-        cp5.getController("chose_green").moveTo("HIDE");
-         cp5.getController("chose_blue").moveTo("HIDE");
-          cp5.getController("chose_yellow").moveTo("HIDE");
-           cp5.getController("chose_black").moveTo("HIDE");
-}
+      hideMode1A();
 
- if(hide_rgb==2){
-   cp5.getController("chose_red").moveTo("default");
+      cp5.getController("chose_red").moveTo("default");
+      cp5.getController("chose_green").moveTo("default");
+      cp5.getController("chose_blue").moveTo("default");
+      cp5.getController("chose_yellow").moveTo("default");
+      cp5.getController("chose_black").moveTo("default");
+
+      cp5.getController("chose_color_start").moveTo("default");
+      cp5.getController("chose_color_change").moveTo("default");
+
+      if (hide_rgb==1) {
+        cp5.getController("chose_red").moveTo("HIDE");
+        cp5.getController("chose_green").moveTo("HIDE");
+        cp5.getController("chose_blue").moveTo("HIDE");
+        cp5.getController("chose_yellow").moveTo("HIDE");
+        cp5.getController("chose_black").moveTo("HIDE");
+      }
+
+      if (hide_rgb==2) {
+        cp5.getController("chose_red").moveTo("default");
         cp5.getController("chose_green").moveTo("default");
-         cp5.getController("chose_blue").moveTo("default");
-          cp5.getController("chose_yellow").moveTo("default");
-           cp5.getController("chose_black").moveTo("default");
-}
-     
+        cp5.getController("chose_blue").moveTo("default");
+        cp5.getController("chose_yellow").moveTo("default");
+        cp5.getController("chose_black").moveTo("default");
+      }
     }
   }
   ////////////////////////// MANUAL /////////////////////////
@@ -82,7 +81,7 @@ void contorlTab() {
     if (SubMode2==1) //SLIDER
     { 
       image(mmode1, 163, CO-237);
-          
+
       cp5.getController("manual_mode").moveTo("default");
       hideMode2B();
       hideMode2C();
@@ -92,12 +91,17 @@ void contorlTab() {
       cp5.getController("slider_wirst").moveTo("default");
       cp5.getController("up_down").moveTo("default");
       cp5.getController("gripper").moveTo("default");
+
+      //data//
+      value_shoulder=slider_shoulder;
+      value_elbow=slider_elbow;
+      value_wirst=slider_wirst;
     }
 
     if (SubMode2==2) //TEXT
     {
       image(mmode2, 163, CO-237);
-      
+
       cp5.getController("manual_mode").moveTo("default");
       hideMode2A();
       hideMode2C();
@@ -105,8 +109,14 @@ void contorlTab() {
       cp5.getController("text_shoulder").moveTo("default");
       cp5.getController("text_elbow").moveTo("default");
       cp5.getController("text_wirst").moveTo("default");
-         cp5.getController("up_down").moveTo("default");
+      cp5.getController("up_down").moveTo("default");
       cp5.getController("gripper").moveTo("default");
+      
+       //data//
+      value_shoulder=value_shoulder_text;
+      value_elbow=value_elbow_text;
+      value_wirst=value_wirst_text;
+      
     }
 
     if (SubMode2==3) //REMOTE
@@ -138,29 +148,29 @@ void contorlTab() {
 
     if (SubMode3==1) 
     { 
-image(dis_m3s1, 1115, CO-307);
+      image(dis_m3s1, 1115, CO-307);
       cp5.getController("ik_mode").moveTo("default");
       hideMode3B();
       hideMode3C();
     }
 
-    if (SubMode3==2) { image(ikmode2, 163, CO-237);
-    image(dis_m3s2, 1115, CO-307);
+    if (SubMode3==2) { 
+      image(ikmode2, 163, CO-237);
+      image(dis_m3s2, 1115, CO-307);
       cp5.getController("start_trajectory").moveTo("default");
-        cp5.getController("reset_trajectory").moveTo("default");
+      cp5.getController("reset_trajectory").moveTo("default");
       hideMode3A();
       hideMode3C();
     }
     if (SubMode3==3) {
       image(ikmode3, 163, CO-237);
       image(dis_m3s1, 1115, CO-307);
-         hideMode3B();
+      hideMode3B();
       cp5.getController("text_posX").moveTo("default");
       cp5.getController("text_posY").moveTo("default");
-  cp5.getController("start_trajectory").moveTo("default");
-        cp5.getController("reset_trajectory").moveTo("default");
+      cp5.getController("start_trajectory").moveTo("default");
+      cp5.getController("reset_trajectory").moveTo("default");
       hideMode3A();
-   
     }
   }
 
@@ -176,9 +186,9 @@ image(dis_m3s1, 1115, CO-307);
     cp5.getController("text_KD").moveTo("default");
 
     cp5.getController("start_pid").moveTo("default");
-      cp5.getController("stop_pid").moveTo("default");
-        cp5.getController("reset_pid").moveTo("default");
-        
+    cp5.getController("stop_pid").moveTo("default");
+    cp5.getController("reset_pid").moveTo("default");
+
     hideAllMode();
     hideMode1A();
     hideMode1B();
@@ -223,16 +233,15 @@ void hideMode1A() {
 }
 
 void hideMode1B() {
-     
-       cp5.getController("chose_red").moveTo("HIDE");
-        cp5.getController("chose_green").moveTo("HIDE");
-         cp5.getController("chose_blue").moveTo("HIDE");
-          cp5.getController("chose_yellow").moveTo("HIDE");
-           cp5.getController("chose_black").moveTo("HIDE");
-           
-              cp5.getController("chose_color_start").moveTo("HIDE");
-                 cp5.getController("chose_color_change").moveTo("HIDE");
-                 
+
+  cp5.getController("chose_red").moveTo("HIDE");
+  cp5.getController("chose_green").moveTo("HIDE");
+  cp5.getController("chose_blue").moveTo("HIDE");
+  cp5.getController("chose_yellow").moveTo("HIDE");
+  cp5.getController("chose_black").moveTo("HIDE");
+
+  cp5.getController("chose_color_start").moveTo("HIDE");
+  cp5.getController("chose_color_change").moveTo("HIDE");
 }
 
 void hideMode2A() {
@@ -258,8 +267,8 @@ void hideMode2C() {
 void hideMode3A() {
 }
 void hideMode3B() {
-    cp5.getController("start_trajectory").moveTo("HIDE");
-        cp5.getController("reset_trajectory").moveTo("HIDE");
+  cp5.getController("start_trajectory").moveTo("HIDE");
+  cp5.getController("reset_trajectory").moveTo("HIDE");
 }
 void hideMode3C() {
   cp5.getController("text_posX").moveTo("HIDE");
@@ -273,13 +282,8 @@ void hideMode4() {
   cp5.getController("text_KP").moveTo("HIDE");
   cp5.getController("text_KI").moveTo("HIDE");
   cp5.getController("text_KD").moveTo("HIDE");
-    cp5.getController("start_pid").moveTo("HIDE");
-      cp5.getController("stop_pid").moveTo("HIDE");
-        cp5.getController("reset_pid").moveTo("HIDE");
-        
-  
-  
-  
-  
+  cp5.getController("start_pid").moveTo("HIDE");
+  cp5.getController("stop_pid").moveTo("HIDE");
+  cp5.getController("reset_pid").moveTo("HIDE");
 }
 

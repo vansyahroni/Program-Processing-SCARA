@@ -1,7 +1,6 @@
-
 void _text()
 {
-  //main mode
+
   textAlign(CENTER, CENTER);
   textFont(font[16]);
   fill(0);
@@ -10,8 +9,9 @@ void _text()
 
   text("90", 1080, CO-532); //Koordinat X Perhiutngan Forward Kinematic
   text("90", 1150, CO-532);//Koordinat X Perhiutngan Forward Kinematic
-  
+
   ////////////////////////// MODE 1 //////////////////////////
+
   if (MainMode==1) { 
     text("COLOR DETECTOR", 185, CO-465);
 
@@ -55,7 +55,7 @@ void _text()
       textFont(font[18]);
       ellipse(1180, CO-473, 20, 20);          //target
       fill(255);                       
-        textFont(font[16]);
+      textFont(font[16]);
       text("5", 1180, CO-429);              //Jumlah target
       textAlign(LEFT, CENTER);
       text("1.", 1087, CO-356);//nomor setiap target
@@ -92,10 +92,10 @@ void _text()
       ellipse(1114, CO-473, 20, 20);          //target 1
       ellipse(1144, CO-473, 20, 20);          //target 2
       fill(255);
-       textFont(font[18]);
+      textFont(font[18]);
       text("5", 1114, CO-429);              //Jumlah target 1
       text("5", 1144, CO-429);              //Jumlah target 2
-textFont(font[16]);
+      textFont(font[16]);
       textAlign(RIGHT, CENTER);
       text("1.", 995, CO-356);//nomor urutan setiap target sisi kiri
       textAlign(LEFT, CENTER);
@@ -129,8 +129,8 @@ textFont(font[16]);
       fill(0);
       text("5", 1141, CO-165);//Jumlah Terambil Warna 1
       text("5", 1163, CO-165);//Jumlah Terambil Warna 2
-fill(255);
-            text("01:34:29", 1122, 624);//Time
+      fill(255);
+      text("01:34:29", 1122, 624);//Time
     }
   }
 
@@ -140,18 +140,18 @@ fill(255);
     text("MANUAL", 185, CO-465);
 
     //DISPLAY//
-    text("90", 1025, CO-392); //Input Shoulder
-    text("90", 1115, CO-392); //Input Shoulder
-    text("90", 1205, CO-392); //Input Shoulder
+    text(value_shoulder, 1025, CO-392); //Input Shoulder
+    text(value_elbow, 1115, CO-392); //Input Shoulder
+    text(value_wirst, 1205, CO-392); //Input Shoulder
 
     text("90", 1025, CO-261); //Output Shoulder
     text("90", 1115, CO-261); //Output Shoulder
     text("90", 1205, CO-261); //Output Shoulder
 
     fill(255);
-     textFont(font[18]);
+    textFont(font[18]);
     text("90"+"%", 1205, CO-194); //Akurasi
-  textFont(font[16]);
+    textFont(font[16]);
     //// SUB MODE 1 ////
 
     if (SubMode2==1) { 
@@ -164,9 +164,9 @@ fill(255);
     if (SubMode2==2) {  
       fill(0);
       text("MANUAL TEXT", 188, CO-369);
-      text(value_shoulder, 270, CO-294);
-      text(value_elbow, 270, CO-235);
-      text(value_wirst, 270, CO-177);
+      text(value_shoulder_text, 270, CO-294);
+      text(value_elbow_text, 270, CO-235);
+      text(value_wirst_text, 270, CO-177);
     }
 
     //// SUB MODE 1 ////
@@ -245,13 +245,13 @@ fill(255);
       text("1.", 1089, CO-447);//nomor urutan target terukur
       textAlign(LEFT, CENTER);
       text("(10,20)", 1097, CO-447);//urutan setiap target terukur
-textFont(font[18]);
+      textFont(font[18]);
       textAlign(CENTER, CENTER);
       text("90"+"%", 1215, CO-447); //Akurasi
       text("90", 1215, CO-204); //Jumlah Target
       text("90"+"%", 1215, CO-168); //Akurasi Total
-textFont(font[16]);
-            text("01:34:29", 1122, 624);//Time
+      textFont(font[16]);
+      text("01:34:29", 1122, 624);//Time
     }
 
     //// SUB MODE 3 ////
@@ -298,7 +298,7 @@ textFont(font[16]);
     text("90", 1027, CO-387); //KP
     text("90", 1117, CO-387); //KI
     text("90", 1207, CO-387); //KD
-textFont(font[18]);
+    textFont(font[18]);
     fill(255);
     text("24", 1207, CO-324); //
     text("24", 1207, CO-290); //
@@ -308,9 +308,9 @@ textFont(font[18]);
     text("90"+" s", 1207, CO-159); //
     text("90"+"%", 1207, CO-128); //
     text("STABIL", 1207, CO-95); //
-textFont(font[16]);
+    textFont(font[16]);
     //// SUB MODE 3 ////
-fill(0);
+    fill(0);
     if (SubMode4==1) { 
       text("SHOULDER", 246, CO-331);
     }
@@ -333,7 +333,6 @@ fill(0);
     text(value_KD, 246, CO-155);
   }
 }
-
 
 
 

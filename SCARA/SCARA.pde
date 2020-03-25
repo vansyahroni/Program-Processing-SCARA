@@ -52,10 +52,14 @@ int SubMode2=0;
 int SubMode3=0;
 int SubMode4=0;
 
+//value slider 
+int slider_shoulder, slider_elbow, slider_wirst;
+
 //Text Mode Manual
 int text_shoulder=90;
 int text_elbow=90;
 int text_wirst=180;
+int value_shoulder_text, value_elbow_text, value_wirst_text;
 
 //Remote for Mode Manual
 int remote_keyboard;
@@ -155,16 +159,16 @@ void keyPressed() {
 
 public void text_shoulder(String _text_shoulder) {
 
-  value_shoulder= int(_text_shoulder);
+  value_shoulder_text= int(_text_shoulder);
 }
 public void text_elbow(String _text_elbow) {
 
-  value_elbow= int(_text_elbow);
+  value_elbow_text= int(_text_elbow);
 }
 
 public void text_wirst(String _text_wirst) {
 
-  value_wirst= int(_text_wirst);
+  value_wirst_text= int(_text_wirst);
 }
 
 public void text_posX(String _text_posX) {
