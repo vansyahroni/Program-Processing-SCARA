@@ -59,8 +59,12 @@ int slider_shoulder, slider_elbow, slider_wirst;
 int text_shoulder=90;
 int text_elbow=90;
 int text_wirst=180;
-int value_shoulder_text, value_elbow_text, value_wirst_text;
 
+int text_posX=0;
+int text_posY=90;
+
+int value_shoulder_text, value_elbow_text, value_wirst_text;
+int value_posX_text, value_posY_text;
 //Remote for Mode Manual
 int remote_keyboard;
 
@@ -83,6 +87,8 @@ int max_rgb;
 
 PShape  rgb_ellipse []= new PShape[5];
 
+//PID
+String joint_pid[]=new String[3];
 
 void setup()
 {
@@ -116,7 +122,7 @@ dis_m4=loadImage("dis_m4.png");
   for (int a=0; a<50; a++) {
     font[a] = createFont("verdana", a, false);
   }
-
+text_setup();
   GUI_setup();
   setup_UART();
   sobj();
@@ -130,7 +136,7 @@ void draw()
   contorlTab();
   _text();
   Send_To_Arduino();
-  println(mouseX, mouseY);
+
 }
 
 //RADIO BUTTON RGB
@@ -173,12 +179,12 @@ public void text_wirst(String _text_wirst) {
 
 public void text_posX(String _text_posX) {
 
-  value_posX= int(_text_posX);
+  value_posX_text= int(_text_posX);
 }
 
 public void text_posY(String _text_posY) {
 
-  value_posY= int(_text_posY);
+  value_posY_text= int(_text_posY);
 }
 
 

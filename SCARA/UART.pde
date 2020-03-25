@@ -81,7 +81,7 @@ void InitSerial( float portValue)
 
 int background;
 int rgb=0;
-
+int _stop_pid=0;
 void controlEvent(ControlEvent theControlEvent)
 {
 
@@ -187,26 +187,6 @@ void controlEvent(ControlEvent theControlEvent)
     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // MODE 3 //
     if (MainMode==3 && ReadID==13) {
       SubMode3+=1;
@@ -216,14 +196,30 @@ void controlEvent(ControlEvent theControlEvent)
       println("MODE 3 | SUBMODE:"+SubMode3);
     }
 
-    if (MainMode==4 && ReadID==411) {
+// MODE 4 //
+
+   if (ReadID==422) {
+      _stop_pid+=1;
+      if (_stop_pid==2) {
+        _stop_pid=0;
+      }
+}println(_stop_pid);
+  
+    if (_stop_pid==1&& MainMode==4 && ReadID==411) {
       SubMode4+=1;
       if (SubMode4==4) {
         SubMode4=1;
       }
       println("MODE 4 | SUBMODE:"+SubMode4);
     }
+  
+    if(ReadID==423){
+        value_setpoint=0;
+    value_KP=0;
+   value_KI=0;
+    value_KD=0;
   }
 
+}
 }
 

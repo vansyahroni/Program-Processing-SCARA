@@ -171,6 +171,10 @@ void contorlTab() {
       cp5.getController("start_trajectory").moveTo("default");
       cp5.getController("reset_trajectory").moveTo("default");
       hideMode3A();
+      
+      //data//
+      value_posX=value_posX_text;
+      value_posY=value_posY_text;
     }
   }
 

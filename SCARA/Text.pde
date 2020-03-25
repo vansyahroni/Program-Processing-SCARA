@@ -1,3 +1,10 @@
+void text_setup(){
+  joint_pid[0]="SHOULDER";
+  joint_pid[1]="ELBOW";
+  joint_pid[2]="WIRST";
+}
+
+
 void _text()
 {
 
@@ -19,8 +26,8 @@ void _text()
     if (SubMode1==1) { 
       textFont(font[15]);
       text("SINGLE COLOR", 188, CO-369);                
-      text("YES", 113, CO-185);
-      text("NO", 213, CO-185);
+      text("YES", 113, 634);
+      text("NO", 213, 634);
       text("SET COLOR", 175, CO-313);  
       if (rgb>0) {
         if (rgb==1) { 
@@ -204,8 +211,9 @@ void _text()
 
       //DISPLAY//
       fill(0);
-      text("24", 1137, CO-444); //Input X
-      text("90", 1218, CO-444); //Input Y
+         text(value_posX, 1137, CO-444); //Input X
+      text(value_posY, 1218, CO-444); //Input Y
+
 
       text("24", 1137, CO-364); //Output X
       text("90", 1218, CO-364); //Output Y
@@ -258,14 +266,14 @@ void _text()
 
     if (SubMode3==3) {  
       text("KOORDINAT TEXT", 188, CO-369);
-      text(value_posX, 270, CO-294);
-      text(value_posY, 270, CO-235);
+      text(value_posX_text, 270, CO-294);
+      text(value_posY_text, 270, CO-235);
 
 
       //DISPLAY//
       fill(0);
-      text("24", 1137, CO-444); //Input X
-      text("90", 1218, CO-444); //Input Y
+      text(value_posX, 1137, CO-444); //Input X
+      text(value_posY, 1218, CO-444); //Input Y
 
       text("24", 1137, CO-364); //Output X
       text("90", 1218, CO-364); //Output Y
@@ -290,49 +298,45 @@ void _text()
     text("SET PID ", 185, CO-465);
 
     //DISPLAY//
-    fill(255);
-    textFont(font[18]);
-    text("SHOULDER", 1185, CO-474); //Joint
+ 
     textFont(font[16]);
     fill(0);
-    text("90", 1027, CO-387); //KP
-    text("90", 1117, CO-387); //KI
-    text("90", 1207, CO-387); //KD
+    text(value_KP, 1027, CO-377); //KP
+    text(value_KI, 1117, CO-377); //KI
+    text(value_KD, 1207, CO-377); //KD
     textFont(font[18]);
     fill(255);
-    text("24", 1207, CO-324); //
-    text("24", 1207, CO-290); //
-    text("24", 1207, CO-257); //
-    text("24", 1207, CO-225); //
-    text("24", 1207, CO-192) ;//
-    text("90"+" s", 1207, CO-159); //
-    text("90"+"%", 1207, CO-128); //
-    text("STABIL", 1207, CO-95); //
+    text(value_setpoint, 1207, CO-324); //Set Point
+    text("24", 1207, CO-290); // Value P
+    text("24", 1207, CO-257); // Value I
+    text("24", 1207, CO-225); // Value D
+    text("24", 1207, CO-192) ;//value PID
+    text("90"+" s", 1207, CO-159); // rise time
+    text("90"+"%", 1207, CO-128); // akurasi
+    text("STABIL", 1207, CO-95); // keterangan
     textFont(font[16]);
     //// SUB MODE 3 ////
     fill(0);
-    if (SubMode4==1) { 
-      text("SHOULDER", 246, CO-331);
+    
+ for(int a=1;a<=SubMode4;a++){
+   if(SubMode4==a){
+      text(joint_pid[a-1], 246, CO-331);
+         fill(255);
+    textFont(font[18]);
+    text(joint_pid[a-1], 1185, CO-474); //Joint
+     textFont(font[16]);
     }
-
-    //// SUB MODE 3 ////
-
-    if (SubMode4==2) { 
-      text("ELBOW", 246, CO-331);
-    }
-
-    //// SUB MODE 3 ////
-
-    if (SubMode4==3) { 
-      text("WIRST", 246, CO-331);
-    }
-    fill(0);
+ }
+    
+     fill(0);
     text(value_setpoint, 246, CO-287);
     text(value_KP, 246, CO-245);
     text(value_KI, 246, CO-200);
     text(value_KD, 246, CO-155);
+    }
+   
   }
-}
+
 
 
 
