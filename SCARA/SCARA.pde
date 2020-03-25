@@ -40,7 +40,7 @@ int i=0; //id
 
 //image
 PImage bg, cmode, cmode1, cmode2, mmode, mmode1, mmode2, mmode3, ikmode, ikmode2, ikmode3, pidmode;
-
+PImage dis_m1s1, dis_m2s2, dis_m3s1, dis_m3s2, dis_m4;
 //radiobutton  rgb
 RadioButton RadioButton;
 
@@ -51,10 +51,6 @@ int SubMode1=0;
 int SubMode2=0;
 int SubMode3=0;
 int SubMode4=0;
-
-//Toggle Mode Manual Sub Mode Slider and Text
-boolean up_down =false;
-boolean gripper =false;
 
 //Text Mode Manual
 int text_shoulder=90;
@@ -104,6 +100,12 @@ void setup()
   ikmode3=loadImage("ikmode3.png");
 
   pidmode=loadImage("pidmode.png");
+
+dis_m1s1=loadImage("dis_m1s1.png");
+dis_m2s2=loadImage("dis_m2s2.png");
+dis_m3s1=loadImage("dis_m3s1.png");
+dis_m3s2=loadImage("dis_m3s2.png");
+dis_m4=loadImage("dis_m4.png");
 
   cp5 = new ControlP5(this);
   //  ik1 = new InverseKinematic(ps, pe);  

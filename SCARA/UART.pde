@@ -91,7 +91,7 @@ void controlEvent(ControlEvent theControlEvent)
   ////RGB COLOR////
   if (theControlEvent.isFrom(RadioButton)) {
     rgb=int(theControlEvent.getValue());
-    yes_no=3;
+  
   }  
   ///BANG, TOGGLE, SLIDER///
 

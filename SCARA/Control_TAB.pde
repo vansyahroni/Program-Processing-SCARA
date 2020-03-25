@@ -5,6 +5,7 @@ void contorlTab() {
   if (MainMode==1)
   { 
     image(cmode, 163, CO-237);
+
     cp5.getController("color_mode").moveTo("default");
     hideMode2A();
     hideMode2B();
@@ -21,6 +22,7 @@ void contorlTab() {
       translate(0, 0, 0.0002);
       image(cmode1, 172, CO-252);
       popMatrix();
+          image(dis_m1s1, 1115, CO-307);
       cp5.getController("color_mode").moveTo("default");
       cp5.getController("M1S1_no").moveTo("default");
       cp5.getController("M1S1_yes").moveTo("default");
@@ -32,6 +34,7 @@ void contorlTab() {
     if (SubMode1==2) //MULTI COLOR
     {
       image(cmode2, 163, CO-237);
+          image(dis_m1s1, 1115, CO-307);
       cp5.getController("color_mode").moveTo("default");
        hideMode1A();
        
@@ -67,6 +70,7 @@ void contorlTab() {
   if (MainMode==2) 
   { 
     image(mmode, 163, CO-237);
+    image(dis_m2s2, 1115, CO-307);
     cp5.getController("manual_mode").moveTo("default");
     hideMode1A();
     hideMode1B();
@@ -78,6 +82,7 @@ void contorlTab() {
     if (SubMode2==1) //SLIDER
     { 
       image(mmode1, 163, CO-237);
+          
       cp5.getController("manual_mode").moveTo("default");
       hideMode2B();
       hideMode2C();
@@ -92,6 +97,7 @@ void contorlTab() {
     if (SubMode2==2) //TEXT
     {
       image(mmode2, 163, CO-237);
+      
       cp5.getController("manual_mode").moveTo("default");
       hideMode2A();
       hideMode2C();
@@ -132,13 +138,14 @@ void contorlTab() {
 
     if (SubMode3==1) 
     { 
-
+image(dis_m3s1, 1115, CO-307);
       cp5.getController("ik_mode").moveTo("default");
       hideMode3B();
       hideMode3C();
     }
 
     if (SubMode3==2) { image(ikmode2, 163, CO-237);
+    image(dis_m3s2, 1115, CO-307);
       cp5.getController("start_trajectory").moveTo("default");
         cp5.getController("reset_trajectory").moveTo("default");
       hideMode3A();
@@ -146,6 +153,7 @@ void contorlTab() {
     }
     if (SubMode3==3) {
       image(ikmode3, 163, CO-237);
+      image(dis_m3s1, 1115, CO-307);
          hideMode3B();
       cp5.getController("text_posX").moveTo("default");
       cp5.getController("text_posY").moveTo("default");
@@ -160,6 +168,7 @@ void contorlTab() {
   if (MainMode==4)
   { 
     image(pidmode, 163, CO-237);
+    image(dis_m4, 1115, CO-307);
     cp5.getController("jointPID").moveTo("default");
     cp5.getController("text_setpoint").moveTo("default");
     cp5.getController("text_KP").moveTo("default");
