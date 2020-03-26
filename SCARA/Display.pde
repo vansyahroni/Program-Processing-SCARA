@@ -1,7 +1,21 @@
-void text_setup(){
+void string_setup() {
   joint_pid[0]="SHOULDER";
   joint_pid[1]="ELBOW";
   joint_pid[2]="WIRST";
+
+  _target_single_color[0]="THE RED COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[1]="THE GREEN COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[2]="THE BLUE COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[3]="THE YELLOW COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[4]="THE BLACK COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[5]="PLEASE CHOSE THE COLOR";
+  _target_single_color[6]="PLEASE WAIT FOR 5 SECOND";
+
+  target_single_color[0]=color(255, 0, 0);
+  target_single_color[1]=color(0, 255, 0);
+  target_single_color[2]=color(0, 0, 255);
+  target_single_color[3]=color(#FFF000);
+  target_single_color[4]=color(0, 0, 0);
 }
 
 
@@ -29,36 +43,42 @@ void _text()
       text("YES", 113, 634);
       text("NO", 213, 634);
       text("SET COLOR", 175, CO-313);  
+      
+      _rgb=rgb;
+     if(rgb>=6){
+       _rgb=5;}
+       
       if (rgb>0) {
-        if (rgb==1) { 
-          text("THE RED COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 175, CO-188);
-        }
-        if (rgb==2) { 
-          text("THE BLUE COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?", 175, CO-188);
-        }
-        if (rgb==3) { 
-          text("THE GREEN COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?", 175, CO-188);
-        }
-        if (rgb==4) { 
-          text("THE YELLOW COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 175, CO-188);
-        }
-        if (rgb==5) { 
-          text("THE BLACK COLOR WILL BE TAKE"+"\n"+"ARE YOU SURE?", 175, CO-188);
-        }
+      
+      for (int a=0; a<=rgb; a++) {
+     
+        if (rgb==a && yes_no_M1S1!=1 && yes_no_M1S1!=2) { 
 
-        if (ReadID==111 && rgb!=1 && rgb!=2 && rgb!=3 && rgb!=4 && rgb!=5) { 
-          textFont(font[14]);
-          text("PLEASE WAIT FOR 5 SECOND", 175, CO-188);
+          text(_target_single_color[a-1], 175, CO-188);
         }
-        if (ReadID==112 && rgb!=1 && rgb!=2 && rgb!=3 && rgb!=4 && rgb!=5) { 
-          text("PLEASE CHOSE THE COLOR!", 175, CO-188);
+        
+          if (yes_no_M1S1==1 && rgb==a) {//yes
+            yes_no_M1S1=0;
+            rgb=7;
+          }
+           
         }
-      } else {
-        text("PLEASE CHOSE THE COLOR! ", 175, CO-188);
       }
+        if (yes_no_M1S1==2 | yes_no_M1S1==1) {//no
+          yes_no_M1S1=0;
+          rgb=6;
 
+        }
+        
+         for (int b=1; b<=_rgb; b++) {
+           if (rgb==b) {target_single_color_fix=target_single_color[b-1];}
+         }
+           
+           
+           
+           
       //DISPLAY//
-      fill(255, 0, 0);            //color targer
+      fill(target_single_color_fix);            //color targer
       textFont(font[18]);
       ellipse(1180, CO-473, 20, 20);          //target
       fill(255);                       
@@ -70,7 +90,7 @@ void _text()
       textAlign(CENTER, CENTER);
       text("(10,20)", 1121, CO-222);//next target
 
-      fill(255, 0, 0);
+      fill(target_single_color_fix);
       ellipse(1001, CO-165, 20, 20);   //SISA 
       ellipse(1023, CO-165, 20, 20);   //SISA 
 
@@ -211,7 +231,7 @@ void _text()
 
       //DISPLAY//
       fill(0);
-         text(value_posX, 1137, CO-444); //Input X
+      text(value_posX, 1137, CO-444); //Input X
       text(value_posY, 1218, CO-444); //Input Y
 
 
@@ -298,7 +318,7 @@ void _text()
     text("SET PID ", 185, CO-465);
 
     //DISPLAY//
- 
+
     textFont(font[16]);
     fill(0);
     text(value_KP, 1027, CO-377); //KP
@@ -317,25 +337,27 @@ void _text()
     textFont(font[16]);
     //// SUB MODE 3 ////
     fill(0);
-    
- for(int a=1;a<=SubMode4;a++){
-   if(SubMode4==a){
-      text(joint_pid[a-1], 246, CO-331);
-         fill(255);
-    textFont(font[18]);
-    text(joint_pid[a-1], 1185, CO-474); //Joint
-     textFont(font[16]);
+
+    for (int a=1; a<=SubMode4; a++) {
+      if (SubMode4==a) {
+        text(joint_pid[a-1], 246, CO-331);
+        fill(255);
+        textFont(font[18]);
+        text(joint_pid[a-1], 1185, CO-474); //Joint
+        textFont(font[16]);
+      }
     }
- }
-    
-     fill(0);
+
+    fill(0);
     text(value_setpoint, 246, CO-287);
     text(value_KP, 246, CO-245);
     text(value_KI, 246, CO-200);
     text(value_KD, 246, CO-155);
-    }
-   
   }
+}
+
+
+
 
 
 

@@ -91,7 +91,6 @@ void controlEvent(ControlEvent theControlEvent)
   ////RGB COLOR////
   if (theControlEvent.isFrom(RadioButton)) {
     rgb=int(theControlEvent.getValue());
-  
   }  
   ///BANG, TOGGLE, SLIDER///
 
@@ -125,7 +124,15 @@ void controlEvent(ControlEvent theControlEvent)
       println("MODE 1 | SUBMODE:"+SubMode1);
     }
 
+    if (ReadID==112) {
+      yes_no_M1S1=1;
+    }
+    if (ReadID==113) {
+      yes_no_M1S1=2;
+    }
+    
     if (MainMode==1) {
+
       if (SubMode1==2) {
 
         if (ReadID==121) {
@@ -168,8 +175,6 @@ void controlEvent(ControlEvent theControlEvent)
           color_counter=0;
           hide_rgb=2;
         }
-
-       
       }
     }
 
@@ -181,10 +186,10 @@ void controlEvent(ControlEvent theControlEvent)
       }
       println("MODE 2 | SUBMODE:"+SubMode2);
     }
-     if (MainMode==2 && SubMode2==2){
-       remote_keyboard=ReadID;
-     }
-    
+    if (MainMode==2 && SubMode2==2) {
+      remote_keyboard=ReadID;
+    }
+
 
 
     // MODE 3 //
@@ -196,15 +201,16 @@ void controlEvent(ControlEvent theControlEvent)
       println("MODE 3 | SUBMODE:"+SubMode3);
     }
 
-// MODE 4 //
+    // MODE 4 //
 
-   if (ReadID==422) {
+    if (ReadID==422) {
       _stop_pid+=1;
       if (_stop_pid==2) {
         _stop_pid=0;
       }
-}println(_stop_pid);
-  
+    }
+    println(_stop_pid);
+
     if (_stop_pid==1&& MainMode==4 && ReadID==411) {
       SubMode4+=1;
       if (SubMode4==4) {
@@ -212,14 +218,13 @@ void controlEvent(ControlEvent theControlEvent)
       }
       println("MODE 4 | SUBMODE:"+SubMode4);
     }
-  
-    if(ReadID==423){
-        value_setpoint=0;
-    value_KP=0;
-   value_KI=0;
-    value_KD=0;
-  }
 
-}
+    if (ReadID==423) {
+      value_setpoint=0;
+      value_KP=0;
+      value_KI=0;
+      value_KD=0;
+    }
+  }
 }
 

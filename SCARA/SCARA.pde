@@ -90,6 +90,12 @@ PShape  rgb_ellipse []= new PShape[5];
 //PID
 String joint_pid[]=new String[3];
 
+//Single Color
+color target_single_color[]=new color[5];
+color target_single_color_fix;
+String _target_single_color[]=new String [7];
+int yes_no_M1S1=0;
+int _rgb;
 void setup()
 {
   size(1280, 720, OPENGL);      //ukuran window
@@ -122,7 +128,7 @@ dis_m4=loadImage("dis_m4.png");
   for (int a=0; a<50; a++) {
     font[a] = createFont("verdana", a, false);
   }
-text_setup();
+string_setup();
   GUI_setup();
   setup_UART();
   sobj();
@@ -143,21 +149,27 @@ void draw()
 void keyPressed() {
   switch(key) {
     case('0'): 
+    
     RadioButton.deactivateAll(); 
     break;
     case('1'): 
+  
     RadioButton.activate(0); 
     break;
     case('2'): 
+   
     RadioButton.activate(1); 
     break;
     case('3'): 
+   
     RadioButton.activate(2); 
     break;
     case('4'): 
+   
     RadioButton.activate(3); 
     break;
     case('5'): 
+   
     RadioButton.activate(4); 
     break;
   }
