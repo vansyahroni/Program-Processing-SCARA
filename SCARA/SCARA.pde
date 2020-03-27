@@ -3,7 +3,6 @@ import controlP5.*; // controlP5 library
 Serial serial;
 ControlP5  cp5;
 
-//UART Variable
 int serial_conect = 0;
 int commListMax;
 int[] data = null;
@@ -12,34 +11,28 @@ Textlabel txtlblWhichcom;
 ListBox commListbox;
 ListBox portlist;
 
-// coded by Eberhard Rensch
-// Truncates a long port name for better (readable) display in the GUI
-String shortifyPortName(String portName, int maxlen)  
-{
-  String shortName = portName;
-  if (shortName.startsWith("/dev/")) shortName = shortName.substring(5);  
-  if (shortName.startsWith("tty.")) shortName = shortName.substring(4); // get rid off leading tty. part of device name
-  if (portName.length()>maxlen) shortName = shortName.substring(0, (maxlen-1)/2) + "~" +shortName.substring(shortName.length()-(maxlen-(maxlen-1)/2));
-  if (shortName.startsWith("cu.")) shortName = "";// only collect the corresponding tty. devices
-  return shortName;
-}
-
+//--------------------- BACKGROUND ---------------------\\
+PImage bg; //background
+PImage cmode, cmode1, cmode2, mmode, mmode1, mmode2, mmode3, ikmode, ikmode2, ikmode3, pidmode; //control
+PImage dis_m1s1, dis_m2s2, dis_m3s1, dis_m3s2, dis_m4; //display
 
 
 void setup()
 {
-  size(1280, 720, OPENGL);      //ukuran window
- cp5 = new ControlP5(this);
-  setup_UART();
+  SETimg();
 
+  size(1280, 720, OPENGL);      //ukuran window
+  cp5 = new ControlP5(this);    //controlp5
+
+
+
+  setup_UART();
 }
 
 
 void draw()
 
 {
-  background(255); 
-  
-  Send_To_Arduino();
-
+  background(bg); 
+  SendToArduino();
 }

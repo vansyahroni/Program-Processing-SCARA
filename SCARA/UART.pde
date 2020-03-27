@@ -1,7 +1,7 @@
 String pn;
 void setup_UART()
 {
-  //Comport List Selection                   
+                
   commListbox = cp5.addListBox("portComList", 20, 720-550, 285, 200); // make a listbox and populate it with the available comm ports
   commListbox.setColorLabel(0);
   commListbox.setItemHeight(15);
@@ -20,7 +20,6 @@ void setup_UART()
   }
 
   commListbox.addItem("Close Comm", ++commListMax); // addItem(name,value)
-  // text label for which comm port selected
 
   txtlblWhichcom = cp5.addTextlabel("txtlblWhichcom", "No Port Selected", 163, 720-565); // textlabel(name,text,x,y)
   txtlblWhichcom.setColorValue(0);
@@ -37,21 +36,11 @@ void serialEvent (Serial usbPort)
     if (usbString != null) 
     {
       usbString = trim(usbString);
-      //    println(usbString); //--> for debuging
+      
     }
 
     float data[] = float(split(usbString, ','));
-    //for (int sensorNum = 1; sensorNum < data.length; sensorNum++) { println(sensorNum + " " + data[sensorNum]);  } //--> for debuging
-    //
-    //      fs=data[1];
-    //    fe=data[2];
-    //    fw=data[3];
-    //    
-    //    rs=data[4];
-    //    re=data[5];
-    //    rw=data[6];
-    //    rp1=data[7];
-    //    rp2=data[8];
+    
   }
   catch(RuntimeException e)
   {
@@ -79,11 +68,18 @@ void InitSerial( float portValue)
   }
 }
 
+String shortifyPortName(String portName, int maxlen)  
+{
+  String shortName = portName;
+  if (shortName.startsWith("/dev/")) shortName = shortName.substring(5);  
+  if (shortName.startsWith("tty.")) shortName = shortName.substring(4); // get rid off leading tty. part of device name
+  if (portName.length()>maxlen) shortName = shortName.substring(0, (maxlen-1)/2) + "~" +shortName.substring(shortName.length()-(maxlen-(maxlen-1)/2));
+  if (shortName.startsWith("cu.")) shortName = "";// only collect the corresponding tty. devices
+  return shortName;
+}
+
 void controlEvent(ControlEvent theControlEvent)
 {
-
-  ////UART////
-  
 if (theControlEvent.isController()) {
     if (theControlEvent.getController().getName()=="portComList") {
       println("smile");
