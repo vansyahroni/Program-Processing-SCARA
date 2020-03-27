@@ -38,18 +38,7 @@ void ik_()
 
 void remote()
 {
-//
-//  byte out[]=new byte[8];
-//  out[0]=byte(255);
-//  out[1]=byte(int(rs));
-//  out[2]=byte(int(re));
-//  out[3]=byte(int(rw));
-//  out[4]=byte(int(rp1));
-//  out[5]=byte(int(rp2));
-//  out[6]=byte(int(KP));
-//  out[7]=byte(254);
-//
-//  serial.write(out);
+
 }
 
 
@@ -64,5 +53,3 @@ void Send_To_Arduino()
 
 
  
-
-

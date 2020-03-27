@@ -6,7 +6,7 @@ void setup_UART()
   commListbox.setColorLabel(0);
   commListbox.setItemHeight(15);
   commListbox.setBarHeight(15);
-  commListbox.captionLabel().set("PORT COM");
+  commListbox.setCaptionLabel("PORT COM");
   commListbox.setColorBackground(#80a2a3);
   commListbox.setColorForeground(#F75C57);
   commListbox.setColorActive(#F75C57);
@@ -60,7 +60,7 @@ void serialEvent (Serial usbPort)
 }
 
 
-//initialize the serial port selected in the listBox
+
 void InitSerial( float portValue) 
 {
   if (portValue < commListMax) {
@@ -79,152 +79,15 @@ void InitSerial( float portValue)
   }
 }
 
-int background;
-int rgb=0;
-int _stop_pid=0;
 void controlEvent(ControlEvent theControlEvent)
 {
 
   ////UART////
-  if (theControlEvent.isGroup()) if (theControlEvent.name()=="portComList") InitSerial(theControlEvent.group().value()); 
-
-  ////RGB COLOR////
-  if (theControlEvent.isFrom(RadioButton)) {
-    rgb=int(theControlEvent.getValue());
-  }  
-  ///BANG, TOGGLE, SLIDER///
-
-  if (theControlEvent.isController()) {
-    ReadID=theControlEvent.getController().getId();      
-
-    /*
-      ID 
-     MAIN MODE = 1
-     MODE 1    = 11
-     MODE 2    = 12
-     */
-
-    //MAIN MODE //
-    if (ReadID==1) { 
-      MainMode+=1;
-      if (MainMode==5) {
-        MainMode=1;
-      }
-      println("MODE "+MainMode+" | SUBMODE:");
-    }
-    // MODE 1 //
-    if (MainMode==1 && ReadID==11) {
-      SubMode1+=1;
-      if (SubMode1==3) {
-        SubMode1=1;
-      }
-
-
-
-      println("MODE 1 | SUBMODE:"+SubMode1);
-    }
-
-    if (ReadID==112) {
-      yes_no_M1S1=1;
-    }
-    if (ReadID==113) {
-      yes_no_M1S1=2;
-    }
-    
-    if (MainMode==1) {
-
-      if (SubMode1==2) {
-
-        if (ReadID==121) {
-          color_counter+=1;
-          _chose_color=1;
-        }
-        if (ReadID==122) {
-          color_counter+=1;
-          _chose_color=2;
-        }
-        if (ReadID==123) {
-          color_counter+=1;
-          _chose_color=3;
-        }
-        if (ReadID==124) {
-          color_counter+=1;
-          _chose_color=4;
-        }
-        if (ReadID==125) {
-          color_counter+=1;
-          _chose_color=5;
-        }
-        if (ReadID!=121 && ReadID!=122 && ReadID!=123 && ReadID!=124 && ReadID!=125 && ReadID!=126 && ReadID!=127) {
-          _chose_color=0;
-          chose_color_go=0;
-        }
-
-        if (ReadID==126) {
-          chose_color_go=1;
-          color_counter=-1;
-        }
-        if (ReadID==127) {
-          chose_color_go=2;
-        }
-        if (color_counter==5) {
-          hide_rgb=1;
-        }
-        if (chose_color_go==2) {
-          chose_color_go=0;
-          color_counter=0;
-          hide_rgb=2;
-        }
-      }
-    }
-
-    // MODE 2 //
-    if (MainMode==2 && ReadID==12) {
-      SubMode2+=1;
-      if (SubMode2==4) {
-        SubMode2=1;
-      }
-      println("MODE 2 | SUBMODE:"+SubMode2);
-    }
-    if (MainMode==2 && SubMode2==2) {
-      remote_keyboard=ReadID;
-    }
-
-
-
-    // MODE 3 //
-    if (MainMode==3 && ReadID==13) {
-      SubMode3+=1;
-      if (SubMode3==4) {
-        SubMode3=1;
-      }
-      println("MODE 3 | SUBMODE:"+SubMode3);
-    }
-
-    // MODE 4 //
-
-    if (ReadID==422) {
-      _stop_pid+=1;
-      if (_stop_pid==2) {
-        _stop_pid=0;
-      }
-    }
-    println(_stop_pid);
-
-    if (_stop_pid==1&& MainMode==4 && ReadID==411) {
-      SubMode4+=1;
-      if (SubMode4==4) {
-        SubMode4=1;
-      }
-      println("MODE 4 | SUBMODE:"+SubMode4);
-    }
-
-    if (ReadID==423) {
-      value_setpoint=0;
-      value_KP=0;
-      value_KI=0;
-      value_KD=0;
+  
+if (theControlEvent.isController()) {
+    if (theControlEvent.getController().getName()=="portComList") {
+      println("smile");
+      InitSerial(theControlEvent.getController().getValue());
     }
   }
 }
-
