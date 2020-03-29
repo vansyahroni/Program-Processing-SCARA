@@ -60,7 +60,7 @@ String _target_single_color[]=new String [7];
 int _rgb;
 int rgb=0;
 //set pid
-int _stop_pid=0;
+int start_pid=0;
 String joint_pid[]=new String[3];
 
 //multi color
@@ -106,7 +106,7 @@ void draw()
 {
   background(bg); 
   contorlTab();
-  SETdisplay();
+
   SendToArduino();
   
 }

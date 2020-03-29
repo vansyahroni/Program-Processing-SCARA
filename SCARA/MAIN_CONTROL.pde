@@ -1,3 +1,42 @@
+void string_setup() {
+
+
+  joint_pid[0]="SHOULDER";
+  joint_pid[1]="ELBOW";
+  joint_pid[2]="WIRST";
+
+  _target_single_color[0]="THE RED COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[1]="THE GREEN COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[2]="THE BLUE COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[3]="THE YELLOW COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[4]="THE BLACK COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  _target_single_color[5]="PLEASE CHOSE THE COLOR";
+  _target_single_color[6]="PLEASE WAIT FOR 5 SECOND";
+
+  for (int a=0; a<=4; a++) {
+    ColorMultiColor[a]=#53666A;
+  }
+  for (int a=0; a<=4; a++) {
+    ColorMultiColor2[a]=#BDDBDB;
+  }
+
+  MultiColor[0]= "SET FIRST COLOR";
+  MultiColor[1]= "SET SECOND COLOR";
+  MultiColor[2]= "SET THIRD COLOR";
+  MultiColor[3]= "SET FOURTH COLOR";
+  MultiColor[4]= "SET LAST COLOR";
+  MultiColor[5]= "ok";
+
+  target_color[0]=#F75C57;
+  target_color[1]=#009B4C;
+  target_color[2]=#2F318B;
+  target_color[3]=#FFF000;
+  target_color[4]=#332C2B;
+  target_color[5]=#53666A;
+}
+
+
+
 void contorlTab() {
   imageMode(CENTER);
   textAlign(CENTER, CENTER);
@@ -8,7 +47,7 @@ void contorlTab() {
   ////////////////////////// COLOR DETECTOR /////////////////////////
 
 
-  if (MainMode==1)
+  if (MainMode==1 )
   { 
     fill(0);
     text("MODE COLOR DETECTOR", 187, CO-390);
@@ -68,13 +107,79 @@ void contorlTab() {
         cp5.getGroup("M1S1_rgb").hide();
       } else 
       cp5.getGroup("M1S1_rgb").show();
+
+      textFont(f15);
+
+
+      _rgb=rgb;
+      if (rgb>=6) {
+        _rgb=5;
+      }
+
+      if (rgb>0) {
+
+        for (int a=0; a<=rgb; a++) {
+
+          if (rgb==a  ) { 
+            yes_no_M1S1=0;
+            text(_target_single_color[a-1], 175, CO-188);
+          }
+        }
+      }
+      if (yes_no_M1S1==1 ) {//yes
+
+        text("PLEASE WAIT FOR 5 SECOND", 175, CO-188);
+      }
+
+
+
+      if (yes_no_M1S1==2) {//no
+        text("PLEASE CHOSE THE COLOR", 175, CO-188);
+      }
+
+
+
+      for (int b=1; b<=_rgb; b++) {
+        if (_rgb==b) {
+          target_single_color_fix=target_color[b-1];
+        }
+      }
+      if (yes_no_M1S1==2) {
+        _rgb=5;
+        target_single_color_fix=#53666A;
+      }
+
+
+
+      //DISPLAY//
+
+      fill(target_single_color_fix);            //color targer
+      textFont(f18);
+      ellipse(1180, CO-473, 20, 20);          //target
+      fill(255);                       
+      textFont(f16);
+      text("5", 1180, CO-429);              //Jumlah target
+      textAlign(LEFT, CENTER);
+      text("1.", 1087, CO-356);//nomor setiap target
+      text("(10,20)", 1103, CO-355);//urutan target
+      textAlign(CENTER, CENTER);
+      text("(10,20)", 1121, CO-222);//next target
+
+      fill(target_single_color_fix);
+      ellipse(1001, CO-165, 20, 20);   //SISA 
+      ellipse(1023, CO-165, 20, 20);   //SISA 
+
+      ellipse(1141, CO-165, 20, 20);   //TERAMBIL 
+      ellipse(1163, CO-165, 20, 20);   //TERAMBIL 
+      fill(255);   
+      text("01:34:29", 1122, 624);//Time
     }
 
     if (SubMode1==2) //MULTI COLOR
     { 
       text("MULTI COLOR", 188, CO-369); 
-
-      //image(cmode2, 163, CO-237);
+      text("START", 113, CO-88);
+      text("CHANGE", 213, CO-88);
 
 
       text("SELECTED COLOR", 175, CO-205);
@@ -120,8 +225,89 @@ void contorlTab() {
         cp5.getController("chose_yellow").show();
         cp5.getController("chose_black").show();
       }
+
+
+      for (int a=0; a<=color_counter; a++) {
+
+        if (color_counter==a) { 
+          text(MultiColor[a], 175, CO-313);
+        }
+      }
+
+      if (chose_color_go==1 )text("PLEASE WAIT FOR 5 SECOND", 175, CO-313);  
+      if (chose_color_go==2)text("PLEASE CHOSE THE COLOR", 175, CO-313);  
+
+      //DISPLAY//
+
+      fill(ColorMultiColor[0]);                       //color targer
+      ellipse(1114, CO-473, 20, 20);          //target 1
+      fill(ColorMultiColor[1]);
+      ellipse(1144, CO-473, 20, 20);          //target 2
+      fill(ColorMultiColor[2]);
+      ellipse(1174, CO-473, 20, 20);          //target 2
+      fill(ColorMultiColor[3]);
+      ellipse(1204, CO-473, 20, 20);          //target 2
+      fill(ColorMultiColor[4]);
+      ellipse(1234, CO-473, 20, 20);          //target 2
+
+      fill(ColorMultiColor2[0]);                       //color targer
+      ellipse(75, CO-165, 40, 40);          //target 1
+      fill(ColorMultiColor2[1]);
+      ellipse(125, CO-165, 40, 40);          //target 2
+      fill(ColorMultiColor2[2]);
+      ellipse(175, CO-165, 40, 40);          //target 2
+      fill(ColorMultiColor2[3]);
+      ellipse(225, CO-165, 40, 40);          //target 2
+      fill(ColorMultiColor2[4]);
+      ellipse(275, CO-165, 40, 40);          //target 2
+
+
+
+
+      fill(255);
+      textFont(f18);
+      text("5", 1114, CO-429);              //Jumlah target 1
+      text("5", 1144, CO-429);              //Jumlah target 2
+      textFont(f16);
+      textAlign(RIGHT, CENTER);
+      text("1.", 995, CO-356);//nomor urutan setiap target sisi kiri
+      textAlign(LEFT, CENTER);
+      text("(10,20)", 1004, CO-355);//urutan setiap target sisi kiri
+      textAlign(RIGHT, CENTER);
+      text("1.", 1089, CO-356);//nomor urutan setiap target sisi tengah
+      textAlign(LEFT, CENTER);
+      text("(10,20)", 1097, CO-355);//urutan setiap target sisi tengah
+      textAlign(RIGHT, CENTER);
+      text("1.", 1182, CO-356);//nomor urutan setiap target sisi kanan
+      textAlign(LEFT, CENTER);
+      text("(10,20)", 1190, CO-355);//urutan setiap target sisi kanan
+
+      textAlign(CENTER, CENTER);
+      fill(255, 255, 0);//next target
+      ellipse(1090, CO-223, 20, 20);   //next target 
+      fill(255);
+      text("(10,20)", 1140, CO-222);//next target
+
+      fill(255);
+      ellipse(1001, CO-165, 20, 20);   //SISA Warna 1
+      fill(255, 255, 0);
+      ellipse(1023, CO-165, 20, 20);   //SISA Warna 2
+      fill(0);
+      text("5", 1001, CO-165);//Jumlah Sisa Warna 1
+      text("5", 1023, CO-165);//Jumlah Sisa Warna 2
+      fill(0, 255, 0);
+      ellipse(1141, CO-165, 20, 20);   //TERAMBIL 
+      fill(0, 255, 255);
+      ellipse(1163, CO-165, 20, 20);   //TERAMBIL 
+      fill(0);
+      text("5", 1141, CO-165);//Jumlah Terambil Warna 1
+      text("5", 1163, CO-165);//Jumlah Terambil Warna 2
+      fill(255);
+      text("01:34:29", 1122, 624);//Time
     }
   }
+
+
 
   ////////////////////////// MANUAL /////////////////////////
 
@@ -145,6 +331,8 @@ void contorlTab() {
     cp5.getController("manual_mode").show();
 
 
+
+
     if (SubMode2==1) //SLIDER
     { 
       text("MANUAL SLIDER", 188, CO-369);   
@@ -154,7 +342,6 @@ void contorlTab() {
       text("UP/DOWN", 102, CO-145);
       text("GRIPPER", 223, CO-145);
 
-      //image(mmode1, 163, CO-237);
 
       cp5.getController("manual_mode").show();
       hideMode2B();
@@ -206,6 +393,10 @@ void contorlTab() {
       value_shoulder=value_shoulder_text;
       value_elbow=value_elbow_text;
       value_wirst=value_wirst_text;
+
+      text(value_shoulder_text, 270, CO-294);
+      text(value_elbow_text, 270, CO-235);
+      text(value_wirst_text, 270, CO-177);
     }
 
     if (SubMode2==3) //REMOTE
@@ -235,6 +426,20 @@ void contorlTab() {
       cp5.getController("keyboard").show();
       cp5.getController("M2SM3OK").show();
     }
+    //DISPLAY// 
+
+    text(value_shoulder, 1025, CO-392); //Input Shoulder
+    text(value_elbow, 1115, CO-392); //Input Shoulder
+    text(value_wirst, 1205, CO-392); //Input Shoulder
+
+    text("90", 1025, CO-261); //Output Shoulder
+    text("90", 1115, CO-261); //Output Shoulder
+    text("90", 1205, CO-261); //Output Shoulder
+
+    fill(255);
+    textFont(f18);
+    text("90"+"%", 1205, CO-194); //Akurasi
+    textFont(f16);
   }
 
   ////////////////////////// INVERSE KINEMATIC /////////////////////////
@@ -242,7 +447,7 @@ void contorlTab() {
 
   if (MainMode==3) //INVERSE KINEMATIC
   { 
-     text("MODE INVERSE", 187, CO-390);  
+    text("MODE INVERSE", 187, CO-390);  
     if (SubMode3==0) {
       text("SELECT MODE", 188, CO-369);
     }
@@ -268,7 +473,7 @@ void contorlTab() {
       text("MULTI POINT", 188, CO-369);
       text("COORDINAT SELECTED", 163, CO-332);  
       text("START", 102, CO-145);  
-      text("STOP", 163, CO-145);  
+      text("RESET", 217, CO-145);  
       //image(ikmode2, 163, CO-237);
       image(dis_m3s2, 1115, CO-307);
       cp5.getController("start_trajectory").show();
@@ -277,15 +482,17 @@ void contorlTab() {
       hideMode3C();
     }
     if (SubMode3==3) {
+      text("INPUT TEXT", 188, CO-369);
       textAlign(LEFT, CENTER);
-      text("KOORDINAT X", 34, CO-305); 
-      text("KOORDINAT Y", 34, CO-247); 
-       textAlign(CENTER, CENTER);
+      text("KOORDINAT X", 34, CO-294); 
+      text("KOORDINAT Y", 34, CO-236); 
+      textAlign(CENTER, CENTER);
       text("UP/DOWN", 96, CO-146); 
       text("GRIPPER", 218, CO-146); 
-   
-   line(240,291,267,291);
-   line(240,233,267,233);
+      stroke(10);
+      line(239, CO-280, 292, CO-280);
+      line(239, CO-222, 292, CO-222);
+      noStroke();
       //image(ikmode3, 163, CO-237);
       image(dis_m3s1, 1115, CO-307);
       hideMode3B();
@@ -298,47 +505,37 @@ void contorlTab() {
       //data//
       value_posX=value_posX_text;
       value_posY=value_posY_text;
+
+
+      fill(0);
+
+      text(value_posX, 1137, CO-444); //Input X
+      text(value_posY, 1218, CO-444); //Input Y
+
+      text(value_posX, 266, CO-294); //Input X
+      text(value_posY, 266, CO-236); //Input Y
+
+      text("24", 1137, CO-364); //Output X
+      text("90", 1218, CO-364); //Output Y
+
+      text("24", 1137, CO-283); //Terhitung Shoulder
+      text("90", 1218, CO-283); //Terhitung Elbow
+
+      text("24", 1137, CO-202); //Terukur Shoulder
+      text("90", 1218, CO-202); //Terukur Elbow
+
+
+      fill(255);
+      textFont(f18);
+      text("90"+"%", 1179, CO-143); //Akurasi
+      textFont(f16);
     }
   }
 
 
   ////////////////////////// COLOR DETECTOR /////////////////////////
   if (MainMode==4)
-  { 
-    textFont(f25);
-    text("MODE SET PID", 163, CO-390);  
-    textFont(f16);
-    textAlign(LEFT, CENTER);
-    text("SET JOINT", 40, CO-330);  
-    text("SET POINT", 40, CO-287);  
-    text("SET KP", 40, CO-242);  
-    text("SET KI", 40, CO-197);
-    text("SET KD", 40, CO-152);
-    textAlign(CENTER, CENTER);
-    text("START", 111, CO-115);  
-    text("STOP", 163, CO-115);  
-    text("RESET", 214, CO-115);  
-
-    line(205, 319, 288,319);
-    line(214, 277, 279, 277);
-    line(214, 232, 279, 232);
-    line(214, 187, 279, 187);
-    line(214, 142, 279, 142);
-
-
-    //image(pidmode, 163, CO-237);
-    image(dis_m4, 1115, CO-307);
-    cp5.getController("jointPID").show();
-    cp5.getController("text_setpoint").show();
-    cp5.getController("text_KP").show();
-    cp5.getController("text_KI").show();
-    cp5.getController("text_KD").show();
-
-    cp5.getController("start_pid").show();
-    cp5.getController("stop_pid").show();
-    cp5.getController("reset_pid").show();
-
-    hideAllMode();
+  {    hideAllMode();
     hideMode1A();
     hideMode1B();
     hideMode2A();
@@ -347,10 +544,123 @@ void contorlTab() {
     hideMode3A();
     hideMode3B();
     hideMode3C();
-  }
+     image(dis_m4, 1115, CO-307);
+    textFont(f25);
+    text("MODE SET PID", 163, CO-390);  
+    if ( start_pid<1) {
 
 
+      textFont(f16);
+      textAlign(LEFT, CENTER);
+      text("SET JOINT", 40, CO-330);  
+      text("SET POINT", 40, CO-287);  
+      text("SET KP", 40, CO-242);  
+      text("SET KI", 40, CO-197);
+      text("SET KD", 40, CO-152);
+      textAlign(CENTER, CENTER);
+      
+     
+      if (SubMode4>0) {
+        text("START", 111, CO-115);  
+        text("STOP", 163, CO-115);  
+        text("RESET", 214, CO-115);
+      }
 
+
+      stroke(10);
+      line(205, CO-319, 288, CO-319);
+      line(214, CO-277, 279, CO-277);
+      line(214, CO-232, 279, CO- 232);
+      line(214, CO-187, 279, CO- 187);
+      line(214, CO-142, 279, CO- 142);
+      noStroke();
+
+
+      for (int a=1; a<=SubMode4; a++) {
+        if (SubMode4==a) {
+          text(joint_pid[a-1], 246, CO-331);
+          fill(255);
+          textFont(f18);
+          text(joint_pid[a-1], 1185, CO-474); //Joint
+          textFont(f16);
+        }
+      }
+    
+    //image(pidmode, 163, CO-237);
+   
+
+    }
+
+   
+    
+     if (SubMode4>0) {
+        cp5.getController("text_setpoint").unlock();
+        cp5.getController("text_KP").unlock();
+        cp5.getController("text_KI").unlock();
+        cp5.getController("text_KD").unlock();
+
+        cp5.getController("start_pid").show();
+        cp5.getController("stop_pid").show();
+        cp5.getController("reset_pid").show();
+         if ( start_pid==1) {
+      cp5.getController("jointPID").hide();
+      cp5.getController("text_setpoint").hide();
+      cp5.getController("text_setpoint").hide();
+      cp5.getController("text_KP").hide();
+      cp5.getController("text_KI").hide();
+      cp5.getController("text_KD").hide();
+      cp5.getController("start_pid").hide();
+      cp5.getController("reset_pid").hide();
+      
+      textFont(f16);
+      text("STOP", 163, CO-115);  
+      textFont(f20);
+      text("PLEASE WAIT \n FOR THE RESPON", 159, CO-219);
+      textFont(f16);
+      
+    }
+      }
+      
+if (SubMode4==0) { text("CHOSE THE JOINT!", 163, CO-102);
+        cp5.getController("text_setpoint").lock();
+  cp5.getController("text_KP").lock();
+      cp5.getController("text_KI").lock();
+      cp5.getController("text_KD").lock();
+      
+        
+         cp5.getController("stop_pid").hide();
+      }
+    
+  
+    if ( start_pid<1) {
+      cp5.getController("jointPID").show();
+      cp5.getController("text_setpoint").show();
+
+      cp5.getController("text_KP").show();
+      cp5.getController("text_KI").show();
+      cp5.getController("text_KD").show();
+
+
+      
+        
+  
+      fill(0);
+      text(value_setpoint, 246, CO-287); 
+      text(value_KP, 246, CO-242); 
+      text(value_KI, 246, CO-197); 
+      text(value_KD, 246, CO-152); 
+
+    }
+      textFont(f20);
+      text(value_KP, 1027, CO-378); 
+      text(value_KI, 1117, CO-378); 
+      text(value_KD, 1207, CO-378); 
+      fill(255);
+      text(value_setpoint, 1207, CO-324); 
+      fill(0);
+      textFont(f16);
+    }
+  
 
   ////////////////////////// OFF /////////////////////////
 

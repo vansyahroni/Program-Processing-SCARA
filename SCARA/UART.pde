@@ -112,7 +112,7 @@ void controlEvent(ControlEvent theControlEvent)
 
     if (theControlEvent.isController()) {
       ReadID=theControlEvent.getController().getId();      
-
+println(ReadID);
       /*
       ID 
        MAIN MODE = 1
@@ -121,7 +121,7 @@ void controlEvent(ControlEvent theControlEvent)
        */
 
       //MAIN MODE //
-      if (ReadID==1) { 
+      if (ReadID==1 && start_pid==0 &&  yes_no_M1S1!=1 && chose_color_go!=1 ) { 
         MainMode+=1;
         if (MainMode==5) {
           MainMode=1;
@@ -268,15 +268,9 @@ for(int a=0;a<=4;a++){
 
       // MODE 4 //
 
-      if (ReadID==422) {
-        _stop_pid+=1;
-        if (_stop_pid==2) {
-          _stop_pid=0;
-        }
-      }
+    
 
-
-      if (_stop_pid==1&& MainMode==4 && ReadID==411) {
+      if (ReadID==411) {
         SubMode4+=1;
         if (SubMode4==4) {
           SubMode4=1;
@@ -289,6 +283,15 @@ for(int a=0;a<=4;a++){
         value_KI=0;
         value_KD=0;
       }
+      
+      if (ReadID==421) {
+        start_pid=1;
+      }
+       if (ReadID==422) {
+        start_pid=0;
+      }
+      
+      
     
     
     //single color//
