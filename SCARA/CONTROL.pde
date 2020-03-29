@@ -1,23 +1,6 @@
 void SETcontrol()
 {
-  //--------------------- control tab ---------------------\\
-  cp5.addTab("default")
-    .setColorBackground(c1)
-    .setColorLabel(c1)
-    .setColorActive(c1)
-    ;
-
-  cp5.addTab("HIDE")
-    .hide();
-    ;
-
-  cp5.getTab("default")
-    .activateEvent(true) 
-    ;
-
-  cp5.getTab("HIDE")
-    .activateEvent(true)
-    ;
+  
   //--------------------- main control ---------------------\\
 
   /*untuk pindah mode utama
@@ -47,6 +30,7 @@ void SETcontrol()
     .setColorActive(#F75C57) 
     .setColorForeground(#80A2A3) 
     .setLabelVisible(false) 
+    .hide()
 
     ;
 
@@ -66,6 +50,7 @@ void SETcontrol()
     .addItem("yellow", 4)
     .addItem("black", 5)
     .hideLabels() 
+    .hide()
     ;
 
 
@@ -77,7 +62,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c3) 
     .setLabelVisible(false) 
-
+ .hide()
     ;
 
   cp5.addButton("M1S1_no")
@@ -88,6 +73,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c3) 
     .setLabelVisible(false) 
+     .hide()
     ;
 
   ////// CHOSE COLOR  2 //////
@@ -100,6 +86,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c5) 
     .setLabelVisible(false) 
+     .hide()
     ;
 
   cp5.addButton("chose_green")
@@ -110,6 +97,7 @@ void SETcontrol()
     .setColorActive(#009B4C) 
     .setColorForeground(#009B4C) 
     .setLabelVisible(false) 
+     .hide()
     ;
 
   cp5.addButton("chose_blue")
@@ -120,6 +108,7 @@ void SETcontrol()
     .setColorActive(#2F318B) 
     .setColorForeground(#2F318B) 
     .setLabelVisible(false) 
+     .hide()
     ;
 
   cp5.addButton("chose_yellow")
@@ -130,6 +119,7 @@ void SETcontrol()
     .setColorActive(#FFF000) 
     .setColorForeground(#FFF000) 
     .setLabelVisible(false) 
+     .hide()
     ;
 
   cp5.addButton("chose_black")
@@ -140,6 +130,7 @@ void SETcontrol()
     .setColorActive(#332C2B) 
     .setColorForeground(#332C2B) 
     .setLabelVisible(false) 
+     .hide()
     ;
 
   cp5.addButton("chose_color_start")
@@ -150,6 +141,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c3) 
     .setLabelVisible(false) 
+     .hide()
     ;
   cp5.addButton("chose_color_change")
     .setPosition(195, CO-138)
@@ -159,6 +151,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c3) 
     .setLabelVisible(false) 
+     .hide()
     ;              
 
 
@@ -470,77 +463,8 @@ void SETcontrol()
     .setColorForeground(#80A2A3) 
     .setLabelVisible(false) 
     ;
-}
-
-//RADIO BUTTON RGB
-void keyPressed() {
-  switch(key) {
-    case('0'): 
     
-    RadioButton.deactivateAll(); 
-    break;
-    case('1'): 
-  
-    RadioButton.activate(0); 
-    break;
-    case('2'): 
+     MainMode=0;
    
-    RadioButton.activate(1); 
-    break;
-    case('3'): 
    
-    RadioButton.activate(2); 
-    break;
-    case('4'): 
-   
-    RadioButton.activate(3); 
-    break;
-    case('5'): 
-   
-    RadioButton.activate(4); 
-    break;
-  }
-}
-
-public void text_shoulder(String _text_shoulder) {
-
-  value_shoulder_text= int(_text_shoulder);
-}
-public void text_elbow(String _text_elbow) {
-
-  value_elbow_text= int(_text_elbow);
-}
-
-public void text_wirst(String _text_wirst) {
-
-  value_wirst_text= int(_text_wirst);
-}
-
-public void text_posX(String _text_posX) {
-
-  value_posX_text= int(_text_posX);
-}
-
-public void text_posY(String _text_posY) {
-
-  value_posY_text= int(_text_posY);
-}
-
-
-public void text_setpoint(String _text_setpoint) {
-
-  value_setpoint= int(_text_setpoint);
-}
-public void text_KP(String _text_KP) {
-
-  value_KP= float(_text_KP);
-}
-public void text_KI(String _text_KI) {
-
-  value_KI= float(_text_KI);
-}
-
-public void text_KD(String _text_KD) {
-
-  value_KD= float(_text_KD);
 }

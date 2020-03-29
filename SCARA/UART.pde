@@ -78,143 +78,209 @@ String shortifyPortName(String portName, int maxlen)
 
 void controlEvent(ControlEvent theControlEvent)
 {
-  if (theControlEvent.isController()) {
-    ReadID=theControlEvent.getController().getId();    
 
+  if (theControlEvent.isFrom(RadioButton)) {
+    rgb=int(theControlEvent.getValue());
+   
+    if (rgb==1) {
+      _MultiColor="RED";
+    }
+    if (rgb==2) {
+      _MultiColor="GREEN";
+    }
+    if (rgb==3) {
+      _MultiColor="BLUE";
+    }
+    if (rgb==4) {
+      _MultiColor="YELLOW";
+    }
+    if (rgb==5) {
+      _MultiColor="BLACK";
+    }
+    println("Mode: "+MainMode +" SubMode: "+SubMode1+" Color: "+_MultiColor+" Action: "+MultiColorAction);
+  }  
+
+  if (theControlEvent.isController()) {
     //--------------------- comlist ---------------------\\
 
     if (theControlEvent.getController().getName()=="portComList") {
       InitSerial(theControlEvent.getController().getValue());
     }
 
-  }
-   if (theControlEvent.isFrom(RadioButton)) {
-    rgb=int(theControlEvent.getValue());
-  }  
-  
-  
-  if (theControlEvent.isController()) {
-    ReadID=theControlEvent.getController().getId();      
 
-    /*
+
+
+    if (theControlEvent.isController()) {
+      ReadID=theControlEvent.getController().getId();      
+
+      /*
       ID 
-     MAIN MODE = 1
-     MODE 1    = 11
-     MODE 2    = 12
-     */
+       MAIN MODE = 1
+       MODE 1    = 11
+       MODE 2    = 12
+       */
 
-    //MAIN MODE //
-    if (ReadID==1) { 
-      MainMode+=1;
-      if (MainMode==5) {
-        MainMode=1;
+      //MAIN MODE //
+      if (ReadID==1) { 
+        MainMode+=1;
+        if (MainMode==5) {
+          MainMode=1;
+        }
+        println("Mode: "+MainMode);
       }
-      println("MODE "+MainMode+" | SUBMODE:");
-    }
-    // MODE 1 //
-    if (MainMode==1 && ReadID==11) {
-      SubMode1+=1;
-      if (SubMode1==3) {
-        SubMode1=1;
+      // MODE 1 //
+
+      if (MainMode==1 && ReadID==11) {
+        SubMode1+=1;
+        if (SubMode1==3) {
+          SubMode1=1;
+        }
       }
 
 
+      if (MainMode==1) {
+//--------------------- SINGLE COLOR ---------------------\\
 
-      println("MODE 1 | SUBMODE:"+SubMode1);
-    }
+//add radio button on top this program//
 
-    if (ReadID==112) {
-      yes_no_M1S1=1;
-    }
-    if (ReadID==113) {
-      yes_no_M1S1=2;
-    }
+        if (ReadID==112 && yes_no_M1S1!=2) {
+           
+          rgb=0;
+          yes_no_M1S1=1;
+        
+        }
+        if (ReadID==113 ) {
+           
+        rgb=0;
+          yes_no_M1S1=2;
+          
+        }
+        
+                
+//--------------------- MULTI COLOR ---------------------\\
+        if (SubMode1==2) {
+          
+
+          if (ReadID==121) {
+            _MultiColor="RED";
+            color_counter+=1;
+            _ColorMultiColor=color(255,0,0);
+          }
+          if (ReadID==122) {
+            _MultiColor="GREEN";
+            color_counter+=1;
+             _ColorMultiColor=color(0,255,0);
+          }
+          if (ReadID==123) {
+            _MultiColor="BLUE";
+            color_counter+=1;
+             _ColorMultiColor=color(0,0,255);
+          }
+          if (ReadID==124) {
+            _MultiColor="YELLOW";
+            color_counter+=1;
+             _ColorMultiColor=color(255,255,0);
+           }
+          if (ReadID==125) {
+            _MultiColor="BLACK";
+            color_counter+=1;
+             _ColorMultiColor=color(0,0,0);
+          }
+
+          if (ReadID==126) {
+            MultiColorAction="START";
+
+            chose_color_go=1;
+            color_counter=-1;
+          }
+          if (ReadID==127) {
+            MultiColorAction="CHANGE";
+            chose_color_go=2;
+          }
+          if (color_counter==5) {
+            hide_rgb=1;
+          }
+          if (chose_color_go==2) {
+            chose_color_go=0;
+            color_counter=0;
+            hide_rgb=2;
+          }
+          
+          for(int b=1;b<=color_counter;b++){
+            for(int c=121;c<=ReadID;c++){
+              if(color_counter==b && ReadID==c){
+                ColorMultiColor[b-1]= _ColorMultiColor;
+              }
+            }
+          }
+        }
+      }
     
-    if (MainMode==1) {
+      
 
-      if (SubMode1==2) {
-
-        if (ReadID==121) {
-          color_counter+=1;
+      // MODE 2 //
+      if (MainMode==2 && ReadID==12) {
+        SubMode2+=1;
+        if (SubMode2==4) {
+          SubMode2=1;
         }
-        if (ReadID==122) {
-          color_counter+=1;
-        }
-        if (ReadID==123) {
-          color_counter+=1;
-        }
-        if (ReadID==124) {
-          color_counter+=1;
-        }
-        if (ReadID==125) {
-          color_counter+=1;
-        }
-
-        if (ReadID==126) {
-          chose_color_go=1;
-          color_counter=-1;
-        }
-        if (ReadID==127) {
-          chose_color_go=2;
-        }
-        if (color_counter==5) {
-          hide_rgb=1;
-        }
-        if (chose_color_go==2) {
-          chose_color_go=0;
-          color_counter=0;
-          hide_rgb=2;
-        }
-        println("counter:",+color_counter);
       }
-    }
-
-    // MODE 2 //
-    if (MainMode==2 && ReadID==12) {
-      SubMode2+=1;
-      if (SubMode2==4) {
-        SubMode2=1;
+      if (MainMode==2 && SubMode2==2) {
+        remote_keyboard=ReadID;
       }
-      println("MODE 2 | SUBMODE:"+SubMode2);
-    }
-    if (MainMode==2 && SubMode2==2) {
-      remote_keyboard=ReadID;
-    }
 
 
 
-    // MODE 3 //
-    if (MainMode==3 && ReadID==13) {
-      SubMode3+=1;
-      if (SubMode3==4) {
-        SubMode3=1;
+      // MODE 3 //
+      if (MainMode==3 && ReadID==13) {
+        SubMode3+=1;
+        if (SubMode3==4) {
+          SubMode3=1;
+        }
       }
-      println("MODE 3 | SUBMODE:"+SubMode3);
-    }
 
-    // MODE 4 //
+      // MODE 4 //
 
-    if (ReadID==422) {
-      _stop_pid+=1;
-      if (_stop_pid==2) {
-        _stop_pid=0;
+      if (ReadID==422) {
+        _stop_pid+=1;
+        if (_stop_pid==2) {
+          _stop_pid=0;
+        }
       }
-    }
-    println(_stop_pid);
 
-    if (_stop_pid==1&& MainMode==4 && ReadID==411) {
-      SubMode4+=1;
-      if (SubMode4==4) {
-        SubMode4=1;
+
+      if (_stop_pid==1&& MainMode==4 && ReadID==411) {
+        SubMode4+=1;
+        if (SubMode4==4) {
+          SubMode4=1;
+        }
       }
-      println("MODE 4 | SUBMODE:"+SubMode4);
-    }
 
-    if (ReadID==423) {
-      value_setpoint=0;
-      value_KP=0;
-      value_KI=0;
-      value_KD=0;
+      if (ReadID==423) {
+        value_setpoint=0;
+        value_KP=0;
+        value_KI=0;
+        value_KD=0;
+      }
+    
+    
+    //single color//
+    if(MainMode==1){
+    if (yes_no_M1S1==1) {
+          MultiColorAction="YES";
+        }
+        if (yes_no_M1S1==2) {
+          MultiColorAction="NO";
+        }
+   if (yes_no_M1S1==0) {
+          MultiColorAction="";
+        }
+            println("Mode: "+MainMode +" SubMode: "+SubMode1+" Color: "+_MultiColor+ " Action: "+MultiColorAction);
+    }
+          
+  
+
+  
     }
   }
 }

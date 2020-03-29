@@ -1,33 +1,20 @@
 void contorlTab() {
   imageMode(CENTER);
-textAlign(CENTER, CENTER);
-textFont(f16);
-noStroke();
-fill(0);
+  textAlign(CENTER, CENTER);
+  textFont(f16);
+  noStroke();
+  fill(0);
 
   ////////////////////////// COLOR DETECTOR /////////////////////////
-  if (MainMode==0 )
-  { 
-   hideAllMode();
 
-    hideMode1A();
-    hideMode1B();
-    hideMode2A();
-    hideMode2B();
-    hideMode2C();
-    hideMode3A();
-    hideMode3B();
-    hideMode3C();
-    hideMode4();
-    println("Main Mode:"+MainMode+"Sub Mode:"+SubMode);
-  }
   
-  if (MainMode==1 )
+    
+  if (MainMode==1)
   { 
 
     cp5.getController("manual_mode").hide();
     image(cmode, 163, CO-237);
-     
+
     hideMode2A();
     hideMode2B();
     hideMode2C();
@@ -36,21 +23,24 @@ fill(0);
     hideMode3C();
     hideMode4();
     cp5.getController("color_mode").show();
-    
-    
+
+
     if (SubMode1==1) //SINGLE COLOR
     {  
       pushMatrix();
-      translate(0, 0, 0.0002);
+      translate(0, 0, 1);
       image(cmode1, 172, CO-252);
       popMatrix();
       image(dis_m1s1, 1115, CO-307);
       cp5.getController("color_mode").show();
       cp5.getController("M1S1_no").show();
       cp5.getController("M1S1_yes").show();
-
-      cp5.getGroup("M1S1_rgb").show();
       hideMode1B();
+
+      if (yes_no_M1S1==1) {
+        cp5.getGroup("M1S1_rgb").hide();
+      } else 
+      cp5.getGroup("M1S1_rgb").show();
     }
 
     if (SubMode1==2) //MULTI COLOR
@@ -60,24 +50,21 @@ fill(0);
       cp5.getController("color_mode").show();
       hideMode1A();
 
-      cp5.getController("chose_red").show();
-      cp5.getController("chose_green").show();
-      cp5.getController("chose_blue").show();
-      cp5.getController("chose_yellow").show();
-      cp5.getController("chose_black").show();
 
       cp5.getController("chose_color_start").show();
       cp5.getController("chose_color_change").show();
+    
 
-      if (hide_rgb==1) {
-        cp5.getController("chose_red").hide();;
+      if (hide_rgb==1 |  chose_color_go==1) {
+        cp5.getController("chose_red").hide();
+        ;
         cp5.getController("chose_green").hide();
         cp5.getController("chose_blue").hide();
         cp5.getController("chose_yellow").hide();
         cp5.getController("chose_black").hide();
       }
 
-      if (hide_rgb==2) {
+      else{
         cp5.getController("chose_red").show();
         cp5.getController("chose_green").show();
         cp5.getController("chose_blue").show();
@@ -85,25 +72,25 @@ fill(0);
         cp5.getController("chose_black").show();
       }
     }
-    println("Main Mode:"+MainMode+"Sub Mode:"+SubMode1);
-  }
- 
   
+  }
+
   ////////////////////////// MANUAL /////////////////////////
 
   if (MainMode==2) 
-  {     image(mmode, 163, CO-237);
+  {     
+    image(mmode, 163, CO-237);
     image(dis_m2s2, 1115, CO-307);
     cp5.getController("color_mode").hide();
- 
-      
-        hideMode1A();
+
+
+    hideMode1A();
     hideMode1B();
     hideMode3A();
     hideMode3B();
     hideMode3C();
     hideMode4();
-   cp5.getController("manual_mode").show();
+    cp5.getController("manual_mode").show();
 
 
     if (SubMode2==1) //SLIDER
@@ -139,28 +126,26 @@ fill(0);
       cp5.getController("text_wirst").show();
       cp5.getController("up_down").show();
       cp5.getController("gripper").show();
-      
-       //data//
+
+      //data//
       value_shoulder=value_shoulder_text;
       value_elbow=value_elbow_text;
       value_wirst=value_wirst_text;
-      
     }
 
     if (SubMode2==3) //REMOTE
-    
+
     { 
       image(mmode3, 163, CO-237);
       hideMode2A();
       hideMode2B();
       cp5.getController("manual_mode").show();
-     
+
 
       cp5.getController("remote").show();
       cp5.getController("keyboard").show();
       cp5.getController("M2SM3OK").show();
     }
-        println("Main Mode:"+MainMode+"Sub Mode:"+SubMode2);
   }
 
   ////////////////////////// INVERSE KINEMATIC /////////////////////////
@@ -202,13 +187,13 @@ fill(0);
       cp5.getController("start_trajectory").show();
       cp5.getController("reset_trajectory").show();
       hideMode3A();
-      
+
       //data//
       value_posX=value_posX_text;
       value_posY=value_posY_text;
     }
   }
-  
+
 
   ////////////////////////// COLOR DETECTOR /////////////////////////
   if (MainMode==4)
@@ -235,13 +220,13 @@ fill(0);
     hideMode3B();
     hideMode3C();
   }
-  
+
 
 
 
   ////////////////////////// OFF /////////////////////////
 
-  if (MainMode!=1 && MainMode!=2 && MainMode!=3 && MainMode!=4 && MainMode==0) 
+  if (MainMode!=1 && MainMode!=2 && MainMode!=3 && MainMode!=4 ) 
   {
     hideAllMode();
 
@@ -255,6 +240,8 @@ fill(0);
     hideMode3C();
     hideMode4();
   }
+ 
+  
 }
 
 void hideAllMode() {
@@ -323,4 +310,3 @@ void hideMode4() {
   cp5.getController("stop_pid").hide();
   cp5.getController("reset_pid").hide();
 }
-  

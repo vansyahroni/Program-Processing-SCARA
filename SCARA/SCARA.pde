@@ -65,7 +65,11 @@ String joint_pid[]=new String[3];
 
 //multi color
 
-String MultiColor[]= new String [10];
+String MultiColor[]= new String [6];
+String _MultiColor="";
+String MultiColorAction="";
+color ColorMultiColor[]=new color[5];
+color _ColorMultiColor;
 //--------------------- main data ---------------------\\
 int value_shoulder, value_elbow, value_wirst;
 int value_posX, value_posY;
@@ -76,6 +80,7 @@ float value_KP, value_KI, value_KD;
 String TextMode[]=new String[5];
 void setup()
 {
+   
   SETimg();
   SETfont();
   SETcolor();
@@ -97,4 +102,79 @@ void draw()
   SETdisplay();
   SendToArduino();
   
+}
+
+
+//RADIO BUTTON RGB
+void keyPressed() {
+  switch(key) {
+    case('0'): 
+    
+    RadioButton.deactivateAll(); 
+    break;
+    case('1'): 
+  
+    RadioButton.activate(0); 
+    break;
+    case('2'): 
+   
+    RadioButton.activate(1); 
+     ; 
+    break;
+    case('3'): 
+   
+    RadioButton.activate(2); 
+    break;
+    case('4'): 
+   
+    RadioButton.activate(3); 
+    break;
+    case('5'): 
+   
+    RadioButton.activate(4); 
+    break;
+  }
+}
+
+public void text_shoulder(String _text_shoulder) {
+
+  value_shoulder_text= int(_text_shoulder);
+}
+public void text_elbow(String _text_elbow) {
+
+  value_elbow_text= int(_text_elbow);
+}
+
+public void text_wirst(String _text_wirst) {
+
+  value_wirst_text= int(_text_wirst);
+}
+
+public void text_posX(String _text_posX) {
+
+  value_posX_text= int(_text_posX);
+}
+
+public void text_posY(String _text_posY) {
+
+  value_posY_text= int(_text_posY);
+}
+
+
+public void text_setpoint(String _text_setpoint) {
+
+  value_setpoint= int(_text_setpoint);
+}
+public void text_KP(String _text_KP) {
+
+  value_KP= float(_text_KP);
+}
+public void text_KI(String _text_KI) {
+
+  value_KI= float(_text_KI);
+}
+
+public void text_KD(String _text_KD) {
+
+  value_KD= float(_text_KD);
 }
