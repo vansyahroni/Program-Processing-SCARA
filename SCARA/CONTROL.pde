@@ -8,7 +8,7 @@ void SETcontrol()
     ;
 
   cp5.addTab("HIDE")
-    .hide()
+    .hide();
     ;
 
   cp5.getTab("default")

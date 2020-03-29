@@ -17,11 +17,7 @@ void string_setup() {
   target_color[3]=color(#FFF000);
   target_color[4]=color(0, 0, 0);
   
-  TextMode[0]="CHOSE MODE!";
-TextMode[1]="COLOR DETECTOR";
-TextMode[2]="MODE MANUAL";
-TextMode[3]="MODE INVERSE ";
-TextMode[4]="MODE SET PID";
+
 }
 
 
@@ -38,12 +34,9 @@ void SETdisplay()
   text("90", 1150, CO-532);//Koordinat X Perhiutngan Forward Kinematic
 
   ////////////////////////// MODE 1 //////////////////////////
-  for(int a=0;a<=MainMode;a++){
-    if(MainMode==a){
-    text(TextMode[a], 185, CO-465);}
-  }
+
   if (MainMode==1) { 
-   
+    text("COLOR DETECTOR", 185, CO-465);
 
     //// SUB MODE 1 ////
     if (SubMode1==1) { 
@@ -111,11 +104,11 @@ void SETdisplay()
     }
     //// SUB MODE 2 ////
     if (SubMode1==2) {  
-      text(" MULTI  COLOR ", 188, CO-369);
-      text("START ", 113, CO-88);
+      text("MULTI COLOR", 188, CO-369);
+      text("START", 113, CO-88);
       text("CHANGE", 213, CO-88);
       if (color_counter==-1)text("", 175, CO-313);  
-      if (color_counter==0)text("SET FRIST COLOR ", 175, CO-313);  
+      if (color_counter==0)text("SET FRIST COLOR", 175, CO-313);  
       if (color_counter==1)text("SET SECOND COLOR", 175, CO-313);  
       if (color_counter==2)text("SET THRID COLOR", 175, CO-313);  
       if (color_counter==3)text("SET FOURTH COLOR", 175, CO-313);  
@@ -175,8 +168,10 @@ void SETdisplay()
   ////////////////////////// MODE 2 //////////////////////////
 
   if (MainMode==2) { 
+    pushMatrix();
+    translate(0,0, 1);
     text("MANUAL", 185, CO-465);
-
+popMatrix();
     //DISPLAY//
     text(value_shoulder, 1025, CO-392); //Input Shoulder
     text(value_elbow, 1115, CO-392); //Input Shoulder
@@ -317,7 +312,7 @@ void SETdisplay()
 
 
       fill(255);
-      textFont(f17);
+      textFont(f18);
       text("90"+"%", 1179, CO-143); //Akurasi
       textFont(f16);
     }
@@ -335,7 +330,7 @@ void SETdisplay()
     text(value_KP, 1027, CO-377); //KP
     text(value_KI, 1117, CO-377); //KI
     text(value_KD, 1207, CO-377); //KD
-    textFont(f17);
+    textFont(f18);
     fill(255);
     text(value_setpoint, 1207, CO-324); //Set Point
     text("24", 1207, CO-290); // Value P
@@ -353,7 +348,7 @@ void SETdisplay()
       if (SubMode4==a) {
         text(joint_pid[a-1], 246, CO-331);
         fill(255);
-        textFont(f17);
+        textFont(f18);
         text(joint_pid[a-1], 1185, CO-474); //Joint
         textFont(f16);
       }

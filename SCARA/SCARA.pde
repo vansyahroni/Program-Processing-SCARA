@@ -63,6 +63,9 @@ int rgb=0;
 int _stop_pid=0;
 String joint_pid[]=new String[3];
 
+//multi color
+
+String MultiColor[]= new String [10];
 //--------------------- main data ---------------------\\
 int value_shoulder, value_elbow, value_wirst;
 int value_posX, value_posY;
