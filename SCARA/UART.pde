@@ -164,25 +164,32 @@ void controlEvent(ControlEvent theControlEvent)
           if (ReadID==121) {
             _MultiColor="RED";
             color_counter+=1;
-            _ColorMultiColor=color(255,0,0);
+            _ColorMultiColor=#F75C57;
+          multicolorhide1=1;
+         
           }
           if (ReadID==122) {
             _MultiColor="GREEN";
             color_counter+=1;
-             _ColorMultiColor=color(0,255,0);
+             _ColorMultiColor=#009B4C;
+           multicolorhide2=1;
           }
           if (ReadID==123) {
             _MultiColor="BLUE";
             color_counter+=1;
-             _ColorMultiColor=color(0,0,255);
+             _ColorMultiColor=#2F318B;
+          multicolorhide3=1;
           }
           if (ReadID==124) {
             _MultiColor="YELLOW";
             color_counter+=1;
-             _ColorMultiColor=color(255,255,0);
+             _ColorMultiColor=#FFF000;
+        multicolorhide4=1;
            }
           if (ReadID==125) {
             _MultiColor="BLACK";
+            _ColorMultiColor=#332C2B;
+       multicolorhide5=1;
             color_counter+=1;
              _ColorMultiColor=color(0,0,0);
           }
@@ -195,7 +202,21 @@ void controlEvent(ControlEvent theControlEvent)
           }
           if (ReadID==127) {
             MultiColorAction="CHANGE";
+            
             chose_color_go=2;
+            
+            multicolorhide1=0;
+            multicolorhide2=0;
+            multicolorhide3=0;
+            multicolorhide4=0;
+            multicolorhide5=0;
+          
+for(int a=0;a<=4;a++){
+  ColorMultiColor[a]=#53666A;
+}
+for(int a=0;a<=4;a++){
+  ColorMultiColor2[a]=#BDDBDB;
+}
           }
           if (color_counter==5) {
             hide_rgb=1;
@@ -210,7 +231,10 @@ void controlEvent(ControlEvent theControlEvent)
             for(int c=121;c<=ReadID;c++){
               if(color_counter==b && ReadID==c){
                 ColorMultiColor[b-1]= _ColorMultiColor;
+                ColorMultiColor2[b-1]= _ColorMultiColor;
+                
               }
+             
             }
           }
         }
@@ -225,8 +249,11 @@ void controlEvent(ControlEvent theControlEvent)
           SubMode2=1;
         }
       }
-      if (MainMode==2 && SubMode2==2) {
-        remote_keyboard=ReadID;
+      if (MainMode==2 && SubMode2==3) {
+        if(ReadID==231){
+          remote_keyboard=1;}
+          if(ReadID==232){
+            remote_keyboard=2;}
       }
 
 

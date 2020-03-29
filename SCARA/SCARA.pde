@@ -54,7 +54,7 @@ int _color_counter[]= new int[5];
 int hide_rgb=0;
 
 //Single Color
-color target_color[]=new color[5];
+color target_color[]=new color[6];
 color target_single_color_fix;
 String _target_single_color[]=new String [7];
 int _rgb;
@@ -69,7 +69,14 @@ String MultiColor[]= new String [6];
 String _MultiColor="";
 String MultiColorAction="";
 color ColorMultiColor[]=new color[5];
+color ColorMultiColor2[]=new color[5];
 color _ColorMultiColor;
+int multicolorhide1=0;
+int multicolorhide2=0;
+int multicolorhide3=0;
+int multicolorhide4=0;
+int multicolorhide5=0;
+
 //--------------------- main data ---------------------\\
 int value_shoulder, value_elbow, value_wirst;
 int value_posX, value_posY;

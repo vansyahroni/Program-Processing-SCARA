@@ -302,7 +302,7 @@ void SETcontrol()
     ;
 
   cp5.addButton("M2SM3OK")
-    .setPosition(116, CO-114)
+    .setPosition(116, CO-133)
     .setSize(94, 27)
     .setId(233)
     .setLabel("changeBackground")

@@ -13,18 +13,27 @@ void string_setup() {
   _target_single_color[5]="PLEASE CHOSE THE COLOR";
   _target_single_color[6]="PLEASE WAIT FOR 5 SECOND";
 
-  target_color[0]=color(255, 0, 0);
-  target_color[1]=color(0, 255, 0);
-  target_color[2]=color(0, 0, 255);
-  target_color[3]=color(#FFF000);
-  target_color[4]=color(0, 0, 0);
-  
+for(int a=0;a<=4;a++){
+  ColorMultiColor[a]=#53666A;
+}
+for(int a=0;a<=4;a++){
+  ColorMultiColor2[a]=#BDDBDB;
+}
+
 MultiColor[0]= "SET FIRST COLOR";
 MultiColor[1]= "SET SECOND COLOR";
 MultiColor[2]= "SET THIRD COLOR";
 MultiColor[3]= "SET FOURTH COLOR";
 MultiColor[4]= "SET LAST COLOR";
 MultiColor[5]= "ok";
+
+  target_color[0]=#F75C57;
+  target_color[1]=#009B4C;
+  target_color[2]=#2F318B;
+  target_color[3]=#FFF000;
+  target_color[4]=#332C2B;
+    target_color[5]=#53666A;
+ 
 }
 
 
@@ -36,9 +45,12 @@ void SETdisplay()
   fill(0);
   noStroke();
   //main
-if (MainMode==0){
     text("CHOSE MODE!", 185, CO-465);
-}
+    
+    
+    
+    
+
   
   text("90", 1080, CO-532); //Koordinat X Perhiutngan Forward Kinematic
   text("90", 1150, CO-532);//Koordinat X Perhiutngan Forward Kinematic
@@ -46,15 +58,12 @@ if (MainMode==0){
   ////////////////////////// MODE 1 //////////////////////////
 
   if (MainMode==1) { 
-    text("COLOR DETECTOR", 185, CO-465);
+ 
 
     //// SUB MODE 1 ////
     if (SubMode1==1) { 
       textFont(f15);
-      text("SINGLE COLOR", 188, CO-369);                
-      text("YES", 113, 634);
-      text("NO", 213, 634);
-      text("SET COLOR", 175, CO-313);  
+
 
       _rgb=rgb;
       if (rgb>=6) {
@@ -85,11 +94,15 @@ if (MainMode==0){
 
 
       for (int b=1; b<=_rgb; b++) {
-        if (rgb==b) {
+        if (_rgb==b) {
           target_single_color_fix=target_color[b-1];
         }
-
-
+       
+      }
+ if(yes_no_M1S1==2){
+         _rgb=5;
+           target_single_color_fix=#53666A;
+         }
 
 
 
@@ -115,7 +128,7 @@ if (MainMode==0){
         ellipse(1163, CO-165, 20, 20);   //TERAMBIL 
         fill(255);   
         text("01:34:29", 1122, 624);//Time
-      }
+      
     }
     //// SUB MODE 2 ////
     if (SubMode1==2) {  
@@ -146,7 +159,16 @@ if (MainMode==0){
          fill(ColorMultiColor[4]);
         ellipse(1234, CO-473, 20, 20);          //target 2
          
-        
+        fill(ColorMultiColor2[0]);                       //color targer
+        ellipse(75, CO-165, 40, 40);          //target 1
+         fill(ColorMultiColor2[1]);
+        ellipse(125, CO-165, 40, 40);          //target 2
+         fill(ColorMultiColor2[2]);
+        ellipse(175, CO-165, 40, 40);          //target 2
+         fill(ColorMultiColor2[3]);
+        ellipse(225, CO-165, 40, 40);          //target 2
+         fill(ColorMultiColor2[4]);
+        ellipse(275, CO-165, 40, 40);          //target 2
         
         
         
@@ -197,10 +219,7 @@ if (MainMode==0){
     ////////////////////////// MODE 2 //////////////////////////
 
     if (MainMode==2) { 
-      pushMatrix();
-      translate(0, 0, 1);
       text("MANUAL", 185, CO-465);
-      popMatrix();
       //DISPLAY//
       text(value_shoulder, 1025, CO-392); //Input Shoulder
       text(value_elbow, 1115, CO-392); //Input Shoulder
