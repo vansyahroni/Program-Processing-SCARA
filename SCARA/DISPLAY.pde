@@ -17,7 +17,11 @@ void string_setup() {
   target_color[3]=color(#FFF000);
   target_color[4]=color(0, 0, 0);
   
-
+  TextMode[0]="CHOSE MODE!";
+TextMode[1]="COLOR DETECTOR";
+TextMode[2]="MODE MANUAL";
+TextMode[3]="MODE INVERSE ";
+TextMode[4]="MODE SET PID";
 }
 
 
@@ -34,9 +38,12 @@ void SETdisplay()
   text("90", 1150, CO-532);//Koordinat X Perhiutngan Forward Kinematic
 
   ////////////////////////// MODE 1 //////////////////////////
-
+  for(int a=0;a<=MainMode;a++){
+    if(MainMode==a){
+    text(TextMode[a], 185, CO-465);}
+  }
   if (MainMode==1) { 
-    text("COLOR DETECTOR", 185, CO-465);
+   
 
     //// SUB MODE 1 ////
     if (SubMode1==1) { 
@@ -46,35 +53,35 @@ void SETdisplay()
       text("NO", 213, 634);
       text("SET COLOR", 175, CO-313);  
       
-     // _rgb=rgb;
-     //if(rgb>=6){
-     //  _rgb=5;}
+      _rgb=rgb;
+     if(rgb>=6){
+       _rgb=5;}
        
-     // if (rgb>0) {
+      if (rgb>0) {
       
-     // for (int a=0; a<=rgb; a++) {
+      for (int a=0; a<=rgb; a++) {
      
-     //   if (rgb==a && yes_no_M1S1!=1 && yes_no_M1S1!=2) { 
+        if (rgb==a && yes_no_M1S1!=1 && yes_no_M1S1!=2) { 
 
-     //     text(_target_single_color[a-1], 175, CO-188);
-     //   }
+          text(_target_single_color[a-1], 175, CO-188);
+        }
         
-     //     if (yes_no_M1S1==1 && rgb==a) {//yes
-     //       yes_no_M1S1=0;
-     //       rgb=7;
-     //     }
+          if (yes_no_M1S1==1 && rgb==a) {//yes
+            yes_no_M1S1=0;
+            rgb=7;
+          }
            
-     //   }
-     // }
-     //   if (yes_no_M1S1==2 | yes_no_M1S1==1) {//no
-     //     yes_no_M1S1=0;
-     //     rgb=6;
+        }
+      }
+        if (yes_no_M1S1==2 | yes_no_M1S1==1) {//no
+          yes_no_M1S1=0;
+          rgb=6;
 
-     //   }
+        }
         
-     //    for (int b=1; b<=_rgb; b++) {
-     //      if (rgb==b) {target_single_color_fix=target_color[b-1];}
-     //    }
+         for (int b=1; b<=_rgb; b++) {
+           if (rgb==b) {target_single_color_fix=target_color[b-1];}
+         }
            
            
            
@@ -104,11 +111,11 @@ void SETdisplay()
     }
     //// SUB MODE 2 ////
     if (SubMode1==2) {  
-      text("MULTI COLOR", 188, CO-369);
-      text("START", 113, CO-88);
+      text(" MULTI  COLOR ", 188, CO-369);
+      text("START ", 113, CO-88);
       text("CHANGE", 213, CO-88);
       if (color_counter==-1)text("", 175, CO-313);  
-      if (color_counter==0)text("SET FRIST COLOR", 175, CO-313);  
+      if (color_counter==0)text("SET FRIST COLOR ", 175, CO-313);  
       if (color_counter==1)text("SET SECOND COLOR", 175, CO-313);  
       if (color_counter==2)text("SET THRID COLOR", 175, CO-313);  
       if (color_counter==3)text("SET FOURTH COLOR", 175, CO-313);  

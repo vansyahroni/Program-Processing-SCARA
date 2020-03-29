@@ -245,13 +245,14 @@ void SETcontrol()
     .setPosition(163, CO-307)
     .setSize(61, 27)
     .setFont(f20)
-    .setLabelVisible(false) 
     .setColorBackground(#80A2A3)
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
+    .setLabelVisible(false) 
     .setFocus(true)
     .setColor(255)
      .setAutoClear(true)
+     .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_elbow")
@@ -265,6 +266,7 @@ void SETcontrol()
     .setFocus(true)
     .setAutoClear(true)
     .setColor(255)
+      .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_wirst")
@@ -279,6 +281,7 @@ void SETcontrol()
     .setFocus(true)
    .setAutoClear(true)
     .setColor(255)
+      .setCaptionLabel("") 
     ;
 
   ////// REMOTE //////
@@ -338,6 +341,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
+      .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_posY")
@@ -348,6 +352,7 @@ void SETcontrol()
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
     .setFocus(true)
+      .setCaptionLabel("") 
     .setColor(255)
     ;
 
@@ -391,6 +396,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
+      .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_KP")
@@ -402,6 +408,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
+      .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_KI")
@@ -413,6 +420,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
+      .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_KD")
@@ -424,6 +432,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
+      .setCaptionLabel("") 
     ;
 
 

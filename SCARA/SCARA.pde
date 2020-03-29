@@ -58,7 +58,7 @@ color target_color[]=new color[5];
 color target_single_color_fix;
 String _target_single_color[]=new String [7];
 int _rgb;
-
+int rgb=0;
 //set pid
 int _stop_pid=0;
 String joint_pid[]=new String[3];
@@ -69,6 +69,8 @@ int value_posX, value_posY;
 int value_setpoint;
 float value_KP, value_KI, value_KD;
 
+//Mode
+String TextMode[]=new String[5];
 void setup()
 {
   SETimg();
@@ -77,7 +79,7 @@ void setup()
   
   size(1280, 720, OPENGL);      //ukuran window
   cp5 = new ControlP5(this);    //controlp5
-  
+  string_setup();
   SETcontrol();
   setup_UART();
   

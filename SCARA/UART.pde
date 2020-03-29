@@ -88,6 +88,9 @@ void controlEvent(ControlEvent theControlEvent)
     }
 
   }
+   if (theControlEvent.isFrom(RadioButton)) {
+    rgb=int(theControlEvent.getValue());
+  }  
   
 }
 
@@ -95,8 +98,9 @@ public void main_mode() {
   MainMode+=1;
    if(MainMode==5){
     MainMode=1;
-  }
- 
+  } 
+  
+  
 }
 
 public void color_mode() {
@@ -111,4 +115,12 @@ public void manual_mode() {
    if(SubMode2==4){
     SubMode2=1;
   }
+}
+
+public void M1S1_yes() {
+yes_no_M1S1=1;
+}
+
+public void M1S1_no() {
+ yes_no_M1S1=2;
 }

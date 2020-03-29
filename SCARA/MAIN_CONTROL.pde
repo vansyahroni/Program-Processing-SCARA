@@ -147,12 +147,14 @@ fill(0);
       
     }
 
-    if (SubMode3==3) //REMOTE
-    {
+    if (SubMode2==3) //REMOTE
+    
+    { 
       image(mmode3, 163, CO-237);
-      cp5.getController("manual_mode").moveTo("default");
       hideMode2A();
       hideMode2B();
+      cp5.getController("manual_mode").moveTo("default");
+     
 
       cp5.getController("remote").moveTo("default");
       cp5.getController("keyboard").moveTo("default");
