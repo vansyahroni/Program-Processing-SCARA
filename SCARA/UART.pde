@@ -1,15 +1,16 @@
 String pn;
 void setup_UART()
 {
-                
-  commListbox = cp5.addListBox("portComList", 20, 720-550, 285, 200); // make a listbox and populate it with the available comm ports
+
+  commListbox = cp5.addListBox("portComList", 20, CO-561, 285, 200); // make a listbox and populate it with the available comm ports
   commListbox.setColorLabel(0);
   commListbox.setItemHeight(15);
   commListbox.setBarHeight(15);
   commListbox.setCaptionLabel("PORT COM");
-  commListbox.setColorBackground(#80a2a3);
-  commListbox.setColorForeground(#F75C57);
-  commListbox.setColorActive(#F75C57);
+  commListbox.setColorBackground(c3);
+  commListbox.setColorForeground(c5);
+  commListbox.setColorActive(c5);
+  commListbox.close();
 
   for (int i=0; i<Serial.list ().length; i++) 
   {
@@ -21,10 +22,9 @@ void setup_UART()
 
   commListbox.addItem("Close Comm", ++commListMax); // addItem(name,value)
 
-  txtlblWhichcom = cp5.addTextlabel("txtlblWhichcom", "No Port Selected", 163, 720-565); // textlabel(name,text,x,y)
+  txtlblWhichcom = cp5.addTextlabel("txtlblWhichcom", "No Port Selected", 163, 720-561); // textlabel(name,text,x,y)
   txtlblWhichcom.setColorValue(0);
 }
-
 
 
 
@@ -36,11 +36,9 @@ void serialEvent (Serial usbPort)
     if (usbString != null) 
     {
       usbString = trim(usbString);
-      
     }
 
     float data[] = float(split(usbString, ','));
-    
   }
   catch(RuntimeException e)
   {
@@ -80,10 +78,39 @@ String shortifyPortName(String portName, int maxlen)
 
 void controlEvent(ControlEvent theControlEvent)
 {
-if (theControlEvent.isController()) {
+  if (theControlEvent.isController()) {
+    ReadID=theControlEvent.getController().getId();    
+
+    //--------------------- comlist ---------------------\\
+
     if (theControlEvent.getController().getName()=="portComList") {
-      println("smile");
       InitSerial(theControlEvent.getController().getValue());
     }
+
+  }
+  println("Main Mode:"+MainMode+"Sub Mode:"+SubMode);
+}
+
+public void main_mode() { 
+  MainMode+=1;
+   if(MainMode==5){
+    MainMode=1;
+  }
+ 
+}
+
+public void color_mode() {
+  SubMode=0;
+  SubMode+=1;
+   if(SubMode==3){
+    SubMode=1;
+  }
+}
+
+public void manual_mode() {
+  SubMode=0;
+  SubMode+=1;
+   if(SubMode==4){
+    SubMode=1;
   }
 }
