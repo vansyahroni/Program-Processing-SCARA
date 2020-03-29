@@ -27,7 +27,7 @@ void SETcontrol()
    4. Mode Set PID
    */
 
-  cp5.addBang("main_mode")  //MAIN MODE
+  cp5.addButton("main_mode")  //MAIN MODE
     .setId(1)
     .setPosition(20, CO-480)
     .setSize(40, 40)
@@ -39,7 +39,7 @@ void SETcontrol()
     ;
   //--------------------- mode 1 ---------------------\\
 
-  cp5.addBang("color_mode") //CONTROL SUB MODE
+  cp5.addButton("color_mode") //CONTROL SUB MODE
     .setId(11)
     .setPosition(40, CO-396)
     .setSize(43, 43)
@@ -69,7 +69,7 @@ void SETcontrol()
     ;
 
 
-  cp5.addBang("M1S1_yes")
+  cp5.addButton("M1S1_yes")
     .setPosition(95, CO-138)
     .setSize(35, 36)
     .setId(112)
@@ -80,7 +80,7 @@ void SETcontrol()
 
     ;
 
-  cp5.addBang("M1S1_no")
+  cp5.addButton("M1S1_no")
     .setPosition(195, CO-138)
     .setSize(35, 36)
     .setId(113)
@@ -92,7 +92,7 @@ void SETcontrol()
 
   ////// CHOSE COLOR  2 //////
 
-  cp5.addBang("chose_red")
+  cp5.addButton("chose_red")
     .setPosition(56, CO-263)
     .setSize(31, 22)
     .setId(121)
@@ -102,7 +102,7 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
 
-  cp5.addBang("chose_green")
+  cp5.addButton("chose_green")
     .setPosition(106, CO-263)
     .setSize(31, 22)
     .setId(122)
@@ -112,7 +112,7 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
 
-  cp5.addBang("chose_blue")
+  cp5.addButton("chose_blue")
     .setPosition(156, CO-263)
     .setSize(31, 22)
     .setId(123)
@@ -122,7 +122,7 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
 
-  cp5.addBang("chose_yellow")
+  cp5.addButton("chose_yellow")
     .setPosition(206, CO-263)
     .setSize(31, 22)
     .setId(124)
@@ -132,7 +132,7 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
 
-  cp5.addBang("chose_black")
+  cp5.addButton("chose_black")
     .setPosition(256, CO-263)
     .setSize(27, 22)
     .setId(125)
@@ -142,7 +142,7 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
 
-  cp5.addBang("chose_color_start")
+  cp5.addButton("chose_color_start")
     .setPosition(95, CO-138)
     .setSize(35, 36)
     .setId(126)
@@ -151,7 +151,7 @@ void SETcontrol()
     .setColorForeground(c3) 
     .setLabelVisible(false) 
     ;
-  cp5.addBang("chose_color_change")
+  cp5.addButton("chose_color_change")
     .setPosition(195, CO-138)
     .setSize(35, 36)
     .setId(127)
@@ -164,7 +164,7 @@ void SETcontrol()
 
   //////////////////////// MDOE 2 ///////////////////////////
 
-  cp5.addBang("manual_mode") //CONTROL SUB MODE
+  cp5.addButton("manual_mode") //CONTROL SUB MODE
     .setId(12)
     .setPosition(40, CO-396)
     .setSize(43, 43)
@@ -205,12 +205,13 @@ void SETcontrol()
     .setPosition(41, CO-190)
     .setRange(0, 180)
     .setSize(243, 27)
+     .setLabelVisible(false) 
     .setColorBackground(#80A2A3)
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
     .setColorValue(color(0, 0, 0))
     .setValue(90)
-    .setLabelVisible(false) 
+   
     ;
 
   cp5.addToggle("up_down")
@@ -240,48 +241,49 @@ void SETcontrol()
   ////// TEXT //////
 
   cp5.addTextfield("text_shoulder")
-  .setLabelVisible(false) 
+  
     .setPosition(163, CO-307)
     .setSize(61, 27)
     .setFont(f20)
+    .setLabelVisible(false) 
     .setColorBackground(#80A2A3)
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
-     
+     .setAutoClear(true)
     ;
 
   cp5.addTextfield("text_elbow")
-  .setLabelVisible(false) 
     .setPosition(163, CO-249)
     .setSize(61, 27)
     .setFont(f20)
+    .setLabelVisible(false) 
     .setColorBackground(#80A2A3)
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
     .setFocus(true)
-    
+    .setAutoClear(true)
     .setColor(255)
     ;
 
   cp5.addTextfield("text_wirst")
-    .setLabelVisible(false) 
+ 
     .setPosition(163, CO-190)
     .setSize(61, 27)
-
+.setLabelVisible(false) 
     .setFont(f20)
     .setColorBackground(#80A2A3)
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
     .setFocus(true)
-   
+   .setAutoClear(true)
     .setColor(255)
     ;
 
   ////// REMOTE //////
 
-  cp5.addBang("remote")
+  cp5.addButton("remote")
     .setPosition(55, CO-307)
     .setSize(94, 27)
     .setLabel("changeBackground")
@@ -292,7 +294,7 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
 
-  cp5.addBang("keyboard")
+  cp5.addButton("keyboard")
     .setPosition(177, CO-307)
     .setSize(94, 27)
     .setId(232)
@@ -303,7 +305,7 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
 
-  cp5.addBang("M2SM3OK")
+  cp5.addButton("M2SM3OK")
     .setPosition(116, CO-114)
     .setSize(94, 27)
     .setId(233)
@@ -316,7 +318,7 @@ void SETcontrol()
 
   //////////////////////// MDOE 3 ///////////////////////////
 
-  cp5.addBang("ik_mode") //CONTROL SUB MODE
+  cp5.addButton("ik_mode") //CONTROL SUB MODE
     .setId(13)
     .setPosition(40, CO-396)
     .setSize(43, 43)
@@ -349,7 +351,7 @@ void SETcontrol()
     .setColor(255)
     ;
 
-  cp5.addBang("start_trajectory") //CONTROL SUB MODE
+  cp5.addButton("start_trajectory") //CONTROL SUB MODE
     .setId(321)
     .setPosition(55, CO-133)
     .setSize(94, 27)
@@ -359,7 +361,7 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
 
-  cp5.addBang("reset_trajectory") //CONTROL SUB MODE
+  cp5.addButton("reset_trajectory") //CONTROL SUB MODE
     .setId(322)
     .setPosition(170, CO-133)
     .setSize(94, 27)
@@ -370,7 +372,7 @@ void SETcontrol()
     ;
 
 
-  cp5.addBang("jointPID")
+  cp5.addButton("jointPID")
     .setPosition(155, CO-341)
     .setSize(36, 19)
     .setId(411)
@@ -425,7 +427,7 @@ void SETcontrol()
     ;
 
 
-  cp5.addBang("start_pid")
+  cp5.addButton("start_pid")
     .setPosition(98, CO-106)
     .setSize(27, 27)
     .setId(421)
@@ -437,7 +439,7 @@ void SETcontrol()
     ;
 
 
-  cp5.addBang("stop_pid")
+  cp5.addButton("stop_pid")
     .setPosition(149, CO-106)
     .setSize(27, 27)
     .setId(422)
@@ -449,7 +451,7 @@ void SETcontrol()
     ;
 
 
-  cp5.addBang("reset_pid")
+  cp5.addButton("reset_pid")
     .setPosition(201, CO-106)
     .setSize(27, 27)
     .setId(423)
@@ -459,4 +461,77 @@ void SETcontrol()
     .setColorForeground(#80A2A3) 
     .setLabelVisible(false) 
     ;
+}
+
+//RADIO BUTTON RGB
+void keyPressed() {
+  switch(key) {
+    case('0'): 
+    
+    RadioButton.deactivateAll(); 
+    break;
+    case('1'): 
+  
+    RadioButton.activate(0); 
+    break;
+    case('2'): 
+   
+    RadioButton.activate(1); 
+    break;
+    case('3'): 
+   
+    RadioButton.activate(2); 
+    break;
+    case('4'): 
+   
+    RadioButton.activate(3); 
+    break;
+    case('5'): 
+   
+    RadioButton.activate(4); 
+    break;
+  }
+}
+
+public void text_shoulder(String _text_shoulder) {
+
+  value_shoulder_text= int(_text_shoulder);
+}
+public void text_elbow(String _text_elbow) {
+
+  value_elbow_text= int(_text_elbow);
+}
+
+public void text_wirst(String _text_wirst) {
+
+  value_wirst_text= int(_text_wirst);
+}
+
+public void text_posX(String _text_posX) {
+
+  value_posX_text= int(_text_posX);
+}
+
+public void text_posY(String _text_posY) {
+
+  value_posY_text= int(_text_posY);
+}
+
+
+public void text_setpoint(String _text_setpoint) {
+
+  value_setpoint= int(_text_setpoint);
+}
+public void text_KP(String _text_KP) {
+
+  value_KP= float(_text_KP);
+}
+public void text_KI(String _text_KI) {
+
+  value_KI= float(_text_KI);
+}
+
+public void text_KD(String _text_KD) {
+
+  value_KD= float(_text_KD);
 }

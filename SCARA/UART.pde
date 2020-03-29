@@ -88,7 +88,7 @@ void controlEvent(ControlEvent theControlEvent)
     }
 
   }
-  println("Main Mode:"+MainMode+"Sub Mode:"+SubMode);
+  
 }
 
 public void main_mode() { 
@@ -100,17 +100,15 @@ public void main_mode() {
 }
 
 public void color_mode() {
-  SubMode=0;
-  SubMode+=1;
-   if(SubMode==3){
-    SubMode=1;
+  SubMode1+=1;
+   if(SubMode1==3){
+    SubMode1=1;
   }
 }
 
 public void manual_mode() {
-  SubMode=0;
-  SubMode+=1;
-   if(SubMode==4){
-    SubMode=1;
+  SubMode2+=1;
+   if(SubMode2==4){
+    SubMode2=1;
   }
 }

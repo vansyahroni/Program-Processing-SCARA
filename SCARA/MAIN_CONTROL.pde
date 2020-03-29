@@ -19,9 +19,12 @@ fill(0);
     hideMode3B();
     hideMode3C();
     hideMode4();
+    println("Main Mode:"+MainMode+"Sub Mode:"+SubMode);
   }
+  
   if (MainMode==1 )
   { 
+
     cp5.getController("manual_mode").moveTo("HIDE");
     image(cmode, 163, CO-237);
      
@@ -35,7 +38,7 @@ fill(0);
     cp5.getController("color_mode").moveTo("default");
     
     
-    if (SubMode==1) //SINGLE COLOR
+    if (SubMode1==1) //SINGLE COLOR
     {  
       pushMatrix();
       translate(0, 0, 0.0002);
@@ -50,7 +53,7 @@ fill(0);
       hideMode1B();
     }
 
-    if (SubMode==2) //MULTI COLOR
+    if (SubMode1==2) //MULTI COLOR
     {
       image(cmode2, 163, CO-237);
       image(dis_m1s1, 1115, CO-307);
@@ -82,13 +85,15 @@ fill(0);
         cp5.getController("chose_black").moveTo("default");
       }
     }
+    println("Main Mode:"+MainMode+"Sub Mode:"+SubMode1);
   }
  
   
   ////////////////////////// MANUAL /////////////////////////
 
   if (MainMode==2) 
-  { cp5.getController("color_mode").moveTo("HIDE");
+  {  
+    cp5.getController("color_mode").moveTo("HIDE");
     image(mmode, 163, CO-237);
     image(dis_m2s2, 1115, CO-307);
       
@@ -101,7 +106,7 @@ fill(0);
    cp5.getController("manual_mode").moveTo("default");
 
 
-    if (SubMode==1) //SLIDER
+    if (SubMode2==1) //SLIDER
     { 
       image(mmode1, 163, CO-237);
 
@@ -121,7 +126,7 @@ fill(0);
       value_wirst=slider_wirst;
     }
 
-    if (SubMode==2) //TEXT
+    if (SubMode2==2) //TEXT
     {
       image(mmode2, 163, CO-237);
 
@@ -142,7 +147,7 @@ fill(0);
       
     }
 
-    if (SubMode==3) //REMOTE
+    if (SubMode3==3) //REMOTE
     {
       image(mmode3, 163, CO-237);
       cp5.getController("manual_mode").moveTo("default");
@@ -153,6 +158,7 @@ fill(0);
       cp5.getController("keyboard").moveTo("default");
       cp5.getController("M2SM3OK").moveTo("default");
     }
+        println("Main Mode:"+MainMode+"Sub Mode:"+SubMode2);
   }
 
   ////////////////////////// INVERSE KINEMATIC /////////////////////////
