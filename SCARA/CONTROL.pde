@@ -464,6 +464,22 @@ void SETcontrol()
     .setLabelVisible(false) 
     ;
     
+    
+     myChart = cp5.addChart("grafik")
+               .setPosition(434, CO-264)
+               .setSize(411, 231)
+               .setRange(-20, 20)
+               .setView(Chart.AREA) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
+
+               .setColorBackground(#80A2A3)
+    .setColorActive(#F75C57) 
+    .setColorForeground(#80A2A3) 
+              .setLabelVisible(false) 
+               ;
+               
+                 myChart.addDataSet("grafik");
+  myChart.setData("grafik", new float[100]);
+               
      MainMode=0;
    
    

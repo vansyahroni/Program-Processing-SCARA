@@ -678,7 +678,8 @@ if (SubMode4==0) { text("CHOSE THE JOINT!", 163, CO-102);
     hideMode3C();
     hideMode4();
   }
-  
+   cp5.getController("grafik").show();//MODE1A
+  myChart.push("grafik", (sin(frameCount*0.1)*10));
 }
 
 void hideAllMode() {

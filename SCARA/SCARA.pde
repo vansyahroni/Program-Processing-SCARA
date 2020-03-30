@@ -90,6 +90,9 @@ String TextMode[]=new String[5];
 //camera
 Capture cam;
 
+//chart 
+Chart myChart;
+
 void setup()
 {
    
