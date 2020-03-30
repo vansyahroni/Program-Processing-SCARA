@@ -535,7 +535,8 @@ void contorlTab() {
 
   ////////////////////////// COLOR DETECTOR /////////////////////////
   if (MainMode==4)
-  {    hideAllMode();
+  {    
+    hideAllMode();
     hideMode1A();
     hideMode1B();
     hideMode2A();
@@ -544,7 +545,7 @@ void contorlTab() {
     hideMode3A();
     hideMode3B();
     hideMode3C();
-     image(dis_m4, 1115, CO-307);
+    image(dis_m4, 1115, CO-307);
     textFont(f25);
     text("MODE SET PID", 163, CO-390);  
     if ( start_pid<1) {
@@ -558,8 +559,8 @@ void contorlTab() {
       text("SET KI", 40, CO-197);
       text("SET KD", 40, CO-152);
       textAlign(CENTER, CENTER);
-      
-     
+
+
       if (SubMode4>0) {
         text("START", 111, CO-115);  
         text("STOP", 163, CO-115);  
@@ -585,53 +586,51 @@ void contorlTab() {
           textFont(f16);
         }
       }
-    
-    //image(pidmode, 163, CO-237);
-   
 
+      //image(pidmode, 163, CO-237);
     }
 
-   
-    
-     if (SubMode4>0) {
-        cp5.getController("text_setpoint").unlock();
-        cp5.getController("text_KP").unlock();
-        cp5.getController("text_KI").unlock();
-        cp5.getController("text_KD").unlock();
 
-        cp5.getController("start_pid").show();
-        cp5.getController("stop_pid").show();
-        cp5.getController("reset_pid").show();
-         if ( start_pid==1) {
-      cp5.getController("jointPID").hide();
-      cp5.getController("text_setpoint").hide();
-      cp5.getController("text_setpoint").hide();
-      cp5.getController("text_KP").hide();
-      cp5.getController("text_KI").hide();
-      cp5.getController("text_KD").hide();
-      cp5.getController("start_pid").hide();
-      cp5.getController("reset_pid").hide();
-      
-      textFont(f16);
-      text("STOP", 163, CO-115);  
-      textFont(f20);
-      text("PLEASE WAIT \n FOR THE RESPON", 159, CO-219);
-      textFont(f16);
-      
-    }
+
+    if (SubMode4>0) {
+      cp5.getController("text_setpoint").unlock();
+      cp5.getController("text_KP").unlock();
+      cp5.getController("text_KI").unlock();
+      cp5.getController("text_KD").unlock();
+
+      cp5.getController("start_pid").show();
+      cp5.getController("stop_pid").show();
+      cp5.getController("reset_pid").show();
+      if ( start_pid==1) {
+        cp5.getController("jointPID").hide();
+        cp5.getController("text_setpoint").hide();
+        cp5.getController("text_setpoint").hide();
+        cp5.getController("text_KP").hide();
+        cp5.getController("text_KI").hide();
+        cp5.getController("text_KD").hide();
+        cp5.getController("start_pid").hide();
+        cp5.getController("reset_pid").hide();
+
+        textFont(f16);
+        text("STOP", 163, CO-115);  
+        textFont(f20);
+        text("PLEASE WAIT \n FOR THE RESPON", 159, CO-219);
+        textFont(f16);
       }
-      
-if (SubMode4==0) { text("CHOSE THE JOINT!", 163, CO-102);
-        cp5.getController("text_setpoint").lock();
-  cp5.getController("text_KP").lock();
+    }
+
+    if (SubMode4==0) { 
+      text("CHOSE THE JOINT!", 163, CO-102);
+      cp5.getController("text_setpoint").lock();
+      cp5.getController("text_KP").lock();
       cp5.getController("text_KI").lock();
       cp5.getController("text_KD").lock();
-      
-        
-         cp5.getController("stop_pid").hide();
-      }
-    
-  
+
+
+      cp5.getController("stop_pid").hide();
+    }
+
+
     if ( start_pid<1) {
       cp5.getController("jointPID").show();
       cp5.getController("text_setpoint").show();
@@ -641,26 +640,25 @@ if (SubMode4==0) { text("CHOSE THE JOINT!", 163, CO-102);
       cp5.getController("text_KD").show();
 
 
-      
-        
-  
+
+
+
       fill(0);
       text(value_setpoint, 246, CO-287); 
       text(value_KP, 246, CO-242); 
       text(value_KI, 246, CO-197); 
-      text(value_KD, 246, CO-152); 
+      text(value_KD, 246, CO-152);
+    }
+    textFont(f20);
+    text(value_KP, 1027, CO-378); 
+    text(value_KI, 1117, CO-378); 
+    text(value_KD, 1207, CO-378); 
+    fill(255);
+    text(value_setpoint, 1207, CO-324); 
+    fill(0);
+    textFont(f16);
+  }
 
-    }
-      textFont(f20);
-      text(value_KP, 1027, CO-378); 
-      text(value_KI, 1117, CO-378); 
-      text(value_KD, 1207, CO-378); 
-      fill(255);
-      text(value_setpoint, 1207, CO-324); 
-      fill(0);
-      textFont(f16);
-    }
-  
 
   ////////////////////////// OFF /////////////////////////
 
@@ -677,9 +675,83 @@ if (SubMode4==0) { text("CHOSE THE JOINT!", 163, CO-102);
     hideMode3B();
     hideMode3C();
     hideMode4();
+    hideGraph();
   }
-   cp5.getController("grafik").show();//MODE1A
-  myChart.push("grafik", (sin(frameCount*0.1)*10));
+
+  ////////////////////////// GRAPH /////////////////////////
+
+  if (MainMode!=0) {
+    cp5.getController("graph_obj").show();//MODE1A
+
+
+   
+
+    fill(#332C2B);
+    textFont(f14);
+    text("MODE", 405, CO-213);
+
+pushMatrix();
+translate(0,0,0.5);
+   fill(255);
+    textFont(f16);
+    text("MODE", 844, CO-247);
+    
+    strokeWeight(5);
+    stroke(#53666A);
+    noFill();
+    rect(439, CO-264, 456, 231);
+    noStroke();
+    fill(#53666A);
+    rect(794, CO-264, 101, 34, 0, 0, 0, 5);
+    fill(#332C2B);
+popMatrix();
+    if (graph_or_obj==1) {
+       textFont(f14);
+      text("VIEW 1", 405, CO-126); 
+      text("VIEW 2", 405, CO-39); 
+
+      cp5.getController("grafik").hide();//MODE1A
+      cp5.getController("view_obj1").show();//MODE1A
+      cp5.getController("view_obj2").show();//MODE1A
+      
+       fill(255);
+       pushMatrix();
+       translate(0,0,0.5);
+    textFont(f16);
+    text("CAD 3D", 844, CO-247);
+    popMatrix();
+     fill(#332C2B);
+    textFont(f14);
+    
+    }
+    if (graph_or_obj==2) {
+       textFont(f14);
+      text("GRAPH 1", 405, CO-126); 
+      text("RESET", 405, CO-39); 
+      
+      
+fill(255);
+pushMatrix();
+translate(0,0,0.5);
+    textFont(f16);
+    
+    text("GRAFIK", 844, CO-247);
+    popMatrix();
+     fill(#332C2B);
+    textFont(f14);
+
+
+
+      cp5.getController("view_obj1").show();//MODE1A
+      cp5.getController("view_obj2").show();//MODE1A
+      
+      textFont(f16);
+            cp5.getController("grafik").show();//MODE1A
+      myChart.push("grafik", (sin(frameCount*0.1)*10));
+     
+  }
+  }
+  fill(0);
 }
 
 void hideAllMode() {
@@ -747,4 +819,11 @@ void hideMode4() {
   cp5.getController("start_pid").hide();
   cp5.getController("stop_pid").hide();
   cp5.getController("reset_pid").hide();
+}
+
+void hideGraph() {
+  cp5.getController("grafik").hide();//MODE1A
+  cp5.getController("graph_obj").hide();//MODE1A
+  cp5.getController("view_obj1").hide();//MODE1A
+  cp5.getController("view_obj2").hide();//MODE1A
 }

@@ -312,5 +312,18 @@ for(int a=0;a<=4;a++){
 
   
     }
+    
+    if(MainMode!=0){
+      if(ReadID==2){
+        graph_or_obj+=1;
+      }
+        if(graph_or_obj==3){
+        graph_or_obj=1;
+      }
+      
+      
+      }
+        
+    
   }
 }

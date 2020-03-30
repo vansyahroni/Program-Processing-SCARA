@@ -1,6 +1,6 @@
 void SETcontrol()
 {
-  
+
   //--------------------- main control ---------------------\\
 
   /*untuk pindah mode utama
@@ -62,7 +62,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c3) 
     .setLabelVisible(false) 
- .hide()
+    .hide()
     ;
 
   cp5.addButton("M1S1_no")
@@ -73,7 +73,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c3) 
     .setLabelVisible(false) 
-     .hide()
+    .hide()
     ;
 
   ////// CHOSE COLOR  2 //////
@@ -86,7 +86,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c5) 
     .setLabelVisible(false) 
-     .hide()
+    .hide()
     ;
 
   cp5.addButton("chose_green")
@@ -97,7 +97,7 @@ void SETcontrol()
     .setColorActive(#009B4C) 
     .setColorForeground(#009B4C) 
     .setLabelVisible(false) 
-     .hide()
+    .hide()
     ;
 
   cp5.addButton("chose_blue")
@@ -108,7 +108,7 @@ void SETcontrol()
     .setColorActive(#2F318B) 
     .setColorForeground(#2F318B) 
     .setLabelVisible(false) 
-     .hide()
+    .hide()
     ;
 
   cp5.addButton("chose_yellow")
@@ -119,7 +119,7 @@ void SETcontrol()
     .setColorActive(#FFF000) 
     .setColorForeground(#FFF000) 
     .setLabelVisible(false) 
-     .hide()
+    .hide()
     ;
 
   cp5.addButton("chose_black")
@@ -130,7 +130,7 @@ void SETcontrol()
     .setColorActive(#332C2B) 
     .setColorForeground(#332C2B) 
     .setLabelVisible(false) 
-     .hide()
+    .hide()
     ;
 
   cp5.addButton("chose_color_start")
@@ -141,7 +141,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c3) 
     .setLabelVisible(false) 
-     .hide()
+    .hide()
     ;
   cp5.addButton("chose_color_change")
     .setPosition(195, CO-138)
@@ -151,7 +151,7 @@ void SETcontrol()
     .setColorActive(c5) 
     .setColorForeground(c3) 
     .setLabelVisible(false) 
-     .hide()
+    .hide()
     ;              
 
 
@@ -198,13 +198,13 @@ void SETcontrol()
     .setPosition(41, CO-190)
     .setRange(0, 180)
     .setSize(243, 27)
-     .setLabelVisible(false) 
+    .setLabelVisible(false) 
     .setColorBackground(#80A2A3)
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
     .setColorValue(color(0, 0, 0))
     .setValue(90)
-   
+
     ;
 
   cp5.addToggle("up_down")
@@ -234,7 +234,7 @@ void SETcontrol()
   ////// TEXT //////
 
   cp5.addTextfield("text_shoulder")
-  
+
     .setPosition(163, CO-307)
     .setSize(61, 27)
     .setFont(f20)
@@ -244,8 +244,8 @@ void SETcontrol()
     .setLabelVisible(false) 
     .setFocus(true)
     .setColor(255)
-     .setAutoClear(true)
-     .setCaptionLabel("") 
+    .setAutoClear(true)
+    .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_elbow")
@@ -259,22 +259,22 @@ void SETcontrol()
     .setFocus(true)
     .setAutoClear(true)
     .setColor(255)
-      .setCaptionLabel("") 
+    .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_wirst")
- 
+
     .setPosition(163, CO-190)
     .setSize(61, 27)
-.setLabelVisible(false) 
+    .setLabelVisible(false) 
     .setFont(f20)
     .setColorBackground(#80A2A3)
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
     .setFocus(true)
-   .setAutoClear(true)
+    .setAutoClear(true)
     .setColor(255)
-      .setCaptionLabel("") 
+    .setCaptionLabel("") 
     ;
 
   ////// REMOTE //////
@@ -334,7 +334,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
-      .setCaptionLabel("") 
+    .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_posY")
@@ -345,7 +345,7 @@ void SETcontrol()
     .setColorActive(#F75C57) 
     .setColorForeground(#F75C57) 
     .setFocus(true)
-      .setCaptionLabel("") 
+    .setCaptionLabel("") 
     .setColor(255)
     ;
 
@@ -389,7 +389,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
-      .setCaptionLabel("") 
+    .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_KP")
@@ -401,7 +401,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
-      .setCaptionLabel("") 
+    .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_KI")
@@ -413,7 +413,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
-      .setCaptionLabel("") 
+    .setCaptionLabel("") 
     ;
 
   cp5.addTextfield("text_KD")
@@ -425,7 +425,7 @@ void SETcontrol()
     .setColorForeground(#F75C57) 
     .setFocus(true)
     .setColor(255)
-      .setCaptionLabel("") 
+    .setCaptionLabel("") 
     ;
 
 
@@ -463,24 +463,64 @@ void SETcontrol()
     .setColorForeground(#80A2A3) 
     .setLabelVisible(false) 
     ;
-    
-    
-     myChart = cp5.addChart("grafik")
-               .setPosition(434, CO-264)
-               .setSize(411, 231)
-               .setRange(-20, 20)
-               .setView(Chart.AREA) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
 
-               .setColorBackground(#80A2A3)
+
+  myChart = cp5.addChart("grafik")
+    .setPosition(439, CO-264)
+    .setSize(456, 231)
+    .setRange(-20, 20)
+    .setView(Chart.AREA) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
+
+    .setColorBackground(#80A2A3)
     .setColorActive(#F75C57) 
     .setColorForeground(#80A2A3) 
-              .setLabelVisible(false) 
-               ;
-               
-                 myChart.addDataSet("grafik");
+    .setLabelVisible(false) 
+    ;
+
+  myChart.addDataSet("grafik");
   myChart.setData("grafik", new float[100]);
-               
-     MainMode=0;
-   
-   
+
+
+  cp5.addButton("graph_obj")
+    .setPosition(385, CO-264)
+    .setSize(40, 40)
+    .setId(2)
+    .setColorBackground(c3)
+    .setColorActive(c5) 
+    .setColorForeground(c3) 
+    .setLabelVisible(false) 
+    
+    .hide()
+    ;
+    
+      cp5.addButton("view_obj1")
+    .setPosition(385, CO-177)
+    .setSize(40, 40)
+    .setId(21)
+    .setColorBackground(c3)
+    .setColorActive(c5) 
+    .setColorForeground(c3) 
+    .setLabelVisible(false) 
+    
+    .hide()
+    ;
+    
+      cp5.addButton("view_obj2")
+    .setPosition(385, CO-90)
+    .setSize(40, 40)
+    .setId(22)
+    .setColorBackground(c3)
+    .setColorActive(c5) 
+    .setColorForeground(c3) 
+     .setLabelVisible(false) 
+     
+    .hide()
+    ;
+    
+    
+
+
+
+
+  MainMode=0;
 }

@@ -92,7 +92,7 @@ Capture cam;
 
 //chart 
 Chart myChart;
-
+int graph_or_obj=0;
 void setup()
 {
    
@@ -111,10 +111,11 @@ void setup()
 
 void draw()
 
-{
-  background(bg); 
-  contorlTab();
+{ 
 SETcam();
+  
+  contorlTab();
+
   SendToArduino();
   
 }
