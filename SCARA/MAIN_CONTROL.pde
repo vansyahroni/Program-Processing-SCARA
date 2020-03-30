@@ -684,18 +684,18 @@ void contorlTab() {
     cp5.getController("graph_obj").show();//MODE1A
 
 
-   
+
 
     fill(#332C2B);
     textFont(f14);
     text("MODE", 405, CO-213);
 
-pushMatrix();
-translate(0,0,0.5);
-   fill(255);
+    pushMatrix();
+    translate(0, 0, 0.5);
+    fill(255);
     textFont(f16);
     text("MODE", 844, CO-247);
-    
+
     strokeWeight(5);
     stroke(#53666A);
     noFill();
@@ -704,52 +704,54 @@ translate(0,0,0.5);
     fill(#53666A);
     rect(794, CO-264, 101, 34, 0, 0, 0, 5);
     fill(#332C2B);
-popMatrix();
-    if (graph_or_obj==1) {
-       textFont(f14);
+    popMatrix();
+    if (graph_or_obj==1) { //obj
+    
+    objGO();
+      
+      
+      textFont(f14);
       text("VIEW 1", 405, CO-126); 
       text("VIEW 2", 405, CO-39); 
 
       cp5.getController("grafik").hide();//MODE1A
       cp5.getController("view_obj1").show();//MODE1A
       cp5.getController("view_obj2").show();//MODE1A
-      
-       fill(255);
-       pushMatrix();
-       translate(0,0,0.5);
-    textFont(f16);
-    text("CAD 3D", 844, CO-247);
-    popMatrix();
-     fill(#332C2B);
-    textFont(f14);
-    
+
+      fill(255);
+      pushMatrix();
+      translate(0, 0, 0.5);
+      textFont(f16);
+      text("CAD 3D", 844, CO-247);
+      popMatrix();
+      fill(#332C2B);
+      textFont(f14);
     }
     if (graph_or_obj==2) {
-       textFont(f14);
+      textFont(f14);
       text("GRAPH 1", 405, CO-126); 
       text("RESET", 405, CO-39); 
-      
-      
-fill(255);
-pushMatrix();
-translate(0,0,0.5);
-    textFont(f16);
-    
-    text("GRAFIK", 844, CO-247);
-    popMatrix();
-     fill(#332C2B);
-    textFont(f14);
+
+
+      fill(255);
+      pushMatrix();
+      translate(0, 0, 0.5);
+      textFont(f16);
+
+      text("GRAFIK", 844, CO-247);
+      popMatrix();
+      fill(#332C2B);
+      textFont(f14);
 
 
 
       cp5.getController("view_obj1").show();//MODE1A
       cp5.getController("view_obj2").show();//MODE1A
-      
+
       textFont(f16);
-            cp5.getController("grafik").show();//MODE1A
+      cp5.getController("grafik").show();//MODE1A
       myChart.push("grafik", (sin(frameCount*0.1)*10));
-     
-  }
+    }
   }
   fill(0);
 }

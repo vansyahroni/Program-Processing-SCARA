@@ -100,6 +100,7 @@ void setup()
   SETfont();
   SETcolor();
   SETcamera();
+  SETobj();
   size(1280, 720, OPENGL);      //ukuran window
   cp5 = new ControlP5(this);    //controlp5
   string_setup();
@@ -112,7 +113,7 @@ void setup()
 void draw()
 
 { 
-SETcam();
+cameraGO();
   
   contorlTab();
 
