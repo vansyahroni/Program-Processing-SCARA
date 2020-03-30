@@ -678,6 +678,7 @@ if (SubMode4==0) { text("CHOSE THE JOINT!", 163, CO-102);
     hideMode3C();
     hideMode4();
   }
+  
 }
 
 void hideAllMode() {

@@ -1,5 +1,6 @@
 import processing.serial.Serial; // serial library
 import controlP5.*; // controlP5 library
+import processing.video.*;
 
 Serial serial;
 ControlP5  cp5;
@@ -85,13 +86,17 @@ float value_KP, value_KI, value_KD;
 
 //Mode
 String TextMode[]=new String[5];
+
+//camera
+Capture cam;
+
 void setup()
 {
    
   SETimg();
   SETfont();
   SETcolor();
-  
+  SETcamera();
   size(1280, 720, OPENGL);      //ukuran window
   cp5 = new ControlP5(this);    //controlp5
   string_setup();
@@ -106,7 +111,7 @@ void draw()
 {
   background(bg); 
   contorlTab();
-
+SETcam();
   SendToArduino();
   
 }
