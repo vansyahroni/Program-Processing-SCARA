@@ -93,6 +93,9 @@ Capture cam;
 //chart 
 Chart myChart;
 int graph_or_obj=0;
+
+//obj
+float RotX, RotY;
 void setup()
 {
    
@@ -194,4 +197,11 @@ public void text_KI(String _text_KI) {
 public void text_KD(String _text_KD) {
 
   value_KD= float(_text_KD);
+}
+
+void mouseDragged(){
+  
+ RotX -= (mouseX - pmouseX) *0.01;
+  RotY -= (mouseY - pmouseY) *0.01;
+
 }

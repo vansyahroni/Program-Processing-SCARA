@@ -691,16 +691,16 @@ void contorlTab() {
     text("MODE", 405, CO-213);
 
     pushMatrix();
-    translate(0, 0, 0.5);
+    translate(0, 0, 0);
     fill(255);
     textFont(f16);
     text("MODE", 844, CO-247);
 
-    strokeWeight(5);
+    strokeWeight(3);
     stroke(#53666A);
-    noFill();
+    fill(#53666A);
     rect(439, CO-264, 456, 231);
-    noStroke();
+    stroke(c1);
     fill(#53666A);
     rect(794, CO-264, 101, 34, 0, 0, 0, 5);
     fill(#332C2B);

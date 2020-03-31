@@ -29,13 +29,22 @@ void objGO() {
 //  o3=map(fw, 0, 180, -180, 180);
 //  o4=map(v4, 0, 1, 0, 4);
 //  o5=map(v5, 0, 1, 110, 170);
-//obj1();
-obj2();
+obj1();
+//obj2();
 }
 
   void obj1(){
+  
+  pushMatrix();  
+
+  translate(602, 582, -422);
   pushMatrix();
-  translate(width/2-75, height/2);
+   translate(0,-75,340);
+   scale(0.7);
+   rotateZ(RotX);
+  rotateY(-RotY);
+  
+  println( mouseX, mouseY);
   pushMatrix();
   scale(8);
   translate(2, 0, 0);
@@ -117,11 +126,16 @@ obj2();
   popMatrix();
   popMatrix();
   popMatrix();
+  popMatrix();
   }
+  
+  
+  
   void obj2(){
 
   pushMatrix();
-  translate(860, 589, -227);
+  translate(mouseX, mouseY, -227);
+  println(mouseX, mouseY);
   rotateX(radians(90)); 
   rotateY(radians(0)); //jangan diubah
   rotateZ(radians(-90)); 
