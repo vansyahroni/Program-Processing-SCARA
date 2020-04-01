@@ -96,6 +96,10 @@ int graph_or_obj=0;
 
 //obj
 float RotX, RotY;
+int viewOBJ=0;
+float _ROTX, _ROTY;
+int translate1=0;
+int translate2=0;
 void setup()
 {
    

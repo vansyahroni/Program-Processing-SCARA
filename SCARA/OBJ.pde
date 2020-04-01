@@ -34,17 +34,39 @@ obj1();
 }
 
   void obj1(){
+    
+    _ROTX=0;
+     _ROTY=0;
+      translate1=0;
   
+       
+      if(viewOBJ==1){
+          _ROTX=90;
+     _ROTY=-90;
+translate1=164;
+translate2=267;
+    }
+    if(viewOBJ==2){
+        _ROTX=0;
+     _ROTY=0;
+translate1=0;
+translate2=0;
+    }
+
   pushMatrix();  
 
   translate(602, 582, -422);
   pushMatrix();
    translate(0,-75,340);
    scale(0.7);
-   rotateZ(RotX);
-  rotateY(-RotY);
+   
+   translate(0, translate2,translate1);
+   
+   println(mouseX, mouseY);
+   rotateZ(radians(_ROTX));
+  rotateY(radians(_ROTY));
   
-  println( mouseX, mouseY);
+  //println( mouseX, mouseY);
   pushMatrix();
   scale(8);
   translate(2, 0, 0);

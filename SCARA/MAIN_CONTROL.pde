@@ -700,15 +700,28 @@ void contorlTab() {
     stroke(#53666A);
     fill(#53666A);
     rect(439, CO-264, 456, 231);
-    stroke(c1);
+    noStroke();
+    pushMatrix();
     fill(#53666A);
+    translate(0,0,5);
     rect(794, CO-264, 101, 34, 0, 0, 0, 5);
     fill(#332C2B);
     popMatrix();
+    popMatrix();
+  
     if (graph_or_obj==1) { //obj
-    
-    objGO();
-      
+ ;
+    if(ReadID==21){
+  viewOBJ=1;
+    }
+    if(ReadID==22){
+      viewOBJ=2;
+    }
+   
+   
+println(viewOBJ);
+ objGO();
+
       
       textFont(f14);
       text("VIEW 1", 405, CO-126); 
@@ -720,7 +733,7 @@ void contorlTab() {
 
       fill(255);
       pushMatrix();
-      translate(0, 0, 0.5);
+     translate(0, 0, 10);
       textFont(f16);
       text("CAD 3D", 844, CO-247);
       popMatrix();
@@ -735,7 +748,7 @@ void contorlTab() {
 
       fill(255);
       pushMatrix();
-      translate(0, 0, 0.5);
+      translate(0, 0, 10);
       textFont(f16);
 
       text("GRAFIK", 844, CO-247);
