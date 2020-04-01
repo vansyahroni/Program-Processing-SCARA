@@ -40,12 +40,13 @@ void string_setup() {
 void contorlTab() {
   imageMode(CENTER);
   textAlign(CENTER, CENTER);
-  textFont(f16);
+  textFont(f18);
   noStroke();
   fill(0);
-
+  
+ text("CHOSE MODE", 185, CO-460);
   ////////////////////////// COLOR DETECTOR /////////////////////////
-
+  textFont(f16);
 
   if (MainMode==1 )
   { 
@@ -703,26 +704,25 @@ void contorlTab() {
     noStroke();
     pushMatrix();
     fill(#53666A);
-    translate(0,0,5);
+    translate(0, 0, 5);
     rect(794, CO-264, 101, 34, 0, 0, 0, 5);
     fill(#332C2B);
     popMatrix();
     popMatrix();
-  
-    if (graph_or_obj==1) { //obj
- ;
-    if(ReadID==21){
-  viewOBJ=1;
-    }
-    if(ReadID==22){
-      viewOBJ=2;
-    }
-   
-   
-println(viewOBJ);
- objGO();
 
-      
+    if (graph_or_obj==1) { //obj
+      if (ReadID==21) {
+        viewOBJ=1;
+      }
+      if (ReadID==22) {
+        viewOBJ=2;
+      }
+
+
+      println(viewOBJ);
+      objGO();
+
+
       textFont(f14);
       text("VIEW 1", 405, CO-126); 
       text("VIEW 2", 405, CO-39); 
@@ -733,7 +733,7 @@ println(viewOBJ);
 
       fill(255);
       pushMatrix();
-     translate(0, 0, 10);
+      translate(0, 0, 10);
       textFont(f16);
       text("CAD 3D", 844, CO-247);
       popMatrix();
@@ -766,7 +766,24 @@ println(viewOBJ);
       myChart.push("grafik", (sin(frameCount*0.1)*10));
     }
   }
+  
+
+
+////////////////////////// X Y /////////////////////////
+if (MainMode!=0) {
+  fill(#BDDBDB);
+  ellipse(1080,CO-532, 50,50);
+  ellipse(1150,CO-532, 50,50);
+  fill(255);
+  textFont(f16);
+  text("X", 1080, CO-569);
+  text("Y", 1150, CO-569);
   fill(0);
+  
+   text("90", 1080, CO-532);
+  text("21", 1150, CO-532);
+}
+fill(0);
 }
 
 void hideAllMode() {
