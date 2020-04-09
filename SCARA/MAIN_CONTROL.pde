@@ -357,9 +357,36 @@ void controlGO() {
       }
       if (remote_keyboard==2) {
         text("PLEASE USE KEYBOARD\n FOR CONTROL ROBOT", 162, CO-227);
+        
+            if(key_[0] && key_[3]){
+       m2s3_shoulder+=1;
+     }
+       if(key_[0] && key_[4]){
+        m2s3_shoulder-=1;
+       }
+       
+       if(key_[1] && key_[3]){
+       m2s3_elbow+=1;
+     }
+       if(key_[1] && key_[4]){
+        m2s3_elbow-=1;
+       }
+       
+       if(key_[2] && key_[3]){
+       m2s3_wirst+=1;
+     }
+       if(key_[2] && key_[4]){
+        m2s3_wirst-=1;
+       }
+       
+         value_shoulder=m2s3_shoulder;
+      value_elbow=m2s3_elbow;
+      value_wirst=m2s3_wirst;
       }
+            
 
-      //image(mmode3, 163, CO-237);
+      
+ 
       hideMode2A();
       hideMode2B();
       cp5.getController("manual_mode").show();
@@ -375,13 +402,19 @@ void controlGO() {
     text(value_elbow, 1115, CO-392); //Input Shoulder
     text(value_wirst, 1205, CO-392); //Input Shoulder
 
-    text("90", 1025, CO-261); //Output Shoulder
-    text("90", 1115, CO-261); //Output Shoulder
-    text("90", 1205, CO-261); //Output Shoulder
+    text(value_feedback_shoulder, 1025, CO-261); //Output Shoulder
+    text(value_feedback_elbow, 1115, CO-261); //Output Shoulder
+    text(value_feedback_wirst, 1205, CO-261); //Output Shoulder
 
     fill(c_putih);
     textFont(f18);
-    text("90"+"%", 1205, CO-194); //Akurasi
+    value_akurasi_shoulder=float(abs(value_shoulder-value_feedback_shoulder))/value_shoulder*100;
+    value_akurasi_elbow=float(abs(value_elbow-value_feedback_elbow))/value_elbow*100;
+    value_akurasi_wirst=float(abs(value_wirst-value_feedback_wirst))/value_wirst*100;
+    value_akurasi=100-(value_akurasi_shoulder+value_akurasi_elbow+value_akurasi_wirst)/3;
+    if(value_akurasi<0){
+      value_akurasi=0;}
+    text(nf(value_akurasi,0,2)+"%", 1205, CO-194); //Akurasi
     textFont(f16);
   }
 

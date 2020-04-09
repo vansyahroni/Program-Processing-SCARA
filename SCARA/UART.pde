@@ -2,7 +2,7 @@ String pn;
 void setup_UART()
 {
 
-  commListbox = cp5.addListBox("portComList", 20, CO-561, 285, 200); // make a listbox and populate it with the available comm ports
+  commListbox = cp5.addListBox("portComList", 20, CO-562, 285, 200); // make a listbox and populate it with the available comm ports
   commListbox.setColorLabel(0);
   commListbox.setItemHeight(15);
   commListbox.setBarHeight(15);
@@ -18,6 +18,9 @@ void setup_UART()
     pn = shortifyPortName(Serial.list()[i], 13);
     if (pn.length() >0 ) commListbox.addItem(pn, i); // addItem(name,value)
     commListMax = i;
+    
+    
+    
   }
 
   commListbox.addItem("Close Comm", ++commListMax); // addItem(name,value)
@@ -39,6 +42,11 @@ void serialEvent (Serial usbPort)
     }
 
     float data[] = float(split(usbString, ','));
+    
+      value_feedback_shoulder=int(data[1]);
+      value_feedback_elbow=int(data[2]);
+      value_feedback_wirst=int(data[3]);
+      
   }
   catch(RuntimeException e)
   {
@@ -254,6 +262,8 @@ for(int a=0;a<=4;a++){
           remote_keyboard=1;}
           if(ReadID==232){
             remote_keyboard=2;}
+            
+       
       }
 
 

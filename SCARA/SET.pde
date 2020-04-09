@@ -5,21 +5,15 @@ PImage dis_m1s1, dis_m2s2, dis_m3s1, dis_m3s2, dis_m4; //display
 //--------------------- FONT ---------------------\\
 PFont f2, f4, f6, f8, f10, f12, f13, f14, f15, f16, f17, f18, f19, f20, f25, f30, f40, f50;
  
- void SETcolor(){
-    if(change_background==1){
-   c_krem=(#F0F6DC); //krem backgorund
- c_hijau_dasar=(#53666A); //hijau tua
- c_hijau_sedang=(#80A2A3); //hijau sedang
- c_hijau_terang=(#BDDBDB); //hijau muda
- c_merah=(#F75C57); //merah
-  }
-  else background(bg2); 
-   c_krem=(#2A3950); //krem backgorund
- c_hijau_dasar=(#355C7D); //hijau tua
- c_hijau_sedang=(#355C7D); //hijau sedang
- c_hijau_terang=(#818B95); //hijau muda
- c_merah=(#D02932); //merah
- }
+ //void SETcolor(){
+ 
+ //  c_krem=(#F0F6DC); //krem backgorund
+ //c_hijau_dasar=(#53666A); //hijau tua
+ //c_hijau_sedang=(#80A2A3); //hijau sedang
+ //c_hijau_terang=(#BDDBDB); //hijau muda
+ //c_merah=(#F75C57); //merah
+  
+ //}
  
 void SETstring() {
   m4_joint[0]="SHOULDER";

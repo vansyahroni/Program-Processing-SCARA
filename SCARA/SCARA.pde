@@ -6,9 +6,15 @@ Serial serial;
 ControlP5  cp5;
 
 
-//--------------------- COLOR ---------------------\\
-color c_krem, c_hijau_dasar, c_hijau_sedang ,c_hijau_terang ,c_merah;
-
+//--------------------- COLOR ---------------------\
+ 
+color c_krem=(#F0F6DC); //krem backgorund
+color c_hijau_dasar=(#53666A); //hijau tua
+color c_hijau_sedang=(#80A2A3); //hijau sedang
+color c_hijau_terang=(#BDDBDB); //hijau muda
+color c_merah=(#F75C57); //merah
+  
+ 
 
 color c_putih=(#FFFFFF); //putih
 color c_hitam=(#332C2B);//hitam
@@ -83,6 +89,10 @@ int _m2s2_shoulder, _m2s2_elbow, _m2s2_wirst;
 
 //--------------------- MODE MANUAL REMOTE---------------------\\
 int remote_keyboard;
+boolean key_[] =new boolean [7];
+int m2s3_shoulder=90;
+int m2s3_elbow=90;
+int m2s3_wirst=180;
 
 //--------------------- MODE INVERSE TEXT ---------------------\\
 
@@ -100,6 +110,8 @@ int value_shoulder, value_elbow, value_wirst;
 int value_posX, value_posY;
 int value_setpoint;
 float value_KP, value_KI, value_KD;
+int value_feedback_shoulder=90, value_feedback_elbow=95, value_feedback_wirst=91;
+float value_akurasi_shoulder,value_akurasi_elbow,value_akurasi_wirst, value_akurasi;
 
 //--------------------- CAMERA ---------------------\\
 Capture cam;
@@ -116,8 +128,16 @@ int translate2=0;
 
 //--------------------- GANTI COLOR ---------------------\\
 int change_background=1;
+
+
 void setup()
-{  SETcolor();
+{  
+  key_[0]=false;
+  key_[1]=false;
+  key_[2]=false;
+  
+  
+  //SETcolor();
   size(1280, 720, OPENGL); 
 SETstring();
   SETimg();
@@ -166,6 +186,43 @@ void keyPressed() {
     RadioButton.activate(4); 
     break;
   }
+  
+ 
+   if     (key == 'a' ){
+     key_[0]=true;
+   }
+   if     (key == 's' ){
+     key_[1]=true;
+   }
+   if     (key == 'd' ){
+     key_[2]=true;
+   }
+      if     (keyCode == RIGHT ){
+     key_[3]=true;
+   }
+     if     (keyCode == LEFT ){
+     key_[4]=true;
+   }
+    if     (keyCode == UP ){
+     key_[5]=true;
+   }
+    if     (keyCode == DOWN ){
+     key_[6]=true;
+   }
+     
+  
+}
+
+
+void keyReleased() {
+
+if     (key == 'a' | key == 's' |key == 'd' |keyCode == RIGHT |keyCode == LEFT |keyCode == UP | keyCode==DOWN){
+ for(int a=0;a<=6;a++){
+   key_[a]=false;
+ }
+    
+}
+
 }
 //---------------------MANUAL TEXT---------------------\\
 
@@ -230,3 +287,6 @@ void mouseClicked(){
   }
   println(change_background);
 }
+
+
+  
