@@ -7,9 +7,9 @@ void setup_UART()
   commListbox.setItemHeight(15);
   commListbox.setBarHeight(15);
   commListbox.setCaptionLabel("PORT COM");
-  commListbox.setColorBackground(c3);
-  commListbox.setColorForeground(c5);
-  commListbox.setColorActive(c5);
+  commListbox.setColorBackground(c_hijau_sedang);
+  commListbox.setColorForeground(c_merah);
+  commListbox.setColorActive(c_merah);
   commListbox.close();
 
   for (int i=0; i<Serial.list ().length; i++) 
@@ -80,24 +80,24 @@ void controlEvent(ControlEvent theControlEvent)
 {
 
   if (theControlEvent.isFrom(RadioButton)) {
-    rgb=int(theControlEvent.getValue());
+    m1s1_rgb=int(theControlEvent.getValue());
    
-    if (rgb==1) {
-      _MultiColor="RED";
+    if (m1s1_rgb==1) {
+      _m1s2_s_target="RED";
     }
-    if (rgb==2) {
-      _MultiColor="GREEN";
+    if (m1s1_rgb==2) {
+      _m1s2_s_target="GREEN";
     }
-    if (rgb==3) {
-      _MultiColor="BLUE";
+    if (m1s1_rgb==3) {
+      _m1s2_s_target="BLUE";
     }
-    if (rgb==4) {
-      _MultiColor="YELLOW";
+    if (m1s1_rgb==4) {
+      _m1s2_s_target="YELLOW";
     }
-    if (rgb==5) {
-      _MultiColor="BLACK";
+    if (m1s1_rgb==5) {
+      _m1s2_s_target="BLACK";
     }
-    println("Mode: "+MainMode +" SubMode: "+SubMode1+" Color: "+_MultiColor+" Action: "+MultiColorAction);
+    println("Mode: "+MainMode +" SubMode: "+SubMode1+" Color: "+_m1s2_s_target+" Action: ");
   }  
 
   if (theControlEvent.isController()) {
@@ -121,7 +121,7 @@ println(ReadID);
        */
 
       //MAIN MODE //
-      if (ReadID==1 && start_pid==0 &&  yes_no_M1S1!=1 && chose_color_go!=1 ) { 
+      if (ReadID==1 && m4_start==0 &&  m1s1_action!=1 && m1s2_action!=1 ) { 
         MainMode+=1;
         if (MainMode==5) {
           MainMode=1;
@@ -143,16 +143,16 @@ println(ReadID);
 
 //add radio button on top this program//
 
-        if (ReadID==112 && yes_no_M1S1!=2) {
+        if (ReadID==112 && m1s1_action!=2) {
            
-          rgb=0;
-          yes_no_M1S1=1;
+          m1s1_rgb=0;
+          m1s1_action=1;
         
         }
         if (ReadID==113 ) {
            
-        rgb=0;
-          yes_no_M1S1=2;
+        m1s1_rgb=0;
+          m1s1_action=2;
           
         }
         
@@ -162,76 +162,76 @@ println(ReadID);
           
 
           if (ReadID==121) {
-            _MultiColor="RED";
-            color_counter+=1;
-            _ColorMultiColor=#F75C57;
-          multicolorhide1=1;
+            _m1s2_s_target="RED";
+            m1s2_counter+=1;
+            _m1s2_c_target=c_merah;
+          m1s2_c_off[0]=1;
          
           }
           if (ReadID==122) {
-            _MultiColor="GREEN";
-            color_counter+=1;
-             _ColorMultiColor=#009B4C;
-           multicolorhide2=1;
+            _m1s2_s_target="GREEN";
+            m1s2_counter+=1;
+             _m1s2_c_target=c_GREEN;
+           m1s2_c_off[1]=1;
           }
           if (ReadID==123) {
-            _MultiColor="BLUE";
-            color_counter+=1;
-             _ColorMultiColor=#2F318B;
-          multicolorhide3=1;
+            _m1s2_s_target="BLUE";
+            m1s2_counter+=1;
+             _m1s2_c_target=c_BLUE;
+          m1s2_c_off[2]=1;
           }
           if (ReadID==124) {
-            _MultiColor="YELLOW";
-            color_counter+=1;
-             _ColorMultiColor=#FFF000;
-        multicolorhide4=1;
+            _m1s2_s_target="YELLOW";
+            m1s2_counter+=1;
+             _m1s2_c_target=c_YELLOW;
+        m1s2_c_off[3]=1;
            }
           if (ReadID==125) {
-            _MultiColor="BLACK";
-            _ColorMultiColor=#332C2B;
-       multicolorhide5=1;
-            color_counter+=1;
-             _ColorMultiColor=color(0,0,0);
+            _m1s2_s_target="BLACK";
+            _m1s2_c_target=c_hitam;
+       m1s2_c_off[4]=1;
+            m1s2_counter+=1;
+             _m1s2_c_target=color(0,0,0);
           }
 
           if (ReadID==126) {
-            MultiColorAction="START";
+            
 
-            chose_color_go=1;
-            color_counter=-1;
+            m1s2_action=1;
+            m1s2_counter=-1;
           }
           if (ReadID==127) {
-            MultiColorAction="CHANGE";
+
             
-            chose_color_go=2;
+            m1s2_action=2;
             
-            multicolorhide1=0;
-            multicolorhide2=0;
-            multicolorhide3=0;
-            multicolorhide4=0;
-            multicolorhide5=0;
+            m1s2_c_off[0]=0;
+            m1s2_c_off[1]=0;
+            m1s2_c_off[2]=0;
+            m1s2_c_off[3]=0;
+            m1s2_c_off[4]=0;
           
 for(int a=0;a<=4;a++){
-  ColorMultiColor[a]=#53666A;
+  m1s2_c_target1[a]=c_hijau_dasar;
 }
 for(int a=0;a<=4;a++){
-  ColorMultiColor2[a]=#BDDBDB;
+  m1s2_c_target2[a]=c_hijau_terang;
 }
           }
-          if (color_counter==5) {
-            hide_rgb=1;
+          if (m1s2_counter==5) {
+            m1s2_off=1;
           }
-          if (chose_color_go==2) {
-            chose_color_go=0;
-            color_counter=0;
-            hide_rgb=2;
+          if (m1s2_action==2) {
+            m1s2_action=0;
+            m1s2_counter=0;
+            m1s2_off=2;
           }
           
-          for(int b=1;b<=color_counter;b++){
+          for(int b=1;b<=m1s2_counter;b++){
             for(int c=121;c<=ReadID;c++){
-              if(color_counter==b && ReadID==c){
-                ColorMultiColor[b-1]= _ColorMultiColor;
-                ColorMultiColor2[b-1]= _ColorMultiColor;
+              if(m1s2_counter==b && ReadID==c){
+                m1s2_c_target1[b-1]= _m1s2_c_target;
+                m1s2_c_target2[b-1]= _m1s2_c_target;
                 
               }
              
@@ -285,10 +285,10 @@ for(int a=0;a<=4;a++){
       }
       
       if (ReadID==421) {
-        start_pid=1;
+        m4_start=1;
       }
        if (ReadID==422) {
-        start_pid=0;
+        m4_start=0;
       }
       
       
@@ -296,16 +296,16 @@ for(int a=0;a<=4;a++){
     
     //single color//
     if(MainMode==1){
-    if (yes_no_M1S1==1) {
-          MultiColorAction="YES";
+    if (m1s1_action==1) {
+
         }
-        if (yes_no_M1S1==2) {
-          MultiColorAction="NO";
+        if (m1s1_action==2) {
+
         }
-   if (yes_no_M1S1==0) {
-          MultiColorAction="";
+   if (m1s1_action==0) {
+
         }
-            println("Mode: "+MainMode +" SubMode: "+SubMode1+" Color: "+_MultiColor+ " Action: "+MultiColorAction);
+
     }
           
   

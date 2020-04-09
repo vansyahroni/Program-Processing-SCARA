@@ -1,30 +1,71 @@
 //--------------------- BACKGROUND ---------------------\\
-PImage bg; //background
-PImage cmode, cmode1, cmode2, mmode, mmode1, mmode2, mmode3, ikmode, ikmode2, ikmode3, pidmode; //control
+PImage bg, bg2; //background
 PImage dis_m1s1, dis_m2s2, dis_m3s1, dis_m3s2, dis_m4; //display
 
 //--------------------- FONT ---------------------\\
 PFont f2, f4, f6, f8, f10, f12, f13, f14, f15, f16, f17, f18, f19, f20, f25, f30, f40, f50;
+ 
+ void SETcolor(){
+    if(change_background==1){
+   c_krem=(#F0F6DC); //krem backgorund
+ c_hijau_dasar=(#53666A); //hijau tua
+ c_hijau_sedang=(#80A2A3); //hijau sedang
+ c_hijau_terang=(#BDDBDB); //hijau muda
+ c_merah=(#F75C57); //merah
+  }
+  else background(bg2); 
+   c_krem=(#2A3950); //krem backgorund
+ c_hijau_dasar=(#355C7D); //hijau tua
+ c_hijau_sedang=(#355C7D); //hijau sedang
+ c_hijau_terang=(#818B95); //hijau muda
+ c_merah=(#D02932); //merah
+ }
+ 
+void SETstring() {
+  m4_joint[0]="SHOULDER";
+  m4_joint[1]="ELBOW";
+  m4_joint[2]="WIRST";
 
-//--------------------- COLOR ---------------------\\
-color c1, c2, c3,c4,c5;
+  m1s1_s_target[0]="THE RED COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  m1s1_s_target[1]="THE GREEN COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  m1s1_s_target[2]="THE BLUE COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  m1s1_s_target[3]="THE YELLOW COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  m1s1_s_target[4]="THE BLACK COLOR WILL BE TAKE "+"\n"+"ARE YOU SURE?";
+  m1s1_s_target[5]="PLEASE CHOSE THE COLOR";
+  m1s1_s_target[6]="PLEASE WAIT FOR 5 SECOND";
+  
+  m1s1_c_target[0]=c_merah;
+  m1s1_c_target[1]=c_GREEN;
+  m1s1_c_target[2]=c_BLUE;
+  m1s1_c_target[3]=c_YELLOW;
+  m1s1_c_target[4]=c_hitam;
+  m1s1_c_target[5]=c_hijau_dasar;
+  
+  for (int a=0; a<=4; a++) {
+    m1s2_c_target1[a]=c_hijau_dasar;
+  }
+  for (int a=0; a<=4; a++) {
+    m1s2_c_target2[a]=c_hijau_terang;
+  }
 
+  m1s2_s_target[0]= "SET FIRST COLOR";
+  m1s2_s_target[1]= "SET SECOND COLOR";
+  m1s2_s_target[2]= "SET THIRD COLOR";
+  m1s2_s_target[3]= "SET FOURTH COLOR";
+  m1s2_s_target[4]= "SET LAST COLOR";
+  m1s2_s_target[5]= "ok";
+
+
+
+  for (int a=0; a<=4; a++) {
+    m1s2_c_off[a]=0;
+  }
+}
 
 void SETimg() {
 
   bg=loadImage("bg.png"); 
-  
-  cmode=loadImage("cmode.png");
-  cmode1=loadImage("cmode1.png");
-  cmode2=loadImage("cmode2.png");
-  mmode=loadImage("mmode.png");
-  mmode1=loadImage("mmode1.png");
-  mmode2=loadImage("mmode2.png");
-  mmode3=loadImage("mmode3.png");
-  ikmode=loadImage("ikmode.png");
-  ikmode2=loadImage("ikmode2.png");
-  ikmode3=loadImage("ikmode3.png");
-  pidmode=loadImage("pidmode.png");
+    bg2=loadImage("bg2.png"); 
   
   dis_m1s1=loadImage("dis_m1s1.png");
   dis_m2s2=loadImage("dis_m2s2.png");
@@ -53,16 +94,6 @@ void SETfont() {
   f30= createFont("arial", 30, false);
   f40 = createFont("arial", 40, false);
   f50 = createFont("arial", 50, false);
-}
-
-void SETcolor()
-{
- c1=(#F0F6DC); //krem backgorund
- c2=(#53666A); //hijau tua
- c3=(#80A2A3); //hijau sedang
- c4=(#BDDBDB); //hijau muda
- c5=(#F75C57); //merah
-
 }
 
 void SETcamera(){

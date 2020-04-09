@@ -5,7 +5,23 @@ import processing.video.*;
 Serial serial;
 ControlP5  cp5;
 
-//--------------------- comlist uart ---------------------\\
+
+//--------------------- COLOR ---------------------\\
+color c_krem, c_hijau_dasar, c_hijau_sedang ,c_hijau_terang ,c_merah;
+
+
+color c_putih=(#FFFFFF); //putih
+color c_hitam=(#332C2B);//hitam
+color c_RED=(#E62129);
+color c_GREEN=(#009B4C);
+color c_BLUE=(#2F318B);
+color c_YELLOW=(#FFF000);
+color c_BLACK=c_hitam;
+
+int CO=720;//from corel
+
+//--------------------- COMLIST UART ---------------------\\
+
 int serial_conect = 0;
 int commListMax;
 int[] data = null;
@@ -14,9 +30,10 @@ Textlabel txtlblWhichcom;
 ListBox commListbox;
 ListBox portlist;
 
-//--------------------- control gui ---------------------\\
-int ReadID=0;
-int CO=720;//from corel
+//to tab UART//
+
+//--------------------- CONTROL GUI ---------------------\\
+int ReadID=0;  //id controlp5 
 
 //SUB-MODE//
 int MainMode=0;//Main Mode
@@ -26,165 +43,159 @@ int SubMode2=0;
 int SubMode3=0;
 int SubMode4=0;
 
-//radiobutton for mode 1
+//--------------------- MODE SINGLE COLOR  ---------------------\\
 RadioButton RadioButton;
 
-//value slider 
-int slider_shoulder, slider_elbow, slider_wirst;
+int _m1s1_rgb; //variabel radiobutton
+int m1s1_rgb=0;
 
-//Text Mode Manual
-int text_shoulder=90;
-int text_elbow=90;
-int text_wirst=180;
+int m1s1_action=0;//variabel button (yes / no)
 
-int text_posX=0;
-int text_posY=90;
+color m1s1_c_target[]=new color[6];//color it chosen
+color _m1s1_c_target=c_hijau_dasar;
+String m1s1_s_target[]=new String [7];
 
-int value_shoulder_text, value_elbow_text, value_wirst_text;
-int value_posX_text, value_posY_text;
+//--------------------- MODE MULTI COLOR  ---------------------\\
 
-//Manual keyboard/remote
+color _m1s2_c_target;//color it chosen
+color m1s2_c_target1[]=new color[5];
+color m1s2_c_target2[]=new color[5];
+String m1s2_s_target[]= new String [6];
+String _m1s2_s_target="";
+
+int m1s2_c_off[]=new int[5]; //off when click a one color
+
+int m1s2_action=0;  //start and change button
+int m1s2_counter=0; //count the color it chosen
+int m1s2_off=0; //off when 5 color it chosen
+
+//--------------------- MODE MANUAL SLIDER ---------------------\\
+
+int m2s1_shoulder=90; 
+int m2s1_elbow=90; 
+int m2s1_wirst=180;
+
+//--------------------- MODE MANUAL TEXT ---------------------\\
+int m2s2_shoulder=90;
+int m2s2_elbow=90;
+int m2s2_wirst=180;
+int _m2s2_shoulder, _m2s2_elbow, _m2s2_wirst;
+
+//--------------------- MODE MANUAL REMOTE---------------------\\
 int remote_keyboard;
 
-//single color
-int yes_no_M1S1=0;
-int _chose_color=0;
-int chose_color_go=0;
-int color_counter=0;
-int _color_counter[]= new int[5];
-int hide_rgb=0;
+//--------------------- MODE INVERSE TEXT ---------------------\\
 
-//Single Color
-color target_color[]=new color[6];
-color target_single_color_fix;
-String _target_single_color[]=new String [7];
-int _rgb;
-int rgb=0;
-//set pid
-int start_pid=0;
-String joint_pid[]=new String[3];
+int m3s3_posX=0;
+int m3s3_posY=90;
+int _m3s3_posX, _m3s3_posY;
 
-//multi color
 
-String MultiColor[]= new String [6];
-String _MultiColor="";
-String MultiColorAction="";
-color ColorMultiColor[]=new color[5];
-color ColorMultiColor2[]=new color[5];
-color _ColorMultiColor;
-int multicolorhide1=0;
-int multicolorhide2=0;
-int multicolorhide3=0;
-int multicolorhide4=0;
-int multicolorhide5=0;
+//--------------------- MODE PID ---------------------\\
+int m4_start=0;
+String m4_joint[]=new String[3];
 
-//--------------------- main data ---------------------\\
+//--------------------- MAIN DATA ---------------------\\
 int value_shoulder, value_elbow, value_wirst;
 int value_posX, value_posY;
 int value_setpoint;
 float value_KP, value_KI, value_KD;
 
-//Mode
-String TextMode[]=new String[5];
-
-//camera
+//--------------------- CAMERA ---------------------\\
 Capture cam;
 
-//chart 
+//--------------------- GRAPH / OBJ ---------------------\\
 Chart myChart;
 int graph_or_obj=0;
 
-//obj
 float RotX, RotY;
 int viewOBJ=0;
-float _ROTX, _ROTY;
+float _RotX, _RotY;
 int translate1=0;
 int translate2=0;
+
+//--------------------- GANTI COLOR ---------------------\\
+int change_background=1;
 void setup()
-{
-   
+{  SETcolor();
+  size(1280, 720, OPENGL); 
+SETstring();
   SETimg();
   SETfont();
-  SETcolor();
   SETcamera();
   SETobj();
-  size(1280, 720, OPENGL);      //ukuran window
-  cp5 = new ControlP5(this);    //controlp5
-  string_setup();
   SETcontrol();
   setup_UART();
-  
 }
 
 
 void draw()
 
 { 
-cameraGO();
-  
-  contorlTab();
-
+  cameraGO();
+  controlGO();
   SendToArduino();
-  
 }
 
-
-//RADIO BUTTON RGB
+//--------------------- MODE SINGLE MODE ---------------------\\
 void keyPressed() {
   switch(key) {
     case('0'): 
-    
+
     RadioButton.deactivateAll(); 
     break;
     case('1'): 
-  
+
     RadioButton.activate(0); 
     break;
     case('2'): 
-   
+
     RadioButton.activate(1); 
-     ; 
+    ; 
     break;
     case('3'): 
-   
+
     RadioButton.activate(2); 
     break;
     case('4'): 
-   
+
     RadioButton.activate(3); 
     break;
     case('5'): 
-   
+
     RadioButton.activate(4); 
     break;
   }
 }
+//---------------------MANUAL TEXT---------------------\\
 
-public void text_shoulder(String _text_shoulder) {
+public void m2s2_shoulder(String m2s2_shoulder_s) {
 
-  value_shoulder_text= int(_text_shoulder);
+  _m2s2_shoulder= int(m2s2_shoulder_s);
 }
-public void text_elbow(String _text_elbow) {
+public void m2s2_elbow(String m2s2_elbow_s) {
 
-  value_elbow_text= int(_text_elbow);
-}
-
-public void text_wirst(String _text_wirst) {
-
-  value_wirst_text= int(_text_wirst);
+  _m2s2_elbow= int(m2s2_elbow_s);
 }
 
-public void text_posX(String _text_posX) {
+public void m2s2_wirst(String m2s2_wirst_s) {
 
-  value_posX_text= int(_text_posX);
+  _m2s2_wirst= int(m2s2_wirst_s);
 }
 
-public void text_posY(String _text_posY) {
+//--------------------- INVERSE TEXT ---------------------\\
 
-  value_posY_text= int(_text_posY);
+public void m3s3_posX(String m3s3_posX_s) {
+
+  _m3s3_posX= int(m3s3_posX_s);
 }
 
+public void m3s3_posY(String m3s3_posY_s) {
 
+  _m3s3_posY= int(m3s3_posY_s);
+}
+
+//--------------------- PID TEXT ---------------------\\
 public void text_setpoint(String _text_setpoint) {
 
   value_setpoint= int(_text_setpoint);
@@ -203,9 +214,19 @@ public void text_KD(String _text_KD) {
   value_KD= float(_text_KD);
 }
 
-void mouseDragged(){
-  
- RotX -= (mouseX - pmouseX) *0.01;
-  RotY -= (mouseY - pmouseY) *0.01;
+//--------------------- PID TEXT ---------------------\\
+void mouseDragged() {
 
+  RotX -= (mouseX - pmouseX) *0.01;
+  RotY -= (mouseY - pmouseY) *0.01;
+}
+
+void mouseClicked(){
+  if(mouseX>=843 && mouseX<=914 && mouseY<=CO-682){
+  change_background+=1;
+  }
+  if(change_background==3){
+    change_background=1;
+  }
+  println(change_background);
 }

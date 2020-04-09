@@ -35,20 +35,20 @@ obj1();
 
   void obj1(){
     
-    _ROTX=0;
-     _ROTY=0;
+    _RotX=0;
+     _RotY=0;
       translate1=0;
   
        
       if(viewOBJ==1){
-          _ROTX=90;
-     _ROTY=-90;
+          _RotX=90;
+     _RotY=-90;
 translate1=164;
 translate2=267;
     }
     if(viewOBJ==2){
-        _ROTX=0;
-     _ROTY=0;
+        _RotX=0;
+     _RotY=0;
 translate1=0;
 translate2=0;
     }
@@ -63,8 +63,8 @@ translate2=0;
    translate(0, translate2,translate1);
    
    println(mouseX, mouseY);
-   rotateZ(radians(_ROTX));
-  rotateY(radians(_ROTY));
+   rotateZ(radians(_RotX));
+  rotateY(radians(_RotY));
   
   //println( mouseX, mouseY);
   pushMatrix();
