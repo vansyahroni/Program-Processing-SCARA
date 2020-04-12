@@ -7,14 +7,14 @@ ControlP5  cp5;
 
 
 //--------------------- COLOR ---------------------\
- 
+
 color c_krem=(#F0F6DC); //krem backgorund
 color c_hijau_dasar=(#53666A); //hijau tua
 color c_hijau_sedang=(#80A2A3); //hijau sedang
 color c_hijau_terang=(#BDDBDB); //hijau muda
 color c_merah=(#F75C57); //merah
-  
- 
+
+
 
 color c_putih=(#FFFFFF); //putih
 color c_hitam=(#332C2B);//hitam
@@ -93,7 +93,14 @@ boolean key_[] =new boolean [7];
 int m2s3_shoulder=90;
 int m2s3_elbow=90;
 int m2s3_wirst=180;
+boolean m2s3_action=false;
 
+//--------------------- MODE INVERSE ONE POINT ---------------------\\
+float m3s1_R1, m3s1_R2;
+int m3s1_posX;
+int m3s1_posY;
+int m3s1_posX_=0;
+int m3s1_posY_=0;
 //--------------------- MODE INVERSE TEXT ---------------------\\
 
 int m3s3_posX=0;
@@ -107,11 +114,12 @@ String m4_joint[]=new String[3];
 
 //--------------------- MAIN DATA ---------------------\\
 int value_shoulder, value_elbow, value_wirst;
-int value_posX, value_posY;
+int value_posX=0, value_posY=0;
 int value_setpoint;
 float value_KP, value_KI, value_KD;
 int value_feedback_shoulder=90, value_feedback_elbow=95, value_feedback_wirst=91;
-float value_akurasi_shoulder,value_akurasi_elbow,value_akurasi_wirst, value_akurasi;
+float value_akurasi_shoulder, value_akurasi_elbow, value_akurasi_wirst, value_akurasi;
+float value_akurasi_posX, value_akurasi_posY;
 
 //--------------------- CAMERA ---------------------\\
 Capture cam;
@@ -135,11 +143,11 @@ void setup()
   key_[0]=false;
   key_[1]=false;
   key_[2]=false;
-  
-  
+
+
   //SETcolor();
   size(1280, 720, OPENGL); 
-SETstring();
+  SETstring();
   SETimg();
   SETfont();
   SETcamera();
@@ -152,6 +160,7 @@ SETstring();
 void draw()
 
 { 
+  println(mouseX, mouseY);
   cameraGO();
   controlGO();
   SendToArduino();
@@ -186,44 +195,46 @@ void keyPressed() {
     RadioButton.activate(4); 
     break;
   }
-  
- 
-   if     (key == 'a' ){
-     key_[0]=true;
-   }
-   if     (key == 's' ){
-     key_[1]=true;
-   }
-   if     (key == 'd' ){
-     key_[2]=true;
-   }
-      if     (keyCode == RIGHT ){
-     key_[3]=true;
-   }
-     if     (keyCode == LEFT ){
-     key_[4]=true;
-   }
-    if     (keyCode == UP ){
-     key_[5]=true;
-   }
-    if     (keyCode == DOWN ){
-     key_[6]=true;
-   }
-     
-  
+
+
+  if     (key == 'a' ) {
+    key_[0]=true;
+  }
+  if     (key == 's' ) {
+    key_[1]=true;
+  }
+  if     (key == 'd' ) {
+    key_[2]=true;
+  }
+  if     (keyCode == RIGHT ) {
+    key_[3]=true;
+  }
+  if     (keyCode == LEFT ) {
+    key_[4]=true;
+  }
+  if     (keyCode == UP ) {
+    key_[5]=true;
+  }
+  if     (keyCode == DOWN ) {
+    key_[6]=true;
+  }
 }
 
 
 void keyReleased() {
+  if (key == 'a' | key == 's' |key == 'd') {
 
-if     (key == 'a' | key == 's' |key == 'd' |keyCode == RIGHT |keyCode == LEFT |keyCode == UP | keyCode==DOWN){
- for(int a=0;a<=6;a++){
-   key_[a]=false;
- }
-    
+    for (int a=0; a<=2; a++) {
+      key_[a]=false;
+    }
+  }
+  if     (keyCode == RIGHT |keyCode == LEFT |keyCode == UP | keyCode==DOWN) {
+    for (int a=3; a<=6; a++) {
+      key_[a]=false;
+    }
+  }
 }
 
-}
 //---------------------MANUAL TEXT---------------------\\
 
 public void m2s2_shoulder(String m2s2_shoulder_s) {
@@ -278,15 +289,32 @@ void mouseDragged() {
   RotY -= (mouseY - pmouseY) *0.01;
 }
 
-void mouseClicked(){
-  if(mouseX>=843 && mouseX<=914 && mouseY<=CO-682){
-  change_background+=1;
+void mouseClicked() {
+  if (SubMode3==1) {
+   m3s1_R1= sqrt(pow(mouseX-640, 2)+pow(mouseY-427, 2));
+  m3s1_R2= sqrt(pow(mouseX-540, 2)+pow(mouseY-427, 2));
+
+  if (m3s1_R1<520/2 && m3s1_R1 > 351/2 && mouseY <427) {
+    println(mouseX, mouseY);
+    m3s1_posX=mouseX;
+    m3s1_posY=mouseY;
   }
-  if(change_background==3){
-    change_background=1;
+  m3s1_posX_=int(map(m3s1_posX, 385,895, -90,90)); 
+   m3s1_posY_=int(map(m3s1_posY, 165,427, 90,0));
   }
-  println(change_background);
+  //if (r2<225&& r2> 115/*&& mouseY <545*/) {
+
+
+
+  //  if ((mouseX<=X_rev+130+500-150+525) && (mouseX>=X_rev+130-150)) {
+  //    if ((mouseY<=Y_rev+500) && (mouseY>=Y_rev)) {
+
+  //      count_click+=1;
+  //      clickX[count_click] = int((mouseX -430+150-525/2)/2.5);
+  //      clickY[count_click] = int(-(mouseY -370-525/3)/2.5);
+  //      cx=clickX[count_click];
+  //      cy=clickY[count_click];
+  //    }
+  //  }
+  //}
 }
-
-
-  

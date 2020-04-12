@@ -259,17 +259,21 @@ for(int a=0;a<=4;a++){
       }
       if (MainMode==2 && SubMode2==3) {
         if(ReadID==231){
+          m2s3_action=false;
           remote_keyboard=1;}
           if(ReadID==232){
+            m2s3_action=false;
             remote_keyboard=2;}
+         if(ReadID==233){
+            m2s3_action=true;}
             
-       
       }
 
 
 
       // MODE 3 //
       if (MainMode==3 && ReadID==13) {
+     
         SubMode3+=1;
         if (SubMode3==4) {
           SubMode3=1;

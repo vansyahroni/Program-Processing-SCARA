@@ -29,8 +29,8 @@ void objGO() {
 //  o3=map(fw, 0, 180, -180, 180);
 //  o4=map(v4, 0, 1, 0, 4);
 //  o5=map(v5, 0, 1, 110, 170);
-obj1();
-//obj2();
+//obj1();
+
 }
 
   void obj1(){
@@ -156,28 +156,12 @@ translate2=0;
   void obj2(){
 
   pushMatrix();
-  translate(mouseX, mouseY, -227);
+  translate(mouseX, mouseY, m2s1_wirst);
+  scale(m2s1_shoulder/10);
   println(mouseX, mouseY);
-  rotateX(radians(90)); 
-  rotateY(radians(0)); //jangan diubah
-  rotateZ(radians(-90)); 
-
-  pushMatrix();
-  scale(12);
-  translate(-20, 25, 0);
-  rotateX(radians(360)); 
-  rotateY(radians(90)); //jangan diubah
-  rotateZ(radians(90)); 
-  shape(base);
-
-  //
-  pushMatrix();
-  translate(15, 24, 7);
-  rotateY(radians(o1)); 
-  translate(-7, 4, 0);
-  //rotateX(radians(x));
-  //  rotateY(radians(v1)); 
-  shape(shoulder);
+  rotateX(radians(0)); 
+  rotateY(radians(270)); //jangan diubah
+  rotateZ(radians(180)); 
 
   pushMatrix();
   translate(-7, 0.7, 0);
@@ -210,7 +194,7 @@ translate2=0;
   translate(10, -245, 0);
   rotateX(radians(270)); 
   rotateY(radians(0)); //jangan diubah
-  rotateZ(radians(o3)); 
+  rotateZ(radians(90)); 
   shape(wirst);
 
   pushMatrix();
@@ -228,13 +212,10 @@ translate2=0;
   rotateZ(radians(180)); 
   rotateY(radians(450-o5)); //jangan diubah
   shape(capit2);
-
   popMatrix();
   popMatrix();
   popMatrix();
   popMatrix();
   popMatrix();
-  popMatrix();
-  popMatrix();
-  popMatrix();
+   popMatrix();
 }
